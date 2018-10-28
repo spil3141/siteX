@@ -26,8 +26,7 @@ SECRET_KEY = '88i3@kdf@lh)mft+p2*s5#)ce_t_=(7jvep^e$^yg%sbhc_c-5'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '192.168.1.71',
-    '127.0.0.1',
+    'sitex.iptime.org',
 ]
 
 
