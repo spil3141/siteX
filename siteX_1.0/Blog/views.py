@@ -11,4 +11,12 @@ def index(request):
 def About(request):
     return render(request,'html/About.html')
 
+def Contacts(request):
+    return render(request, 'html/Contacts.html')
+
+def Login(request):
+    return render(request, 'html/Login.html')
+
+def Signup(request):
+    return render(request, 'html/Signup.html')
 

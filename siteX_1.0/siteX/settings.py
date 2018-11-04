@@ -23,10 +23,15 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '88i3@kdf@lh)mft+p2*s5#)ce_t_=(7jvep^e$^yg%sbhc_c-5'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     'sitex.iptime.org',
+    'localhost',
+    '127.0.0.1',
+    '192.168.43.92',
+    '192.168.0.5',
+    '192.168.1.31',
 ]
 
 

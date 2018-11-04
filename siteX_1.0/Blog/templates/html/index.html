@@ -1,21 +1,54 @@
-<!DOCTYPE>
+<!DOCTYPE html>
+<html lang="en-US"\>
 <html>
     <head>
         <title>HomePage</title>
+        <style>
+                ul {
+                    list-style-type: none;
+                    margin: 0;
+                    padding: 1;
+                    overflow: hidden;
+                    background-color: #333333;
+                }
+                li {
+                    float: left;
+                }
+                li a {
+                    display: block;
+                    color: white;
+                    text-align: center;
+                    padding: 16px;
+                    text-decoration: none;
+                }
+                li a:hover {
+                    background-color: #111111;
+                }
+                </style>
+        <!-- Google ad script
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({google_ad_client: "ca-pub-2664944714966743",enable_page_level_ads: true});
+        </script>-->
     </head>
-    <body>
+    <body style="background:darkseagreen">
         <dev id = "Logo" > <!-- This portion contains the Logo image -->
             <center>
-            <img src="/home/spil3141/Desktop/siteX/siteX_1.0/Blog/templates/html/images/logo.png" alt = "Error"  width = "400" height = "50" />
+            <img src="Images/logo.png" alt = "Error"  width = "400" height = "50" />
             </center>
             <br />
+            <hr>
         </dev>
 
         <dev id = "Menu"> <!-- This portion contains the Menu Bar   -->
-            <center>
-            <a href = "/">Home</a>
-            <a href = "About/">About</a>
-            </center>
+            <ul>
+            <li><a href = "/" >Home</a></li>
+            <li><a href = "About.html">About</a></li>
+            <li><a href = "Contacts.html">Contacts</a></li>
+            <li><a href = "Login.html">Log In</a></li>
+            <li><a href = "Signup.html">Sign Up</a></li>
+            </ul>
+            <hr>
         </dev>
         
         <!-- This is where the Search functionality will go -->
@@ -43,8 +76,8 @@
             </p>
         </dev>
     <p> 
-        <h> List of users:</h><br>
-        <!- -{{users_all}} -->
+        <!--<h> List of users:</h><br>-->
+        <!--{{users_all}} -->
     </p>
     </body>
 </html>
