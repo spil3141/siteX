@@ -4,9 +4,13 @@ from django.db import models
 
 
 class User(models.Model):
-			user_ID = models.CharField(max_length=20, primary_key = True)
-			user_password = models.CharField( max_length=30 )
-			about = models.CharField(max_length=200 )
+	user_ID = models.CharField(max_length=20, primary_key = True)
+	user_password = models.CharField( max_length=30 )
+	about = models.CharField(max_length=200 )
+
+class Login_info(models.Model):
+	username = models.CharField(max_length=20, primary_key =True)
+	password = models.CharField(max_length = 30)
 
 class Blog(models.Model):
 			blog_ID = models.IntegerField(primary_key = True )

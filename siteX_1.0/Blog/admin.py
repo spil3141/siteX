@@ -5,6 +5,7 @@ from django.contrib import admin
 from . import models
 
 admin.site.register(models.User)
+admin.site.register(models.Login_info)
 admin.site.register(models.Favorite)
 admin.site.register(models.Blog)
 admin.site.register(models.Keyword)

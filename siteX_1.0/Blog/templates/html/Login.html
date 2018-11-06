@@ -1,13 +1,13 @@
-<!DOCTYPE html>
-<html>
-<head>
-    
-</head>
-<body>
-    <dev id = "b"> <!-- This portion contains the Menu Bar   -->
-         <a href = "/">Back</a>
-    </dev>
-    <h1>Log in Page</h1>
-</body>
+{% extends 'html/base.html' %}
 
-</html>
+{% block content %}
+
+    <h1>Log in</h1> 
+    <form method = "POST"> {% csrf_token %}
+        {{ login_var.as_p }}
+        <input type="submit" value = "Log in" />
+    </form>
+{% endblock content %}
+
+    
+    

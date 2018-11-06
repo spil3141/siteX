@@ -1,61 +1,57 @@
 <!DOCTYPE html>
 <html lang="en-US"\>
 <html>
+    
     <head>
-        <title>HomePage</title>
+        <title>Home Page</title>
         <style>
-                ul {
-                    list-style-type: none;
-                    margin: 0;
-                    padding: 1;
-                    overflow: hidden;
-                    background-color: #333333;
-                }
-                
-                li {
-                    float: left;
-                }
-                
-                li a {
-                    display: block;
-                    color: white;
-                    text-align: center;
-                    padding: 16px;
-                    text-decoration: none;
-                }
-                
-                li a:hover {
-                    background-color: #111111;
-                }
-                </style>
-        <!-- Google ad script
-        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        <script>
-            (adsbygoogle = window.adsbygoogle || []).push({google_ad_client: "ca-pub-2664944714966743",enable_page_level_ads: true});
-        </script>-->
+            ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 1;
+                overflow: hidden;
+                background-color: #333333;
+            }
+            li {    
+                float: left;    
+            } 
+            li a {
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 16px;
+                text-decoration: none;
+            }
+            li a:hover {
+                background-color: #111111;
+            }
+        </style>
     </head>
-    <body style="background:darkseagreen">
-        <dev id = "Logo" > <!-- This portion contains the Logo image -->
-            <center>
-            <img src="Images/logo.png" alt = "Error"  width = "400" height = "50" />
-            </center>
-            <br />
-            <hr>
-        </dev>
 
+    <body style="background:darkseagreen">
+
+        <!--<center>
+            <h4 style="color:whitesmoke">Logo Image</h4>
+        </center>-->
         <dev id = "Menu"> <!-- This portion contains the Menu Bar   -->
             <ul>
-            <li><a href = "/" >Home</a></li>
-            <li><a href = "About/">About</a></li>
-            <li><a href = "Contacts/">Contacts</a></li>
-            <li><a href = "Login/">Log In</a></li>
-            <li><a href = "Signup/">Sign Up</a></li>
-            </ul>
+                <li>
+                    <a href= "/" atl = "Error"> 
+                        <p>Home</p>
+                        <!--
+                            <img value =src="/siteX_1.0/Blog/templates/Images/icon.png" style = "height:10px; width:10px; border:0px" />  
+                        -->
+                    </a>
+                </li>   
+                <li><a href = "About/">About</a></li>
+                <li><a href = "Contacts/">Contacts</a></li>
+                <li><a href = "Login/">Log In</a></li>
+                <li><a href = "Signup/">Sign Up</a></li>
+                </ul>
             <hr>
         </dev>
-       
+        {% block content %}
+            replace me
+        {% endblock content %}
     </body>
-    {% block content %}
-        replace me
-    {% endblock content %}
 </html>
