@@ -40,12 +40,15 @@
         </center>-->
         <dev id = "Menu"> <!-- This portion contains the Menu Bar   -->
             <ul style="background-color: rgb(13, 36, 10);">
-
                 <li><a href = "/"><img src= '{% static "Images/icon.png" %}' atl = "My ICON" width= 20px height = 20px/></a></li>  
                 <li><a href= "About/">About</a></li>
                 <li><a href = "Login/">Log In</a></li>
                 <li><a href = "Signup/">Sign Up</a></li>
-
+                <li>
+                    <input type="text" value="" placeholder="Search" spellcheck="true" 
+                    name="q" class="form-control header-search-input jump-to-field js-jump-to-field js-site-search-focus "
+                    />
+                </li>
             </ul>
         </dev>
         {% block content %}
