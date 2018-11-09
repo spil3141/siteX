@@ -30,7 +30,3 @@ def Login(request):
 def About(request):
     return render(request, 'html/About.html')
 
-def Contacts(request):
-    return render(request,'html/Contacts.html')
-
-
