@@ -11,4 +11,4 @@ siteX is a practice project created to help improve my python and web ( html,css
 
 ### Dependencies: 
  1. python > 3.0
- 2. django > 2.0 framework
+ 2. django framework > 2.0
