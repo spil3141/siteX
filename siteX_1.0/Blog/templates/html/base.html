@@ -1,16 +1,17 @@
 
 {% load static %}
 <!DOCTYPE html>
-<html lang="en-US"\>
-<html>
+<html lang = 'en'>
     
     <head>
+        <meta charset="UTF-8"
         <!--Bootstrap / CSS code that make things pretty lol -->
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
         <!-- My cascade style sheet file -->
         <link rel="stylesheet" href='{% static "CSS/base_style.css" %}' alt = "couldn't load css file" />
         <title>Home Page</title>
+       
         
     </head>
 
@@ -21,8 +22,8 @@
             </div>
             
             <div class="search">
-                <form> {% csrf_token %}
-                    {{ search_var }}
+                <form action="." method='POST'> {% csrf_token %}
+                    <input type="text" name='Search_input_tag' placeholder="Search" spellcheck="True"/>
                 </form>
                 <!--<form method=GET>
                     <input type="text" value="" placeholder="Search" spellcheck="true"
