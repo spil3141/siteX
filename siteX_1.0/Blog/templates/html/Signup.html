@@ -1,14 +1,33 @@
-{% extends 'html/base.html' %}
 
+{% load static %}
+<!DOCTYPE html>
+<html lang="en-US"\>
+<html>
+    
+    <head>
+        <!--Bootstrap / CSS code that make things pretty lol -->
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <!-- My cascade style sheet file -->
+        <link rel="stylesheet" href='{% static "CSS/base_style.css" %}' alt = "couldn't load css file" />
+        <title>Home Page</title>
+        
+    </head>
 
-{% block content %}
-<center>
-    <h1>Sign Up</h1>
-    <form method = "POST"> {% csrf_token %}
-        <div>
-            {{ signup_var.as_p }}
-            <input type="submit" value = "Sign Up"/>
-        </div>
-    </form>
-</center>
-{% endblock content %}
+    <body class="body">
+        <div class="menu_bar">
+            <div class="logo">
+                <a href='/'><img src= '{% static "Images/icon.png" %}' atl = "My ICON" width= 30px height = 30px/></a>
+            </div>
+        </div>  
+            <center>
+                <h1>Sign Up</h1>
+                <form method = "POST"> {% csrf_token %}
+                    <div>
+                        {{ signup_var.as_p }}
+                        <input type="submit" value = "Sign Up"/>
+                    </div>
+                </form>
+            </center>
+    </body>
+</html>

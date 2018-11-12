@@ -3,5 +3,10 @@
 {% block content %}
 
     <h1 style="color:rgb(0, 0, 0)">Main Page </h1>
+    <br><br>
+    <form method="get"> {% csrf_token %}
+        {{ a}}
+    </form>
     
 {% endblock content %}
+

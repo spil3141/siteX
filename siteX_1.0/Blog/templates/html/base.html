@@ -8,49 +8,31 @@
         <!--Bootstrap / CSS code that make things pretty lol -->
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-
+        <!-- My cascade style sheet file -->
+        <link rel="stylesheet" href='{% static "CSS/base_style.css" %}' alt = "couldn't load css file" />
         <title>Home Page</title>
-        <style>
-            ul {
-                list-style-type: none;
-                margin: 0;
-                padding: 1;
-                overflow: hidden;
-            }
-            li {    
-                float: left;    
-            } 
-            li a {
-                display: block;
-                color: white;
-                text-align: center;
-                padding: 20px;
-                text-decoration: none;
-            }
-            li a:hover {
-                color:rgb(101, 172, 99);
-            }
-        </style>
+        
     </head>
 
-    <body style="background:rgb(210, 228, 210)">
-
-        <!--<center>
-            <h4 style="color:whitesmoke">Logo Image</h4>
-        </center>-->
-        <dev id = "Menu"> <!-- This portion contains the Menu Bar   -->
-            <ul style="background-color: rgb(13, 36, 10);">
-                <li><a href = "/"><img src= '{% static "Images/icon.png" %}' atl = "My ICON" width= 20px height = 20px/></a></li>  
-                <li><a href= "/About/">About</a></li>
-                <li><a href = "/Login/">Log In</a></li>
-                <li><a href = "/Signup/">Sign Up</a></li>
-                <li>
-                    <input type="text" value="" placeholder="Search" spellcheck="true" 
-                    name="q" class="form-control header-search-input jump-to-field js-jump-to-field js-site-search-focus "cel
-                    />
-                </li>
-            </ul>
-        </dev>
+    <body class="body">
+        <div class="menu_bar">
+            <div class="logo">
+                <a href='/'><img src= '{% static "Images/icon.png" %}' atl = "My ICON" width= 30px height = 30px/></a>
+            </div>
+            
+            <div class="search">
+                <form> {% csrf_token %}
+                    {{ search_var }}
+                </form>
+                <!--<form method=GET>
+                    <input type="text" value="" placeholder="Search" spellcheck="true"
+                        class="form-control header-search-input jump-to-field js-jump-to-field js-site-search-focus "/>
+                </form>-->
+            </div>
+            <div class="login_signup">
+                <a href = "/Login/">Log In</a>
+            </div>
+        </div>  
         {% block content %}
             replace me
         {% endblock content %}
