@@ -1,25 +1,27 @@
+.body {
+    background:rgb(210, 228, 210);
+}
+
 .menu_bar {
     color: white;
     /*text-align: center;*/
     padding: 16px;
     background-color: #111111;
+    display:flex!important;
 }
-.login_signup {
-    /*background-color: aliceblue;*/
-    display: inline-block;
-    padding: 4px;
-    
+
+.logo {
+    margin-left: 40px;
+    margin-right:75%;
 }
 .search{
-    display: inline-block;
-    /*background-color: aliceblue;*/
     color: #111111;
-    padding:5px;
+    margin-right:20px;
 }
-.logo {
-    display: inline-block;
-    padding:0px;
+
+
+.login_signup {
+    float:right;
+    
 }
-.body {
-    background:rgb(210, 228, 210);
-}
+

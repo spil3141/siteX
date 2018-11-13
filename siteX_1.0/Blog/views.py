@@ -21,7 +21,6 @@ def Signup(request):
 
 def Login(request):
     login_form = Login_form(request.POST or None)
-    print (dir(login_form))
     if login_form.is_valid():
         login_form = Login_form()
     context = {
