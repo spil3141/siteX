@@ -5,7 +5,9 @@
 .menu_bar {
     width: 1280px;
     height: 80px;
-    background-color: rgb(51, 51, 51);
+    /*background-color: rgb(51, 51, 51);
+    */
+    background-color:white;
     display:flex!important;
 }
 
@@ -20,7 +22,12 @@
 
 
 .login_signup {
-    float:right;
-    
+    margin:0px;
+    padding:0px;
+    border:10px;
+}
+
+.login_signup nav:a:hover {
+    background-color:white;
 }
 
