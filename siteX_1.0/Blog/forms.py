@@ -10,10 +10,6 @@ class Signup_form(forms.ModelForm):
             'user_password',
             'about',
         ]
-class Login_form(forms.ModelForm):
-    class Meta:
-        model = Login_info
-        fields = [
-            'username',
-            'password',
-        ]
+class Login_form(forms.Form):
+    username = forms.CharField(max_length=100)
+    password = forms.CharField(max_length=20)
