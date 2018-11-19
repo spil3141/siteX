@@ -36,12 +36,6 @@ def Loggedin(request):
     return HttpResponse("You are Logged in !!!")
 
 def Login(request):
-    if request.method == 'POST':
-        login_form = Login_form(request.POST)
-        if login_form.is_valid():
-            #if login_form.cleaned_data['user_ID'],login_form.cleaned_data['user_password'] in 
-            print (User.objects.get('user_ID'))
-            pass
     login_form = Login_form()
     context = {
         'login_var': login_form,
