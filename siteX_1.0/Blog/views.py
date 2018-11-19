@@ -5,7 +5,10 @@ from .forms import Signup_form, Login_form
 from .models import User, Login_info
 
 def index(request):
+    data = User.objects.all().in_bulk()
+
     context = {
+        'data' : data.keys()
     }
     return render(request,'html/index.html',context)
 
