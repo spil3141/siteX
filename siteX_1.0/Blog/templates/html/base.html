@@ -1,62 +1,49 @@
 
-
 {% load static %}
 <!DOCTYPE html>
-<html lang = 'en'>
+<html lang="en-US"\>
+<html>
     
     <head>
-        <meta charset="UTF-8">
         <!--Bootstrap / CSS code that make things pretty lol -->
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <!-- My cascade style sheet file -->
-        <link rel="stylesheet" href=' {% static "CSS/base_style.css" %}' alt = "couldn't load css file" />
+        <link rel="stylesheet" href='{% static "CSS/base.css" %}'>
         <title>Home Page</title>
-       
+        
         
     </head>
 
-    <body class="body">
-        <div class="menu_bar">
-            <a href='/'><img src= '{% static "Images/icon.png" %}' atl = "My ICON" width= 30px height = 30px/></a>
-            <a href="/About/" atl="Error getting about page">About</a>
-            <form>
-                <input type="text" placeholder="Search">
-                <button type="submit">
-                    <i class="fa fa-search"></i>
-                </button>
-            </form>
-            <a href = "/Signup/">Sign up</a>
-            <span style="color: #fff">|</span>
-            <a href = "/Login/">Log In</a>
-            <!--
-                <div >
-                    <a href='/'><img src= '{% static "Images/icon.png" %}' atl = "My ICON" width= 30px height = 30px/></a>
-                </div>
-                <nav class="about">
-                    <a href="/About/" atl="Error getting about page">About</a>    
-                </nav>
+    <body>
 
-                <div class="login_signup_search_header">
-                    <div>
-                        <form>
-                            <input type="text" placeholder="Search">
-                            <button type="submit">
-                                <i class="fa fa-search"></i>
-                            </button>
-                        </form>
-                    </div>
-                    <div class="login_signup">
-                        <a href = "/Signup/">Sign up</a>
-                        <span style="color: #fff">|</span>
-                        <a href = "/Login/">Log In</a>
-                    </div>
-                </div>
-                -->
-        </div>  
+        <!--<center>
+            <h4 style="color:whitesmoke">Logo Image</h4>
+        </center>-->
+        <dev class = "Menu"> <!-- This portion contains the Menu Bar   -->
+            <ul class="Nav_Bar">
+                <li>
+                    <a class="image-1" href = "/"><img src= '{% static "Images/icon.png" %}' atl = "My ICON" width= 30px height = 30px/></a>
+                </li> 
+                <li>
+                        <input type="text" value="" placeholder="Search" spellcheck="true" 
+                        name="q" class="form-control header-search-input jump-to-field js-jump-to-field js-site-search-focus "cel
+                        />
+                    </li> 
+                <li>
+                    <a href= "/About/">About</a>
+                </li>
+                <li>
+                    <a href = "/Login/">Log In</a>
+                </li>
+                <li>
+                    <a href = "/Signup/">Sign Up</a>
+                </li>
+                
+            </ul>
+        </dev>
         {% block content %}
             replace me
         {% endblock content %}
+
     </body>
 </html>
