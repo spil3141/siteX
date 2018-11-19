@@ -4,11 +4,18 @@
 {% block content %}
 <center>
     <h1>Sign Up</h1>
-    <form method = "POST"> {% csrf_token %}
+    <form action="." method='POST'> {% csrf_token %}
         <div>
-            {{ signup_var.as_p }}
+            {{ signup_var.as_p}}
             <input type="submit" value = "Sign Up"/>
         </div>
     </form>
+    <h4 style="color:red;">
+        {% if test == 1 %}
+            User already exists in the database !
+        {% elif test == 2 %}
+            Created new User Successfully!  
+        {% endif %}
+    </h4>
 </center>
 {% endblock content %}

@@ -3,7 +3,7 @@
 {% block content %}
 <center>
     <h1>Log in</h1> 
-    <form method = "POST"> {% csrf_token %}
+    <form action="." method = "POST"> {% csrf_token %}
         {{ login_var.as_p }}
         <input type="submit" value = "Log in" /><br>
         <h6>Don't have an account? <strong><a href='/Signup/' atl="Erro">Sign Up</a> </strong></h6>

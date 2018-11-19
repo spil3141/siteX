@@ -2,27 +2,47 @@ from django.shortcuts import render
 from django.http import HttpResponse
 # Create your views here.
 from .forms import Signup_form, Login_form
+from .models import User, Login_info
 
 def index(request):
     context = {
-
     }
     return render(request,'html/index.html',context)
 
 def Signup(request):
-    signup_form = Signup_form(request.POST or None)
-    if signup_form.is_valid():
-        signup_form.save()
-        signup_form = Signup_form()
+    test = 0
+    if request.method == "POST":
+        signup_form = Signup_form(request.POST)
+        if signup_form.is_valid():
+            print (signup_form.cleaned_data)
+            print ('There are %d Users' % (User.objects.count())) # returns an integer representing the number of element in the db
+            print (User.objects.all().in_bulk())  #Return a dictionary mapping each of the given IDs to the object with that ID.
+            if signup_form.cleaned_data['user_ID'] not in User.objects.all().in_bulk().keys():
+                User.objects.create(user_ID = signup_form.cleaned_data['user_ID'],user_password = signup_form.cleaned_data['user_password'], about= signup_form.cleaned_data['about'])
+                print ('Created new User Successfully!')
+                test = 2
+            else:
+                print ("User already exists in the database ! ")
+                test = 1
+                #raise ValidationError(_('User already exists'), code='invalid')
+    signup_form = Signup_form()
     context = {
         'signup_var': signup_form,
+        'test': test
     }
     return render(request,'html/Signup.html', context)
 
+def Loggedin(request):
+    return HttpResponse("You are Logged in !!!")
+
 def Login(request):
-    login_form = Login_form(request.POST or None)
-    if login_form.is_valid():
-        login_form = Login_form()
+    if request.method == 'POST':
+        login_form = Login_form(request.POST)
+        if login_form.is_valid():
+            #if login_form.cleaned_data['user_ID'],login_form.cleaned_data['user_password'] in 
+            print (User.objects.get('user_ID'))
+            pass
+    login_form = Login_form()
     context = {
         'login_var': login_form,
         }

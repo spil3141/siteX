@@ -2,14 +2,11 @@ from django import forms
 
 from .models import User, Login_info
 
-class Signup_form(forms.ModelForm):
-    class Meta:
-        model = User
-        fields = [
-            'user_ID',
-            'user_password',
-            'about',
-        ]
+class Signup_form(forms.Form):
+    user_ID = forms.CharField( label= "Username", max_length=30)
+    user_password = forms.CharField(label="Password", max_length=30,widget=forms.PasswordInput(attrs={'type':'password'}))
+    about = forms.CharField(required = False, widget=forms.Textarea( attrs={'rows':'2'}))
+
 class Login_form(forms.Form):
-    username = forms.CharField(max_length=100)
-    password = forms.CharField(max_length=20)
+    username = forms.CharField(label= "Username",max_length=100)
+    password = forms.CharField(label="Password",max_length=20, widget=forms.PasswordInput(attrs={ "type":"password"}))
