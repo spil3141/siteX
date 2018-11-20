@@ -33,5 +33,9 @@ class Blog_Keyword(models.Model):
 			keyworkd_ID = models.ForeignKey(Keyword,  on_delete = models.CASCADE)
 		
 
-
+class Photos(models.Model):
+	photo_ID = models.CharField(primary_key = True, max_length = 30)
+	pic =  models.ImageField(upload_to = 'Blog/static/Uploaded_Images')
+	class Meta:
+			db_table = "Photo_db"
     
