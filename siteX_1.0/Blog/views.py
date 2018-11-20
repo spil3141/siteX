@@ -8,7 +8,6 @@ from .models import User, Login_info, Photos
 ##   MAIN View
 def index(request):
     data = User.objects.all().in_bulk() #Selecting all the Queryset form the database 
-    
     context = {
         'data' : data.keys(),
     }
@@ -35,9 +34,9 @@ def Signup(request):
     if request.method == "POST":
         signup_form = Signup_form(request.POST)
         if signup_form.is_valid():
-            print (signup_form.cleaned_data)
-            print ('There are %d Users' % (User.objects.count())) # returns an integer representing the number of element in the db
-            print (User.objects.all().in_bulk())  #Return a dictionary mapping each of the given IDs to the object with that ID.
+            #print (signup_form.cleaned_data)
+            #print ('There are %d Users' % (User.objects.count())) # returns an integer representing the number of element in the db
+            #print (User.objects.all().in_bulk())  #Return a dictionary mapping each of the given IDs to the object with that ID.
             if signup_form.cleaned_data['user_ID'] not in User.objects.all().in_bulk().keys():
                 #User.objects.create(user_ID = signup_form.cleaned_data['user_ID'],user_password = signup_form.cleaned_data['user_password'], about= signup_form.cleaned_data['about'])
                 users = User(
@@ -49,7 +48,7 @@ def Signup(request):
                 print ('Created new User Successfully!')
                 test = 2
             else:
-                print ("User already exists in the database ! ")
+                #print ("User already exists in the database ! ")
                 test = 1
     signup_form = Signup_form()
     context = {
