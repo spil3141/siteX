@@ -1,4 +1,4 @@
-# siteX
+# siteX (On goining Project)
 
 siteX is a practice project created to help improve my python and web ( html,css ) programming skills.
 Its complete state would be a Blog web Application for searching, posting, and favoring blogs. 
