@@ -10,12 +10,11 @@
             <input type="submit" value = "Sign Up"/>
         </div>
     </form>
-    <h4 style="color:red;">
-        {% if test == 1 %}
-            User already exists in the database !
-        {% elif test == 2 %}
-            Created new User Successfully!  
-        {% endif %}
-    </h4>
+    
+    {% if test == 1 %}
+        <h4 style="color:red;">User Already Exists!</h4>
+    {% elif test == 2 %}
+        <h4 style="color:rgb(42, 211, 42);">Successful!</h4> 
+    {% endif %}
 </center>
 {% endblock content %}

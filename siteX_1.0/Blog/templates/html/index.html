@@ -2,14 +2,14 @@
 
 {% block content %}
 
-    <h1 style="color:rgb(0, 0, 0)">Main Page </h1>
+    <h1 >Main Page</h1>
     <br><br>
-    <h3>List of Users: </h3>
-    <ul>
+    <h3 >List of Users: </h3>
+    <ul style="color:rgb(187, 255, 0);">
     {% for i in data  %}
         <li>{{ i }}</li>
     {% endfor %}
     </ul>
-    
+
 {% endblock content %}
 
