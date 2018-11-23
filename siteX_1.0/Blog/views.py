@@ -20,9 +20,6 @@ def Image(request):
         if pic.is_valid():
             if not Photos.objects.filter(photo_ID = pic.cleaned_data['name']):
                 Photos.objects.create(photo_ID = pic.cleaned_data['name'], pic = pic.cleaned_data['upload_pic'])
-                print ("Successfully Uploaded")
-            else:
-                print ("Error Uploading")
     else:
         pic = Photo()
     
@@ -34,9 +31,6 @@ def Signup(request):
     if request.method == "POST":
         signup_form = Signup_form(request.POST)
         if signup_form.is_valid():
-            #print (signup_form.cleaned_data)
-            #print ('There are %d Users' % (User.objects.count())) # returns an integer representing the number of element in the db
-            #print (User.objects.all().in_bulk())  #Return a dictionary mapping each of the given IDs to the object with that ID.
             if signup_form.cleaned_data['user_ID'] not in User.objects.all().in_bulk().keys():
                 #User.objects.create(user_ID = signup_form.cleaned_data['user_ID'],user_password = signup_form.cleaned_data['user_password'], about= signup_form.cleaned_data['about'])
                 users = User(
@@ -45,10 +39,8 @@ def Signup(request):
                 about= signup_form.cleaned_data['about']
                 )
                 users.save()
-                print ('Created new User Successfully!')
                 test = 2
             else:
-                #print ("User already exists in the database ! ")
                 test = 1
     signup_form = Signup_form()
     context = {
@@ -64,9 +56,6 @@ def Login(request):
         if login_form.is_valid():
             if User.objects.filter(user_ID = login_form.cleaned_data["username"]) and User.objects.filter( user_password = login_form.cleaned_data['password']):
                 return HttpResponse("You are Logged In !!")
-    else:
-        print ("Couldnt log in ")
-        #raise forms.ValidationError("User not Found!")
     login_form = Login_form()
     context = {
         'login_var': login_form,
