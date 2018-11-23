@@ -1,14 +1,73 @@
 html,
 body {
-  font-family: Arial, sans-serif;
-  background-color:rgb(209, 241, 231);
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background-image:url("../Images/bg.jpg");
+
+    /* Full height */
+    height: 100%; 
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
+
+h1 {
+    font-family: Lobster, monospace;
+}
+h1,h2,h3,h4,h5,h6 {
+    color:whitesmoke;
+}
+p {
+    color:whitesmoke;
+}
+.header {
+    overflow: hidden;
+    background-color: #000000;
+    padding: 10px 5px;
+    display: flex;
+  }
+  
+  .header a {
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px; 
+    line-height: 25px;
+    border-radius: 4px;
+  }
+  
+  .header a.logo {
+    font-size: 25px;
+    font-weight: bold;
+  }
+  
+  .header a:hover {
+    background-color: rgb(61, 185, 108);
+    border-radius: 19px;
+  }
+  
+  .header-right {
+    float: right;
+  }
+  .text-color {
+      color:Black;
+  }
+  button,input {
+    border-radius:10px;
+  }
+
+
+
+
+/*
 .Menu ul {
     margin-left: auto;
     margin-right: auto;
     padding-top:16px;
     padding-bottom:16px;
-    background-color: rgb(13, 36, 10);
+    background-color: rgb(9, 5, 61);
 }
 .Nav_Bar {
     list-style-type: none!important;
@@ -21,7 +80,6 @@ li {
     padding-right:16px;
 }
 li a {
-    color:whitesmoke;
     font-weight: 600!important;
 }
 li a:hover {
@@ -29,3 +87,5 @@ li a:hover {
     text-decoration: none;
 }
 
+*/
+/********************/
