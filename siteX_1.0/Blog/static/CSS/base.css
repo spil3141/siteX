@@ -1,0 +1,76 @@
+html,
+body {
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background-image:url("../Images/bg.jpg");
+
+    /* Full height */
+    height: 100%; 
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+h1 {
+    font-family: Lobster, monospace;
+}
+h1,h2,h3,h4,h5,h6 {
+    color:whitesmoke;
+}
+p {
+    color:whitesmoke;
+}
+.header {
+    overflow: hidden;
+    border-color: transparent;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px 5px;
+    display: flex;
+    
+  }
+  
+  .header a {
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px; 
+    line-height: 25px;
+    border-radius: 4px;
+  }
+  
+  .header a.logo {
+    font-size: 25px;
+    font-weight: bold;
+  }
+  
+  .header a:hover {
+    color: #1abc9c;
+    /*background-color: rgb(61, 185, 108);*/
+    border-radius: 19px;
+  }
+  
+  .header-right {
+    float: right;
+  }
+  .text-color {
+      color:Black;
+  }
+  button,input {
+    border-radius:10px;
+  }
+
+/***************** Image page classes *********************/
+
+.size-image {
+    /*
+    border-width: 13px;
+    */
+    width:300px; 
+    height:300px;
+    border-color: black;
+    border-style: solid;
+    border-radius: 90%;
+}

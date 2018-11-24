@@ -1,9 +1,9 @@
 {% extends 'html/base.html' %}
-
+{% load static %}
 {% block content %}
 
 <div>
-        <h4 style="color:rgb(0, 0, 0) ">
+        <h4 style="color:whitesmoke;" >
                 This web application was created using a free and open-source web framework 
                 called <a href="https://tutorial.djangogirls.org/en/"><i>Django</i></a> which is written in python.<br>
         </h4>
@@ -12,6 +12,10 @@
                 <li>Users can create accounts</li><br>
                 <li>Users can Search and Create blogs</li>
         </ul>
+        <center>
+        <h4 style="font-family:monospace; font-size:30px;">Developer</h4>
+        <img class="size-image" src=" {% static 'Images/spil.png' %}" atl= "Error">
+        </center>
 </div>
         
 {% endblock content %}
