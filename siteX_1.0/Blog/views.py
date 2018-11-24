@@ -80,3 +80,5 @@ def About(request):
     }
     return render(request, 'html/About.html',context)
 
+def Blog(request):
+    return HttpResponse("<center><h1>In Progress ^_^ <h1></center>")
