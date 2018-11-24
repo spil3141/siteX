@@ -1,5 +1,5 @@
 {% extends 'html/base.html' %}
-
+{% load static %}
 {% block content %}
 
 <div>
@@ -12,6 +12,10 @@
                 <li>Users can create accounts</li><br>
                 <li>Users can Search and Create blogs</li>
         </ul>
+        <center>
+        <h4 style="font-family:monospace; font-size:30px;">Developer</h4>
+        <img class="size-image" src=" {% static 'Images/spil.png' %}" atl= "Error">
+        </center>
 </div>
         
 {% endblock content %}

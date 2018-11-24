@@ -22,8 +22,10 @@ def Image(request):
                 Photos.objects.create(photo_ID = pic.cleaned_data['name'], pic = pic.cleaned_data['upload_pic'])
     else:
         pic = Photo()
-    
-    return render(request,"html/Image.html",{'var' : pic })
+    context = {
+        'var' : pic,
+    }
+    return render(request,"html/Image.html",context)
 
 ## Sign up View
 def Signup(request):
@@ -67,3 +69,5 @@ def About(request):
     }
     return render(request, 'html/About.html',context)
 
+def Blog(request):
+    return HttpResponse("<center><h1>In Progress ^_^ <h1></center>")
