@@ -25,8 +25,10 @@ def Image(request):
                 print ("Error Uploading")
     else:
         pic = Photo()
-    
-    return render(request,"html/Image.html",{'var' : pic })
+    context = {
+        'var' : pic,
+    }
+    return render(request,"html/Image.html",context)
 
 ## Sign up View
 def Signup(request):

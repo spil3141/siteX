@@ -12,6 +12,6 @@ class Login_form(forms.Form):
     password = forms.CharField(label="Password",max_length=20, widget=forms.PasswordInput(attrs={ "type":"password",'class':'text-color'}))
 
 class Photo(forms.Form):
-    name = forms.CharField(max_length = 30,widget= forms.TextInput(attrs={'class': 'text-color'}))
-    upload_pic = forms.ImageField()
+    name = forms.CharField(label="Title:", max_length = 30,widget= forms.TextInput(attrs={'class': 'text-color'}))
+    upload_pic = forms.ImageField(label="")
 
