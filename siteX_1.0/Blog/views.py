@@ -20,13 +20,10 @@ def Image(request):
         if pic.is_valid():
             if not Photos.objects.filter(photo_ID = pic.cleaned_data['name']):
                 Photos.objects.create(photo_ID = pic.cleaned_data['name'], pic = pic.cleaned_data['upload_pic'])
-<<<<<<< HEAD
-=======
                 #print ("Successfully Uploaded")
             else:
                 pass
                 #print ("Error Uploading")
->>>>>>> 6cfa68a5cc9ad9bfba4142f3296445f267b5f628
     else:
         pic = Photo()
     context = {
@@ -48,10 +45,7 @@ def Signup(request):
                 about= signup_form.cleaned_data['about']
                 )
                 users.save()
-<<<<<<< HEAD
-=======
                 #print ('Created new User Successfully!')
->>>>>>> 6cfa68a5cc9ad9bfba4142f3296445f267b5f628
                 test = 2
             else:
                 test = 1
