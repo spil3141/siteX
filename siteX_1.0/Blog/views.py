@@ -57,14 +57,10 @@ def Login(request):
         login_form = Login_form(request.POST)
         if login_form.is_valid():
             if User.objects.filter(user_ID = login_form.cleaned_data["username"]) and User.objects.filter( user_password = login_form.cleaned_data['password']):
-<<<<<<< HEAD
-                return HttpResponse("You are Logged In !!")
-=======
                 return render(request,'html/Loggedin.html')
     else:
         print ("Couldnt log in ")
         #raise forms.ValidationError("User not Found!")
->>>>>>> 7857545e3de60fe0935fc5914a29b235313e0909
     login_form = Login_form()
     context = {
         'login_var': login_form,
