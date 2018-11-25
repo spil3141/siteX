@@ -1,15 +1,24 @@
 {% extends 'html/base.html' %}
-
+{% load static %}
 {% block content %}
 
-    <h1 >Main Page</h1>
-    <br><br>
-    <h3 >List of Users: </h3>
-    <ul style="color:rgb(187, 255, 0);">
-    {% for i in data  %}
-        <li>{{ i }}</li>
-    {% endfor %}
-    </ul>
+    <div class="apps-section">
+    <h1 id="index-page-main-header">List of Apps by spil3141:</h1>
+    <p id="index-page-main-paragraph">
+        1. Calculator by nOOb
+    </p>
+    </div>
+    <div id="image-setup" >
+        <ahref="https://play.google.com/store/apps/details?id=com.spil3141"><img src="{% static 'Images/GooglePlayStoreImage.png' %}" alt="Error"></a>
+    </div>
+    <div style="text-align: center;">
+        <h3 >List of Users: </h3>
+        <ul style="color:rgb(187, 255, 0); list-style-type: none;">
+        {% for i in data  %}
+            <li>{{ i }}</li>
+        {% endfor %}
+        </ul>
+    </div>
 
 {% endblock content %}
 
