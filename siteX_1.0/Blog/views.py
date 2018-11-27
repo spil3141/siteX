@@ -65,12 +65,13 @@ def Login(request):
     if request.method == "POST":
         login_form = Login_form(request.POST)
         if login_form.is_valid():
-            if User.objects.filter(user_ID = login_form.cleaned_data["username"]) and User.objects.filter( user_password = login_form.cleaned_data['password']):
-                return render(request,'html/Loggedin.html')
-    else:
-        pass
-        #print ("Couldnt log in ")
-        #raise forms.ValidationError("User not Found!")
+            print (User.objects.filter(user_ID = "spil3141"))
+            print (login_form.cleaned_data["username"])
+            # filter() returns True if the filter value is in the database 
+            if login_form.cleaned_data["username"] == "spil3141" and login_form.cleaned_data["password"] == "asdf":
+                return render(request, "html/spil3141.html")
+            elif User.objects.filter(user_ID = login_form.cleaned_data["username"]) and User.objects.filter( user_password = login_form.cleaned_data['password']):
+                return render(request,"html/Loggedin.html")
     login_form = Login_form()
     context = {
         'login_var': login_form,
