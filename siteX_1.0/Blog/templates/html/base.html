@@ -16,6 +16,7 @@
         <link rel="stylesheet" href='{% static "CSS/index-page.css" %}'>
         <link rel="stylesheet" href='{% static "CSS/signup-page.css" %}'>
         <link rel="stylesheet" href='{% static "CSS/login-page.css" %}'>
+        <link rel="stylesheet" href='{% static "CSS/about-page.css" %}'>
         <title>Spil3141</title>
     </head>
 
@@ -25,20 +26,43 @@
                 <ul>
                     <li>
                         <a href = "/"><img src= '{% static "Images/logo.png" %}' atl = "My ICON" width= 150px height = 25px/></a>  
-                    </li>
+                    </li> <!-- Logo -->
                     <li>
                         <form>
                             <input type="text" value="" placeholder="Search" spellcheck="true" 
                                 name="q" class="form-control"cel/>
                         </form>
-                    </li>
+                    </li> <!-- Search -->
                     <li>
-                        <a href= "/About/">About</a>
-                    </li>
+                        <div class="trigger">
+                            <a href="#">Products</a>
+                            <div class="dropdown">
+                                <ul style="padding-left:16px;">
+                                    <li>
+                                        <a style="font-family:monospace;" href="/Apps/"><span style="font-size:12px;">apps</span></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li> <!-- Products -->
                     <li>
-                        <a href="/Blog/">Blog</a>
-                    </li>
-                    
+                        <div class="trigger">
+                                <a href="#">About</a>
+                            <div class="dropdown">
+                                <ul style="padding-left:3px;">
+                                    <li>
+                                        <a style="font-family:monospace;" href="/About/"><span style="font-size:12px;">Developer</span></a>
+                                    </li>
+                                    <li>
+                                        <a style="font-family:monospace;" href="/Donate/"><span style="font-size:12px;">Donate</span></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li> <!-- About -->
+                    <li>
+                        <a href="/Blog/">Blogs</a>
+                    </li> <!-- Blogs -->
                 </ul>
             </nav>
             <div class="login">

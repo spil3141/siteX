@@ -27,7 +27,7 @@ div > nav > ul > li {
   align-items: center;
 }
 div > nav {
-  margin-right: 300px;
+  margin-right: 200px;
 }
 
 .header {
@@ -62,4 +62,16 @@ div > nav {
   color: #1abc9c;
   /*background-color: rgb(61, 185, 108);*/
   border-radius: 19px;
+}
+
+/*********** Testing Nar Bar download feature ***/
+.dropdown {
+  display:none;
+  position: absolute;
+}
+.dropdown ul {
+  list-style-type:none;
+}
+.trigger:hover .dropdown {
+  display:flex;
 }

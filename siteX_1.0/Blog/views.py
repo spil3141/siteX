@@ -62,7 +62,7 @@ def Login(request):
             if login_form.cleaned_data["username"] == "spil3141" and login_form.cleaned_data["password"] == "asdf":
                 return render(request, "html/spil3141.html")
             elif User.objects.filter(user_ID = login_form.cleaned_data["username"]) and User.objects.filter( user_password = login_form.cleaned_data['password']):
-                return render(request,"html/Loggedin.html")
+                return render(request,"html/DefaultLogin.html")
     login_form = Login_form()
     context = {
         'login_var': login_form,
@@ -75,4 +75,10 @@ def About(request):
     return render(request, 'html/About.html',context)
 
 def Blog(request):
-    return HttpResponse("<center><h1>In Progress ^_^ <h1></center>")
+    return render(request,"html/Blogs.html")
+
+def Apps(request):
+    return render(request,"html/Apps.html")
+
+def Donate(request):
+    return render(request,"html/Donate.html")
