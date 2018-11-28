@@ -10,13 +10,13 @@
         <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
         <!-- My Css Sytlesheet -->
         <link rel="stylesheet" href='{% static "CSS/spil.css" %}'>
-        <link rel="stylesheet" href='{% static "CSS/image-page.css" %}'>
+        <link rel="stylesheet" href='{% static "CSS/imagepage.css" %}'>
         <title>Spil3141</title>
     </head>
 
     <body>
         <div class="header">
-            <a style="margin-right:600px;" class="image-1" href = "/"><img src= '{% static "Images/logo.png" %}' atl = "My ICON" width= 150px height = 25px/></a>  
+            <a style="margin-right:600px;" class="image-1" href = "/"><img src= '{% static "Images/logo.png" %}' alt= "My ICON" width= 150px height = 25px/></a>  
             <form>
                 <input type="text" value="" placeholder="Search" spellcheck="true" 
                     name="q" class="form-control"cel/>
@@ -37,7 +37,7 @@
                 <br><br>
                 <div>
                     <div>
-                        <img id="size-image" width=300px height=300px src='{% static "Images/image.png" %}' atl="Error Loading">
+                        <img id="size-image" src='{% static "Images/image.png" %}' alt="Error">
                     </div>
                 </div>
                 </center>
