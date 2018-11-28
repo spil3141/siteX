@@ -20,10 +20,8 @@ def Image(request):
         if pic.is_valid():
             if not Photos.objects.filter(photo_ID = pic.cleaned_data['name']):
                 Photos.objects.create(photo_ID = pic.cleaned_data['name'], pic = pic.cleaned_data['upload_pic'])
-                #print ("Successfully Uploaded")
             else:
                 pass
-                #print ("Error Uploading")
     else:
         pic = Photo()
     context = {
@@ -37,9 +35,6 @@ def Signup(request):
     if request.method == "POST":
         signup_form = Signup_form(request.POST)
         if signup_form.is_valid():
-            #print (signup_form.cleaned_data)
-            #print ('There are %d Users' % (User.objects.count())) # returns an integer representing the number of element in the db
-            #print (User.objects.all().in_bulk())  #Return a dictionary mapping each of the given IDs to the object with that ID.
             if signup_form.cleaned_data['user_ID'] not in User.objects.all().in_bulk().keys():
                 #User.objects.create(user_ID = signup_form.cleaned_data['user_ID'],user_password = signup_form.cleaned_data['user_password'], about= signup_form.cleaned_data['about'])
                 users = User(
@@ -48,10 +43,8 @@ def Signup(request):
                 about= signup_form.cleaned_data['about']
                 )
                 users.save()
-                #print ('Created new User Successfully!')
                 test = 2
             else:
-                #print ("User already exists in the database ! ")
                 test = 1
     signup_form = Signup_form()
     context = {
@@ -65,8 +58,6 @@ def Login(request):
     if request.method == "POST":
         login_form = Login_form(request.POST)
         if login_form.is_valid():
-            print (User.objects.filter(user_ID = "spil3141"))
-            print (login_form.cleaned_data["username"])
             # filter() returns True if the filter value is in the database 
             if login_form.cleaned_data["username"] == "spil3141" and login_form.cleaned_data["password"] == "asdf":
                 return render(request, "html/spil3141.html")
