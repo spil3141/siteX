@@ -1,19 +1,47 @@
-{% extends 'html/base.html' %}
-{% block content %}
-    {% load static %}
-    <center>
-        <h1> Upload an image:</h1>
-    <form method = "POST" enctype="multipart/form-data"> {% csrf_token %}
-        {{ var.as_p }}
-        <button type="submit">Upload</button>
-    </form>
-    <br><br>
-    <br><br>
-    <dev class="canvas">
-        <dev class="Container">
-            <img width=300px height=300px src='{% static "Images/image.png" %}' atl="Error Loading">
-        </dev>
-    </dev>
-    </center>
+{% load static %}
+<!DOCTYPE html>
+<html lang="en-US"\>
+<html>
+    
+    <head>
+        <!-- External Css Library -->
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+        <!-- My Css Sytlesheet -->
+        <link rel="stylesheet" href='{% static "CSS/spil.css" %}'>
+        <link rel="stylesheet" href='{% static "CSS/image-page.css" %}'>
+        <title>Spil3141</title>
+    </head>
 
-{% endblock content %}
+    <body>
+        <div class="header">
+            <a style="margin-right:600px;" class="image-1" href = "/"><img src= '{% static "Images/logo.png" %}' atl = "My ICON" width= 150px height = 25px/></a>  
+            <form>
+                <input type="text" value="" placeholder="Search" spellcheck="true" 
+                    name="q" class="form-control"cel/>
+            </form>
+            <div class="header-right">
+                <a href= "/Blog/">Blog</a>
+                <a href = "/Image/">Media</a>
+            </div>
+        </div>
+        <div>
+                <center>
+                    <h1 class="IP-h1-tag" > Upload an image:</h1>
+                <form method = "POST" enctype="multipart/form-data"> {% csrf_token %}
+                    {{ var.as_p }}
+                    <button type="submit">Upload</button>
+                </form>
+                <br><br>
+                <br><br>
+                <div>
+                    <div>
+                        <img id="size-image" width=300px height=300px src='{% static "Images/image.png" %}' atl="Error Loading">
+                    </div>
+                </div>
+                </center>
+            </div>
+
+    </body>
+</html>

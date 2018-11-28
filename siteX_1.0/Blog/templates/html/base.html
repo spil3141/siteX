@@ -9,22 +9,39 @@
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
         <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister" rel="stylesheet">
         <!-- My Css Sytlesheet -->
         <link rel="stylesheet" href='{% static "CSS/base.css" %}'>
-        <link rel="stylesheet" href='{% static "CSS/index.css" %}'>
-        <title>Home Page</title>
+        <link rel="stylesheet" href='{% static "CSS/index-page.css" %}'>
+        <link rel="stylesheet" href='{% static "CSS/signup-page.css" %}'>
+        <link rel="stylesheet" href='{% static "CSS/login-page.css" %}'>
+        <title>Spil3141</title>
     </head>
 
     <body>
         <div class="header">
-            <a href = "/"><img src= '{% static "Images/logo.png" %}' atl = "My ICON" width= 150px height = 25px/></a>  
-            <form>
-                <input type="text" value="" placeholder="Search" spellcheck="true" 
-                    name="q" class="form-control"cel/>
-            </form>
-            <div class="header-right">
-                <a href= "/About/">About</a>
-                <a href="/Blog/">Blog</a>
+            <nav>
+                <ul>
+                    <li>
+                        <a href = "/"><img src= '{% static "Images/logo.png" %}' atl = "My ICON" width= 150px height = 25px/></a>  
+                    </li>
+                    <li>
+                        <form>
+                            <input type="text" value="" placeholder="Search" spellcheck="true" 
+                                name="q" class="form-control"cel/>
+                        </form>
+                    </li>
+                    <li>
+                        <a href= "/About/">About</a>
+                    </li>
+                    <li>
+                        <a href="/Blog/">Blog</a>
+                    </li>
+                    
+                </ul>
+            </nav>
+            <div class="login">
                 <a href = "/Login/">Log In</a>
             </div>
         </div>

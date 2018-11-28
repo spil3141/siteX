@@ -3,15 +3,15 @@ from django import forms
 from .models import User, Login_info, Photos
 
 class Signup_form(forms.Form):
-    user_ID = forms.CharField( label= "Username", max_length=30,widget= forms.TextInput(attrs={'class': 'text-color'}))
-    user_password = forms.CharField(label="Password", max_length=30,widget=forms.PasswordInput(attrs={'type':'password','class':'text-color'}))
-    about = forms.CharField(required = False, widget=forms.Textarea( attrs={'rows':'2','class':'text-color'}))
+    user_ID = forms.CharField( label= "Username", max_length=30,widget= forms.TextInput(attrs={}))
+    user_password = forms.CharField(label="Password", max_length=30,widget=forms.PasswordInput(attrs={'type':'password',}))
+    about = forms.CharField(required = False, widget=forms.Textarea( attrs={'rows':'2',}))
 
 class Login_form(forms.Form):
-    username = forms.CharField(label= "Username",max_length=100,widget= forms.TextInput(attrs={'class': 'text-color'}))
-    password = forms.CharField(label="Password",max_length=20, widget=forms.PasswordInput(attrs={ "type":"password",'class':'text-color'}))
+    username = forms.CharField(label= "Username",max_length=100,widget= forms.TextInput(attrs={}))
+    password = forms.CharField(label="Password",max_length=20, widget=forms.PasswordInput(attrs={ "type":"password",}))
 
 class Photo(forms.Form):
-    name = forms.CharField(label="Title:", max_length = 30,widget= forms.TextInput(attrs={'class': 'text-color'}))
+    name = forms.CharField(label="Title:", max_length = 30,widget= forms.TextInput(attrs={}))
     upload_pic = forms.ImageField(label="")
 

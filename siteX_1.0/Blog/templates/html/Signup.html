@@ -1,14 +1,11 @@
 {% extends 'html/base.html' %}
 
-
 {% block content %}
 <center>
     <h1>Sign Up</h1>
     <form action="." method='POST'> {% csrf_token %}
-        <div>
-            {{ signup_var.as_p}}
-            <input type="submit" value = "Sign Up"/>
-        </div>
+        {{ signup_var.as_p}}
+        <input type="submit" value = "Sign Up"/>
     </form>
     
     {% if test == 1 %}
