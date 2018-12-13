@@ -1,0 +1,69 @@
+{% extends 'html/Blog.html' %}
+{% block Blogs %}
+{% load static %}
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8">
+      <h1>Introduction</h1>
+      <h2>Machine Learning</h2>
+      <p>
+        Machine Learning is a sub-field of Artificial Intelligence. In general, a machine learning problem
+        considers a set of <a href="#">n samples</a> of data and then tries to predict properties of new unknown data.
+        There are three main types of machine learning, plus hybrids of these three.
+      </p>
+      <ol>
+        <li>Supervised Learning</li>
+        <li>Unsupervised Learning</li>
+        <li>Reinforcement Learning</li>
+      </ol>
+      <h4>Supervised Learning</h4>
+      <p>
+        The main goal is for a model (piece of code/algorithm) to learn from labeled Training Data that allows
+        it to make Predictions about unseen or future data. Here a set of samples where the desired output signals
+        are already known.Supervised Learning enable mainly two tasks.
+      </p>
+      <ol>
+        <li>Classification</li>
+        <li>Regression</li>
+      </ol>
+
+      <h4>Unsupervised Learning</h4>
+      <p>
+        ...
+      </p>
+      <h4>Reinforcement Learning</h4>
+      <p>
+        ...
+      </p>
+
+      <h1>Data Preprocessing</h1>
+      <h2>Dataset</h2>
+      <p>
+        In Machine Learning, Dataset refers to the data which is given as input to an algorithm or use to test
+        an algorithm's predictive accuracy.In other words, machine learning goal is to create computer softwares
+        that learns from pass "experiences" and make predictions ( among other tasks ). The "experience" refers to
+        the data that have been recorded by people and stored in a specific format.
+        This data is what we refer to as a Dataset. Dataset comes in two parts.
+      </p>
+      <ol>
+        <li>Features / Independent Variables</li>
+        <li>Class / Dependent Variables</li>
+      </ol>
+    </div>
+    <div class="col-sm-4">
+      <div class="card" style="width: 18rem; margin-top:50px;">
+        <img class="card-img-top" width= 200px height= 300px src='{% static "Images/live3.0.jpg" %}' alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Good Read</h5>
+          <p class="card-text">Live 3.0: Being Human in the Age of Artificial Intelligence By Max Tegmark</p>
+          <a href="https://www.audible.com/pd/Life-30-Audiobook/B0742K1G4Q" class="btn btn-primary">Read Here</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock Blogs %}

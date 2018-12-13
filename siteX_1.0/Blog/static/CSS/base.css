@@ -3,6 +3,9 @@ body{
   background-position: center;
 }
 /********* This style applys to all Buttons and Input forms ******/
+
+/*
+
 button,input {
   border-radius:10px;
 }
@@ -14,7 +17,6 @@ p input,textarea {
   color: black;
 }
 
-/************** The Navigation Bar Set up ****/
 div > nav > ul {
   display:flex!important;
 }
@@ -41,14 +43,14 @@ div > nav {
   border-color: transparent;
   background-color: rgba(0, 0, 0, 0.5);
   font-family: 'Love Ya Like A Sister', cursive;
-  
+
 }
 
 .header a {
   text-align: center;
   padding: 12px;
   text-decoration: none;
-  font-size: 18px; 
+  font-size: 18px;
   line-height: 25px;
   border-radius: 4px;
 }
@@ -60,11 +62,10 @@ div > nav {
 
 .header a:hover {
   color: #1abc9c;
-  /*background-color: rgb(61, 185, 108);*/
+  background-color: rgb(61, 185, 108);
   border-radius: 19px;
 }
 
-/*********** Testing Nar Bar download feature ***/
 .dropdown {
   display:none;
   position: absolute;
@@ -74,4 +75,4 @@ div > nav {
 }
 .trigger:hover .dropdown {
   display:flex;
-}
+} */

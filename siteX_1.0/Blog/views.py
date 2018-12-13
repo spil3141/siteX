@@ -4,10 +4,54 @@ from django.http import HttpResponse
 # Create your views here.
 from .forms import Signup_form, Login_form, Photo
 from .models import User, Login_info, Photos
+import braintree
+
+# Implementing Braintree Payment API
+
+# Send a client token to your client
+# @app.route("/client_token", methods=["GET"])
+# def client_token():
+#     return gateway.client_token.generate()
+
+## Donate Page
+def Donate(request):
+    # configure the environment and API credentials:
+    gateway = braintree.BraintreeGateway(
+    braintree.Configuration(
+        braintree.Environment.Sandbox,
+        merchant_id="vtfnkmt8xmfbxyzc",
+        public_key="dhpsqrhxfgqc3zxt",
+        private_key="cbe2dbb0a89b34316bdfad583dadb962"
+        )
+    )
+    # Generate a client token
+    client_token = gateway.client_token.generate({
+    "customer_id": "johnj2015",
+    })
+    # Send a client token to your client
+    context = {
+        "CLIENT_TOKEN_FROM_SERVER": client_token,
+    }
+    # Receive a payment method nonce from your client
+    if (request.method == "POST"):
+        nonce_from_the_client = "2be624d2-c320-036f-6f6c-322f9000e8b6"
+        result = gateway.transaction.sale({
+            "amount": request.POST.get("amount"),
+            "payment_method_nonce": nonce_from_the_client
+        })
+
+
+    # if (result.is_success):
+    #         return HttpResponse("Sucessful")
+    # else:
+    #     print("Eoor")
+
+
+    return render(request,"html/Donate.html",context)
 
 ##   MAIN View
 def index(request):
-    data = User.objects.all().in_bulk() #Selecting all the Queryset form the database 
+    data = User.objects.all().in_bulk() #Selecting all the Queryset form the database
     context = {
         'data' : data.keys(),
     }
@@ -58,7 +102,7 @@ def Login(request):
     if request.method == "POST":
         login_form = Login_form(request.POST)
         if login_form.is_valid():
-            # filter() returns True if the filter value is in the database 
+            # filter() returns True if the filter value is in the database
             if login_form.cleaned_data["username"] == "spil3141" and login_form.cleaned_data["password"] == "asdf":
                 return render(request, "html/spil3141.html")
             elif User.objects.filter(user_ID = login_form.cleaned_data["username"]) and User.objects.filter( user_password = login_form.cleaned_data['password']):
@@ -69,16 +113,34 @@ def Login(request):
         }
     return render(request,'html/Login.html', context)
 
+## About Page
 def About(request):
     context = {
     }
     return render(request, 'html/About.html',context)
 
-def Blog(request):
-    return render(request,"html/Blogs.html")
+## Blog Page
+def Blogs(request):
+    query = request.GET.get("q")
+    if query :
+        query_list = Photos.objects.all().in_bulk()
+        context = {
+        "image": (query_list["yumi"].pic.url.split("/")[-1]),
+        }
+        return render(request,"html/Search_result.html",context)
+    return render(request,"html/TableofContent.html")
 
-def Apps(request):
+## Apps page
+def Products(request):
     return render(request,"html/Apps.html")
+## Game 01
+def Game01(request):
+    return render(request,"html/Game01/Game01.html")
 
-def Donate(request):
-    return render(request,"html/Donate.html")
+## Table of Contents page
+def TableofContent(request):
+    return render(request,'html/TableofContent.html')
+
+## Article-1 ##
+def Article_1(request):
+    return render(request,"html/Article_1.html")

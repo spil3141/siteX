@@ -1,15 +1,15 @@
 {% extends "html/base.html" %}
 {% load static %}
 {% block content %}
-<div>
-        <h4 style="font-family:monospace; font-size:30px;">Ongoing Projects:</h4>
-        <div class="apps-section">
-                <p id="index-page-main-paragraph">
-                        <u>1. Calculator by nOOb</u>
-                </p>
-        </div>
-        <div id="image-setup" >
-                <a href="https://play.google.com/store/apps/details?id=com.spil3141"><img src="{% static 'Images/GooglePlayStoreImage.png' %}" alt="Error"></a>
-        </div>
+
+
+<div class="container">
+  <div class="jumbotron bg-transparent center">
+    <p id="index-page-main-paragraph">
+            <u>1. Calculator by nOOb</u><br>
+            <a href="https://play.google.com/store/apps/details?id=com.spil3141"><img src="{% static 'Images/GooglePlayStoreImage.png' %}" alt="Error"></a>
+
+    </p>
+  </div>
 </div>
 {% endblock content %}

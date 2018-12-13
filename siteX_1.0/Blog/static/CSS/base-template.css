@@ -1,0 +1,13 @@
+.bg {
+  background-image:url('../Images/bg3.jpg');
+  background-position: center;
+}
+
+.font-design {
+  /* font-family: 'Love Ya Like A Sister', cursive; */
+      font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+
+.font-dark {
+  color:whitesmoke;
+}

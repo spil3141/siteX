@@ -21,21 +21,20 @@ class Favorite(models.Model):
 			favorite_ID = models.IntegerField(primary_key = True)
 			user_ID = models.ForeignKey(User, on_delete = models.CASCADE)
 			blog_ID = models.ForeignKey(Blog, on_delete = models.CASCADE)
-	
+
 class Keyword(models.Model):
 			keyword_ID = models.IntegerField(primary_key = True)
 			keyword = models.CharField(max_length = 200)
 
-		
+
 class Blog_Keyword(models.Model):
 			blog_keyword_ID = models.IntegerField(primary_key = True)
 			blog_ID = blog_ID = models.ForeignKey(Blog, on_delete = models.CASCADE)
 			keyworkd_ID = models.ForeignKey(Keyword,  on_delete = models.CASCADE)
-		
+
 
 class Photos(models.Model):
 	photo_ID = models.CharField(primary_key = True, max_length = 30)
 	pic =  models.ImageField(upload_to = 'Blog/static/Uploaded_Images')
 	class Meta:
 			db_table = "Photo_db"
-    
