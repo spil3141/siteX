@@ -4,7 +4,7 @@ siteX is a practice project created to help improve my python and web ( html,css
 Its complete state would be a Blog web Application for searching, posting, and favoring blogs. 
 
 ###Live Demo 
- Link: http://siteX.iptime.org
+ Link: http://spil3141.pythonanywhere.com/
 
 ### How to setup the Project for testing ( Linux/ Mac OS only ) : 
  1. Download or Clone Repository : https://github.com/spil3141/siteX.git
