@@ -18,4 +18,5 @@ Its complete state would be a Blog web Application for searching, posting, and f
 ##### 1. https://www.pythonanywhere.com/
 ##### 2. Raspberry pi, Post Forwarding, Iptime Router DDNS Utility
 #### Live Demo
-  Link: http://spil3141.pythonanywhere.com/
+  - http://spil3141.pythonanywhere.com/
+  - http://sitex.iptime.org/
