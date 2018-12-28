@@ -3,8 +3,8 @@
 siteX is a practice project created to help improve my python and web ( html,css ) programming skills.
 Its complete state would be a Blog web Application for searching, posting, and favoring blogs. 
 
-###Deployment
- ##Live Demo
+### Deployment
+ ## Live Demo
  Link: http://spil3141.pythonanywhere.com/
 
 ### How to setup the Project for testing ( Linux/ Mac OS only ) : 
