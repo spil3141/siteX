@@ -3,11 +3,6 @@
 siteX is a practice project created to help improve my python and web ( html,css ) programming skills.
 Its complete state would be a Blog web Application for searching, posting, and favoring blogs. 
 
-### Deployment methods
-##### 1. https://www.pythonanywhere.com/
-##### 2. Raspberry pi, Post Forwarding, Iptime Router DDNS Utility
-#### Live Demo
-  Link: http://spil3141.pythonanywhere.com/
 
 ### How to setup the Project for testing ( Linux/ Mac OS only ) : 
  1. Download or Clone Repository : https://github.com/spil3141/siteX.git
@@ -18,3 +13,9 @@ Its complete state would be a Blog web Application for searching, posting, and f
 ### Dependencies: 
  1. python > 3.0
  2. django framework > 2.0
+
+### Deployment methods
+##### 1. https://www.pythonanywhere.com/
+##### 2. Raspberry pi, Post Forwarding, Iptime Router DDNS Utility
+#### Live Demo
+  Link: http://spil3141.pythonanywhere.com/
