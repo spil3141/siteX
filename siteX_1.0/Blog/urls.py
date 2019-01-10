@@ -4,19 +4,10 @@ from django.urls import path
 # from django.conf.urls.static import static
 
 # Importing the Various View Functions from our app's "views.py" file
-from .views import (
-    index,
-    About,
-    Signup,
-    Login,
-    Image,
-    Blogs,
-    Products,
-    Game01 ,
-    Donate,
-    TableofContent ,
-    Article_1,
-    )
+from .views import (index,About,Signup,Login,
+                    Image,Blogs,Products,Game01,
+                    Donate,TableofContent,Article_1,
+                    )
 
 # Out app's URLs Array
 
