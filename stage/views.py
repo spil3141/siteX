@@ -19,7 +19,7 @@ def Game01(request):
     return render(request,"stage/Game01/Game01.html")
 
 def Donate(request):
-    return HttpResponse("Coming Coon")
+    return render(request,"stage/Donate.html")
 
 # # Implementing Braintree Payment API
 # import braintree
