@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Blog Project</title>
+
+    <!-- Bootscrap  -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- OLG BOOTSCRAP FOR GLYPHICON  -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- Medium style editor  -->
+    <script src="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/js/medium-editor.min.js"></script>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/css/medium-editor.min.css" type="text/css" media="screen" charset="utf-8">
+
+    <!-- {# Fonts#} -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Russo+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'Blog/CSS/base.css' %}">
+
+  </head>
+
+  <body>
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light techfont">
+        <a class="bigbrand navbar-brand" href="{% url 'stage:Main_Page' %}">siteX</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <!-- # Left nav-bar  -->
+          <ul class="navbar-nav navbar-left">
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'Blog:Post_List_Page' %}">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class=" nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                About
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{% url 'Blog:About_Page' %}">About</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="https://github.com/spil3141">Github</a>
+              </div>
+            </li>
+          </ul>
+          <!-- # Right nav-bar -->
+          <ul class="nav navbar-nav navbar-right loader">
+            <!-- Condition for testing if user is logged in  -->
+            {% if user.is_authenticated %}
+              <li class=nav-item>
+                <a class="nav-link" href="{% url 'Blog:Post_Create_Page' %}">New Post</a>
+              </li>
+              <li class=nav-item>
+                <a class="nav-link" href="{% url 'Blog:Post_Draft_Page' %}">Draft</a>
+              </li>
+              <li class=nav-item>
+                <a class="nav-link" href="{% url 'Logout_Page' %}">Logout</a>
+              </li>
+              <li class="nav-item" style="border: 2px solid black;">
+                <a class="nav-link">Welcome, {{user.username}}</a>
+              </li>
+            {% else %}
+            <li class="nav-item"4>
+              <a href = "{% url 'Login_Page' %}">
+                <span class="glyphicon glyphicon-user"></span>
+              </a>
+            </li>
+            {% endif %}
+
+          </ul>
+
+        </div>
+      </nav>
+      <div class="container">
+        {% block body_block %}
+          replace me
+        {% endblock %}
+
+      </div>
+
+
+    <!-- <script src="{% static "Blog/JS/testing.js" %}"></script> -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+  </body>
+</html>
