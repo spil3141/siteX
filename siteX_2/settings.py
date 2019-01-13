@@ -25,7 +25,7 @@ SECRET_KEY = 'pxwmums3#gt3isv-bdg)6f=ai36e58(njv#fm)vd*nhs4yzh(%'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    "sitex.iptime.org",
+    "spil3141.pythonanywhere.com",
     "127.0.0.1",
 ]
 
@@ -123,6 +123,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 MEDIA_URL = "/media/"
+
+
 
 
 

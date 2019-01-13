@@ -1,0 +1,18 @@
+.apps-section {
+    display:block!important;
+}
+#index-page-main-header {
+    font-family:Lobster, monospace;
+    font-size:40;
+    text-align: center;
+}
+
+#index-page-main-paragraph {
+    font-family: monospace;
+    text-align: center;
+    font-size:20px;
+}
+
+#image-setup {
+    text-align: center;
+}
