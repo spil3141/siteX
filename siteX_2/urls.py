@@ -17,8 +17,8 @@ from django.contrib import admin
 from django.urls import path,include,re_path
 from django.conf.urls import url
 from django.contrib.auth.views  import login,logout
-from . import views
-
+from django.conf.urls.static import static
+from . import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,6 +26,5 @@ urlpatterns = [
     path("Blog/",include("Blog.urls")),
     url(r"accounts/login/$",login,name="Login_Page"),
     url(r"accounts/logout/$",logout,name="Logout_Page",kwargs={"next_page":"/"}),
-    path("signup/",views.Signup,name = "Signup_Page"),
-
-]
+    path("Detector/",include("detector.urls")),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

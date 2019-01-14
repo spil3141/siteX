@@ -1,10 +1,12 @@
 from django.shortcuts import render
-from django import forms
+from . import forms
+from . import models
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse,reverse_lazy
 from django.contrib.auth.decorators import login_required
+from django.views.generic import CreateView
 
 def Index(request):
     return render (request,"stage/index.html")
@@ -20,6 +22,15 @@ def Game01(request):
 
 def Donate(request):
     return render(request,"stage/Donate.html")
+
+class UserCreateView(CreateView):
+    form_class = forms.User_Form
+    success_url = reverse_lazy("stage:Main_Page")
+    template_name = "registration/register.html"
+
+# def Signup(request):
+#     return render(request,"registration/register.html")
+
 
 # # Implementing Braintree Payment API
 # import braintree

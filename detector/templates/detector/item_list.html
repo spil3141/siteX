@@ -1,0 +1,29 @@
+{% extends "detector/base.html" %}
+{% load staticfiles %}
+{% block content %}
+<div class="jumbotron" align = "center">
+  <h1>Record of Uploaded Images</h1>
+  <hr>
+  {% for item in items %}
+  <div class="card" style="width: 20rem;">
+    <img src="{{item.image.url}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h4>Title</h4>
+      <h5 class="card-title">{{item.name}}</h5>
+      <h4>Description</h4>
+      {% if item.description %}
+        <p class="card-text">{{item.description}}</p>
+      {% else %}
+        <p>No Info</p>
+      {% endif %}
+    </div>
+  </div>
+  <hr>
+  {% empty %}
+  <h3>No Images</h3>
+  {% endfor%}
+
+</div>
+
+
+{% endblock %}
