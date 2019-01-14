@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en-US"\>
+<html>
+    
+    <head>
+        <!-- External Css Library -->
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+        <!-- My Css Sytlesheet -->
+        <link rel="stylesheet" href='{% static "CSS/spil.css" %}'>
+        <title>Spil3141</title>
+    </head>
+
+    <body>
+        <div class="header">
+            <a style="margin-right:600px;" class="image-1" href = "/"><img src= '{% static "Images/logo.png" %}' atl = "My ICON" width= 150px height = 25px/></a>  
+            <form>
+                <input type="text" value="" placeholder="Search" spellcheck="true" 
+                    name="q" class="form-control"cel/>
+            </form>
+            <div class="header-right">
+                <a href= "/Blog/">Blog</a>
+                <a href = "/Image/">Media</a>
+            </div>
+        </div>
+    </body>
+</html>

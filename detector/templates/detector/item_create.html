@@ -1,0 +1,19 @@
+{% extends "detector/base.html" %}
+{% block content %}
+<div class="container"  align = "center" >
+  <div class="jumbotron" style="width:600px">
+    <h1>Choose the image file</h1>
+    <form  enctype="multipart/form-data" method="POST" >
+      {% csrf_token %}
+      {{form.as_p}}
+      {% if success%}
+        <h3 id = "hi"></h3>
+      {% endif %}
+      <input class="btn btn-primary" type="submit" value="Upload">
+    </form>
+  </div>
+</div>
+
+{% endblock %}
+
+<!-- action="{% url 'card_detector:On_Success_Page' %}" -->
