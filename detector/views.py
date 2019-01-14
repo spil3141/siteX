@@ -23,8 +23,10 @@ from django.views.generic import (CreateView,
 
 class Success(DetailView):
     model = models.Item
-    print(os.system("ls"))
-    clf = joblib.load("Desktop/siteX/detector/static/detector/externals/Trained_Model.sav")
+    if (os.system("uname -r") == "17.7.0"):
+        clf = joblib.load("detector/static/detector/externals/Trained_Model.sav")
+    elif (os.system("uname -r") == "4.4.0-1072-aws"):
+        clf = joblib.load("Desktop/siteX/detector/static/detector/externals/Trained_Model.sav")
 
     def get_object(self):
         obj = super().get_object()
