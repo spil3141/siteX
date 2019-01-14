@@ -23,7 +23,8 @@ from django.views.generic import (CreateView,
 
 class Success(DetailView):
     model = models.Item
-    clf = joblib.load("detector/static/detector/externals/Trained_Model.sav")
+    print(os.system("ls"))
+    clf = joblib.load("Desktop/siteX/detector/static/detector/externals/Trained_Model.sav")
 
     def get_object(self):
         obj = super().get_object()

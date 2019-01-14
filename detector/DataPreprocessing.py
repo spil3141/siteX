@@ -5,7 +5,7 @@ from PIL import Image
 import numpy
 import pandas as pd
 import os
-import cv2
+#import cv2
 
 #Directory to Udemy Course Template file
 BASE_DIR = "/Users/spil3141/Desktop/Machine Learning/Documentation/Machine Learning A-Z Template Folder"
