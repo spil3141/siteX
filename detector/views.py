@@ -5,7 +5,7 @@ from django.shortcuts import get_object_or_404
 from . import models
 from . import forms
 from django.conf import settings
-import numpy as np
+import numpy
 import os
 import PIL
 from PIL import Image
@@ -23,10 +23,7 @@ from django.views.generic import (CreateView,
 
 class Success(DetailView):
     model = models.Item
-    if (os.system("uname -r") == "17.7.0"):
-        clf = joblib.load("detector/static/detector/externals/Trained_Model.sav")
-    elif (os.system("uname -r") == "4.4.0-1072-aws"):
-        clf = joblib.load("Desktop/siteX/detector/static/detector/externals/Trained_Model.sav")
+    clf = joblib.load("Desktop/siteX/detector/static/detector/externals/Trained_Model.sav")
 
     def get_object(self):
         obj = super().get_object()
@@ -37,7 +34,7 @@ class Success(DetailView):
         #using the classifier to make prediction
         if self.clf:
             self.prediction = str(self.clf.predict([img])[0])
-            self.prob = self.clf.predict_proba([img]) % 10
+            self.prob = self.clf.predict_proba([img])
         else:
             self.prediction = "failed to load"
             self.prob = "error"
@@ -47,7 +44,7 @@ class Success(DetailView):
     def get_context_data(self,**kwargs):
         context = super().get_context_data(**kwargs)
         context["prediction"] = self.prediction
-        context["prob"] = self.prob
+        context["prob"] = numpy.amax(self.prob) * 100
         return context
 
 

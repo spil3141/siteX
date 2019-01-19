@@ -34,6 +34,8 @@ def resize():
 #Converting Image to Numpy array
 def img_2_1d_arr(img):
     imgdata = Image.open(img)
+    imgdata = imgdata.resize((8, 8), PIL.Image.ANTIALIAS)
+    imgdata.save(img)
     array = numpy.array(imgdata)
     if (array.ndim == 3):
         a = array[:,:,0]
