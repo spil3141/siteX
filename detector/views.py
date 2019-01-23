@@ -23,7 +23,7 @@ from django.views.generic import (CreateView,
 
 class Success(DetailView):
     model = models.Item
-    clf = joblib.load("Desktop/siteX/detector/static/detector/externals/Trained_Model.sav")
+    clf = joblib.load("Desktop/siteX/detector/static/detector/externals/digits_model_full.sav")
 
     def get_object(self):
         obj = super().get_object()
@@ -44,7 +44,7 @@ class Success(DetailView):
     def get_context_data(self,**kwargs):
         context = super().get_context_data(**kwargs)
         context["prediction"] = self.prediction
-        context["prob"] = numpy.amax(self.prob) * 100
+        context["prob"] = "%.3f" % numpy.amax(self.prob)
         return context
 
 
