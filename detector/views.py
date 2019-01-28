@@ -18,12 +18,13 @@ from django.views.generic import (CreateView,
                                   ListView,
                                   TemplateView
                                   )
+# /Users/spil3141/Desktop/siteX/detector/static/detector/externals/digits_model_full.sav
 
-
+# Desktop/siteX/detector/static/detector/externals/digits_model_full.sav
 
 class Success(DetailView):
     model = models.Item
-    clf = joblib.load("Desktop/siteX/detector/static/detector/externals/digits_model_full.sav")
+    clf = joblib.load("/Users/spil3141/Desktop/siteX/detector/static/detector/externals/digits_model_full.sav")
 
     def get_object(self):
         obj = super().get_object()
