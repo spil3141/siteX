@@ -1,0 +1,35 @@
+{% extends "helper/Base.html"%}
+{% load staticfiles %}
+{% block body %}
+<div class="container">
+  <div class="jumbotron">
+    <h1 class="display-4"  align="center">Korean Works Memorization Helper</h1>
+    <div class="bar" align="center">
+      <a class="btn btn-success" href="#">Learn</a>
+      <a class="btn btn-success" href="{% url 'helper:Create_Page'%}">Add New Words</a>
+    </div>
+    <!-- <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p> -->
+    <hr class="my-4">
+    <div class="container" align="center">
+      <!-- include the ListView template here -->
+      <div class="jumbotron" >
+        {% for obj in object %}
+        <a href="{% url 'helper:Display_Page' obj.pk %}">
+            <div class="row">
+              <div class="col" style=" border:3px solid red;">
+                <h1>{{obj.kor_word}}</h1>
+              </div>
+              <->
+              <div class="col" style=" border:3px solid red;">
+                <h1>{{obj.eng_word}}</h1>
+              </div>
+            </div>
+            <!-- <img src="{% static 'helper/Images/a.png'%}" class="card-img-top" alt="..."> -->
+        </a>
+        {%endfor%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock%}

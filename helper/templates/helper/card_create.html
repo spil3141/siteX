@@ -1,0 +1,15 @@
+{% extends "helper/Base.html"%}
+{% load staticfiles %}
+{% block body %}
+<div class="container" align="center">
+  <div class="jumbotron">
+    <form method="POST">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <input class ="btn btn-success" type="submit" value="Save">
+    </form>
+  </div>
+
+</div>
+
+{% endblock%}

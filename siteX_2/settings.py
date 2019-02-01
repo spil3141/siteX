@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "Blog",
     "stage",
     "detector",
+    "helper",
 ]
 
 MIDDLEWARE = [

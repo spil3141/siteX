@@ -1,0 +1,38 @@
+{% extends "helper/Base.html"%}
+{% load staticfiles %}
+{% block body %}
+<div class="container" align="center">
+  <h1>{{obj.kor_word}}</h1>
+  <hr>
+  <div class="jumbotron">
+    <div class="row">
+      <div class="col">
+        <h3>Image</h3>
+      </div>
+      <div class="col">
+        <h3>English Translation</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <img src="..." alt="error">
+      </div>
+      <div class="col">
+        <h1>{{obj.eng_word}}</h1>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col">
+      <a class = "btn btn-warning" href="#">Edit</a>
+    </div>
+    <div class="col">
+      <a class = "btn btn-danger" href="#">Delete</a>
+    </div>
+  </div>  
+
+
+</div>
+
+{% endblock%}
