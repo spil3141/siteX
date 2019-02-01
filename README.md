@@ -1,8 +1,13 @@
 ![image](http://spil3141.pythonanywhere.com/static/stage/Images/icon.png)
 # siteX (On goining Project)
-siteX is a practice project created to help improve my python and web ( html,css ) programming skills.
-Its complete state would be a Blog web Application for searching, posting, and favoring blogs. 
+siteX is a practice project created to help improve my python and web ( html,css,javascript ) programming skills.
+Its complete state would be a web Application with diverse embedded web applications . 
 
+### Embedded products
+1. Blog Web Application
+2. single page Web Application implementing machine learning technology.
+3. Link to an Android Application on Google play store
+4. Educational web application to help improve memorization of korean and english vocabularies. 
 
 ### How to setup the Project for testing ( Linux/ Mac OS only ) : 
  1. Download or Clone Repository : https://github.com/spil3141/siteX.git
