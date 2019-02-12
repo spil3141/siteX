@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect,get_object_or_404
 from django.http import HttpResponse
 from django.urls import reverse
 from django.shortcuts import get_object_or_404
+import platform
 from . import models
 from . import forms
 from django.conf import settings
@@ -24,7 +25,11 @@ from django.views.generic import (CreateView,
 
 class Success(DetailView):
     model = models.Item
-    clf = joblib.load("Desktop/siteX/detector/static/detector/externals/digits_model_full.sav")
+    # Assigning Absolute path based on OS
+    if (platform.system() == "Darwin"):
+        clf = joblib.load("/Users/spil3141/Desktop/siteX/detector/static/detector/externals/digits_model_full.sav")
+    elif (platform.system() == "Linux"):
+        clf = joblib.load("Desktop/siteX/detector/static/detector/externals/digits_model_full.sav")
 
     def get_object(self):
         obj = super().get_object()

@@ -25,10 +25,10 @@
   <hr>
   <div class="row">
     <div class="col">
-      <a class = "btn btn-warning" href="#">Edit</a>
+      <a class = "btn btn-warning" href=" {% url 'helper:Update_Page' pk=obj.pk %}">Edit</a>
     </div>
     <div class="col">
-      <a class = "btn btn-danger" href="#">Delete</a>
+      <a class = "btn btn-danger" href="{% url 'helper:Delete_Page' pk=obj.pk %}">Delete</a>
     </div>
   </div>
 
