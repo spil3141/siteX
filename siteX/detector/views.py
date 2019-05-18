@@ -27,7 +27,7 @@ class Success(DetailView):
     model = models.Item
     # Assigning Absolute path based on OS
     if (platform.system() == "Darwin"):
-        clf = joblib.load("/Users/spil3141/Desktop/siteX/detector/static/detector/externals/digits_model_full.sav")
+        clf = joblib.load("/Users/spil3141/Desktop/siteX Project/siteX/detector/static/detector/externals/digits_model_full.sav")
     elif (platform.system() == "Linux"):
         clf = joblib.load("Desktop/siteX/detector/static/detector/externals/digits_model_full.sav")
 
