@@ -9,7 +9,12 @@ from django.contrib.auth.decorators import login_required
 from django.views.generic import CreateView
 
 def Index(request):
-    return render (request,"stage/index.html")
+    #Setting a variable that is user to verify that a specific user(spil3141) is logging in 
+    if request.user.username == "spil3141":
+        temp = 1
+    else:
+        temp = 0
+    return render (request,"stage/index.html", { "test_pass" : temp } )
 
 def About(request):
     return render(request, 'stage/About.html')

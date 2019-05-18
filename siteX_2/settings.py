@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "stage",
     "detector",
     "helper",
+    "CCTV",
 ]
 
 MIDDLEWARE = [

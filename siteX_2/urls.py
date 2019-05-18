@@ -28,4 +28,5 @@ urlpatterns = [
     url(r"accounts/logout/$",logout,name="Logout_Page",kwargs={"next_page":"/"}),
     path("Detector/",include("detector.urls")),
     path("KWMH/",include("helper.urls")),
+    path("CCTV/", include("CCTV.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

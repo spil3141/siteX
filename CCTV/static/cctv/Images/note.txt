@@ -1,0 +1,1 @@
+fswebcam -l 1 --save /home/spil3141/Desktop/CCTV/CCTV/app/static/app/Images/image.png
