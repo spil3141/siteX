@@ -2,21 +2,24 @@
 {% load static %}
 {% block content %}
 
-<div>
-        <div>
-                <center>
-                <h4 >
-                        This web application was created using a free and open-source web framework
-                        called <a href="https://www.google.com/search?source=hp&ei=xNX-W6_aAYem8AXI04O4Ag&q=django&btnK=Google+Search&oq=django&gs_l=psy-ab.3..35i39l2j0i67j0l7.79.612..834...0.0..0.153.930.0j7......0....1..gws-wiz.....0.dxdyvRi7s2A"><i>Django</i></a>.
-                </h4>
-                <h4 style="font-family:monospace; font-size:30px;">Developer</h4>
-                <img class="size-image" src=" {% static 'stage/Images/developer.png' %}" alt= "Error">
-                </center>
-        </div>
-
-
-
-
+<div class="container">
+  <br>
+  <div>
+    <center>
+      <h2>Welcome to LiberateOverload</h2>
+      <p>We are LiberateOverload and we love making games and apps. Our group is currently made out of two members.</p>
+      <p>
+        This web application was created using a free and open-source web framework
+          called <a href="https://www.google.com/search?source=hp&ei=xNX-W6_aAYem8AXI04O4Ag&q=django&btnK=Google+Search&oq=django&gs_l=psy-ab.3..35i39l2j0i67j0l7.79.612..834...0.0..0.153.930.0j7......0....1..gws-wiz.....0.dxdyvRi7s2A"><i>Django</i></a>.
+      </p>
+      <h4 style="font-family:monospace; font-size:30px;"><u>Developers</u></h4>
+    </center>
+    <ul>
+      <li>
+        <img width="100em" height="100em" src=" {% static 'stage/Images/developer.png' %}" alt= "Error">
+      </li>
+    </ul>
+  </div>
 </div>
 
 {% endblock content %}

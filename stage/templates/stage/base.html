@@ -27,9 +27,8 @@
     </head>
 
 
-    <body class="bg font-dark">
-
-      <nav  class="navbar navbar-expand-lg navbar-dark bg-transparent font-design">
+    <body>
+      <nav  class="bg navbar navbar-expand-lg navbar-dark bg-transparent font-design">
         <div class="container">
           <img class="navbar-brand" style=" width:1em; height:2em;"src= '{% static "stage/Images/icon.png" %}' alt = "My ICON"/>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -46,12 +45,20 @@
               </li>
               <li class="nav-item dropdown active">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Products
+                  Apps
                 </a>
                 <div class="dropdown-menu " aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="{% url 'stage:App_Page'%}">Android Apps</a>
-                  <a class="dropdown-item" href="{% url 'detector:Main_Page' %}">ML CLassifier 1.0</a>
+                  <a class="dropdown-item" href="https://play.google.com/store/apps/details?id=com.spil3141">Android Apps</a>
+                  <a class="dropdown-item" href="{% url 'detector:Main_Page' %}">Digits Classifier</a>
                   <a class="dropdown-item" href="{% url 'helper:Main_Page'%}">KWMH</a>
+                </div>
+              </li>
+              <li class="nav-item dropdown active">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Games
+                </a>
+                <div class="dropdown-menu " aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="https://play.google.com/store/apps/details?id=com.liberateoverload.slot">Spin On</a>
                 </div>
               </li>
               <li class="nav-item dropdown active">
@@ -59,7 +66,8 @@
                   About
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="https://truelovefoundation7.wixsite.com/spil3141">Developer</a>
+                  <a class="dropdown-item hidden" href="{% url 'stage:About_Page'%}">About</a>
+                  <!-- https://truelovefoundation7.wixsite.com/spil3141 -->
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="/Donate/">Donate</a>
                 </div>

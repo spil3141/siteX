@@ -2,13 +2,23 @@
 {% load static %}
 {% block content %}
 
+
 <div class="container">
-    <div style="text-align:center;" class="jumbotron bg-transparent">
-      <a href="{% url 'stage:Signup_Page'%}" ><img src='{% static "stage/Images/Signup-image.png" %}' alt="Error"></a>
+  <br><br>
+  <div class="row">
+    <div class="col-sm">
+      <img wigth="200em" height="200em" src="{% static 'stage/Images/Cyborg.png'%}" alt="Error Loading">
     </div>
+    <div class="col-sm">
+      <br><br><br><br>
+      <h2 align="center">LiberateOverload</h2>
+      <p align="center">Makers of SpinOn.</p>
+    </div>
+    <div class="col-sm">
+      <img wigth="200em" height="200em" src="{% static 'stage/Images/Pictures of Assets from LiberateOverload.png'%}" alt="Error Loading">
+    </div>
+  </div>
 </div>
-
-
 
 
 {% endblock content %}

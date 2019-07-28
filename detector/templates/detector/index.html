@@ -1,10 +1,28 @@
 {% extends "detector/base.html" %}
 {% block content %}
 <div class="jumbotron" align = "center">
-  <h2>From the <a href="https://github.com/spil3141/siteX_Basic_Image_Classifier/tree/master/Test_Images">Test Images</a> choose and upload an image.</h2>
+  <h2>A Perceptron Model</h2>
+  <p>This is a web application that was created as an exercise project. This Application core theme is a perceptron algorithm. Particularly an Artificial Neuron (Perceptron) introduced by Frank Rosenblatts.
+  </p>
+  <!-- <h2>From the <a href="https://github.com/spil3141/siteX_Basic_Image_Classifier/tree/master/Test_Images">Test Images</a> choose and upload an image.</h2> -->
   <hr>
+
+  <div class="container"  align="center">
+    <div class="jumbotron" align="center">
+      <a id="download" download="image.png"><button class="btn btn-primary" type="button" onClick="download()">Download</button></a>
+
+      <a id="download" ><button class="btn btn-primary" type="button" onClick="Clear()">Clear</button></a>
+      <div id="canvasDiv"></div>
+    </div>
+
+  </div>
+<h5>
+  Using the Canvas draw 1 or 0. After drawing a binary digit click the download button to download the image then go to the Upload section of this site.
+</h5>
+
+<!--
   <h4>The uploaded image will be resize and preprocess. After the data preprocessing stage the sample
     will be given to a Trained <a href="https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html#sklearn-svm-svc">Support Vector Classifier</a> to predict its class/label. </h4>
-  <p>The site is a basic Web Application that uses machine learning(Supervised Learning - Classification)<br>  and the Django Web Framework to classify images of digits(8x8 resolution). </p>
+  <p>The site is a basic Web Application that uses machine learning(Supervised Learning - Classification)<br>  and the Django Web Framework to classify images of digits(8x8 resolution). </p> -->
 </div>
 {% endblock %}
