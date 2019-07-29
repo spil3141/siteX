@@ -16,12 +16,13 @@ canvas.setAttribute('width', canvasWidth);
 canvas.setAttribute('height', canvasHeight);
 canvas.setAttribute('id', 'canvas');
 canvas.setAttribute("style","border-style:solid");
-canvas.setAttribute("style","background-color:white");
+// canvas.setAttribute("style","background-color:black");
 canvasDiv.appendChild(canvas);
 if(typeof G_vmlCanvasManager != 'undefined') {
 	canvas = G_vmlCanvasManager.initElement(canvas);
 }
 context = canvas.getContext("2d");
+
 
 $('#canvas').mousedown(function(e){
   var mouseX = e.pageX - this.offsetLeft;
@@ -68,7 +69,11 @@ function download(){
 function redraw(){
   context.clearRect(0, 0, context.canvas.width, context.canvas.height); // Clears the canvas
 
-  context.strokeStyle = "#000000";
+  context.strokeStyle = "#FFFFFF";
+		// Add behind elements.
+	context.globalCompositeOperation = 'destination-over'
+	// Now draw!
+	context.fillStyle = "blue";
   context.lineJoin = "round";
   context.lineWidth = 5;
 

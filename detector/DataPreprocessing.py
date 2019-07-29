@@ -11,6 +11,17 @@ import os
 BASE_DIR = "/Users/spil3141/Desktop/Machine Learning/Documentation/Machine Learning A-Z Template Folder"
 
 
+def from_img_to_1d(img):
+    from PIL import Image
+    from skimage import color
+    from skimage import io
+    from skimage.transform import resize
+    #Read and convert image to Grayscale
+    img = color.rgb2gray(io.imread(img))
+    #Resize image to a shape of (28,28)
+    img = resize(img, (28,28),anti_aliasing=True)
+    img = img.reshape(-1)
+    return img
 
 #Resizing Images to 500x400
 def resize():

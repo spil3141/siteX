@@ -14,6 +14,8 @@ from sklearn.externals import joblib
 import numpy
 from PIL import Image
 from . import DataPreprocessing as spil
+# from . import PerceptronSetup
+import joblib
 from django.views.generic import (CreateView,
                                   DetailView,
                                   ListView,
@@ -23,34 +25,34 @@ from django.views.generic import (CreateView,
 
 # Desktop/siteX/detector/static/detector/externals/digits_model_full.sav
 
+
 class Success(DetailView):
     model = models.Item
     # Assigning Absolute path based on OS
-    if (platform.system() == "Darwin"):
-        clf = joblib.load("/Users/spil3141/Desktop/siteX/detector/static/detector/externals/digits_model_full.sav")
-    elif (platform.system() == "Linux"):
-        clf = joblib.load("Desktop/siteX/detector/static/detector/externals/digits_model_full.sav")
-
+    # if (platform.system() == "Darwin"):
+    #     clf = joblib.load("/Users/spil3141/Desktop/siteX/detector/static/detector/externals/digits_model_full.sav")
+    # elif (platform.system() == "Linux"):
+    #     clf = joblib.load("Desktop/siteX/detector/static/detector/externals/digits_model_full.sav")
+    # else:
+    #     clf = joblib.load("C:/Users/spil3141/Desktop/siteX/detector/static/detector/externals/Serialized_Perceptron.sav")
+    ppn = joblib.load("C:/Users/spil3141/Desktop/siteX/detector/static/detector/externals/Serialized_Perceptron_State.sav")
     def get_object(self):
         obj = super().get_object()
-
         #Converting img to numpy 1d array
-        img = spil.img_2_1d_arr(obj.image)
+        # img = spil.img_2_1d_arr(obj.image)
+        img = spil.from_img_to_1d(obj.image)
 
         #using the classifier to make prediction
-        if self.clf:
-            self.prediction = str(self.clf.predict([img])[0])
-            self.prob = self.clf.predict_proba([img])
+        if self.ppn:
+            self.prediction = str(self.ppn.Predict(img))
         else:
             self.prediction = "failed to load"
-            self.prob = "error"
 
         return obj
 
     def get_context_data(self,**kwargs):
         context = super().get_context_data(**kwargs)
         context["prediction"] = self.prediction
-        context["prob"] = "%.3f" % numpy.amax(self.prob)
         return context
 
 

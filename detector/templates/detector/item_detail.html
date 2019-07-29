@@ -6,7 +6,7 @@
     <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
-            <img src="{{object.image.url}}" class="d-block" style="width:500px; height:400px;" alt="Error Loading Image">
+            <img style="background-color:black" src="{{object.image.url}}" class="d-block" style="width:500px; height:400px;" alt="Error Loading Image">
             <!-- <img src="{{object.image.url}}" class="d-block w-100" alt="Error Loading Image"> -->
         </div>
       </div>
@@ -14,11 +14,16 @@
   </div>
   <div class="col-2 container" align="center">
     <p>PREDICTION</p>
-    <span>{{prediction}}</span>
+    <!-- <span>{{prediction}}</span> -->
+    {% if prediction == 1 %}
+      <span>Zero</span>
+    {% else %}
+      <span>One</span>
+    {% endif %}
   </div>
   <div class="col-2 container" align="center">
     <p>PROBABILITY</p>
-    <span>{{prob}}</span>
+    <!-- <span>{{prob}}</span> -->
 
   </div>
 </div>
