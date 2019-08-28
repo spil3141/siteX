@@ -23,8 +23,6 @@ if(typeof G_vmlCanvasManager != 'undefined') {
 }
 context = canvas.getContext("2d");
 
-
-// Set background Color
 context.fillStyle = 'rgb(0, 0, 0)';
 context.fillRect(0, 0, 280, 280);
 
