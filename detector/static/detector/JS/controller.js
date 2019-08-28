@@ -22,10 +22,11 @@ if(typeof G_vmlCanvasManager != 'undefined') {
 	canvas = G_vmlCanvasManager.initElement(canvas);
 }
 context = canvas.getContext("2d");
+
+
 // Set background Color
 context.fillStyle = 'rgb(0, 0, 0)';
-context.fillRect(0, 0, 150, 150);
-
+context.fillRect(0, 0, 280, 280);
 
 $('#canvas').mousedown(function(e){
   var mouseX = e.pageX - this.offsetLeft;
@@ -71,12 +72,13 @@ function download(){
 
 function redraw(){
   context.clearRect(0, 0, context.canvas.width, context.canvas.height); // Clears the canvas
-
-  context.strokeStyle = "#FFFFFF";
+	// Set background Color
+	context.fillStyle = 'rgb(0, 0, 0)';
+	context.fillRect(0, 0, 280, 280);
+  context.strokeStyle = 'rgb(255, 255, 255)';
 		// Add behind elements.
-	context.globalCompositeOperation = 'destination-over'
+	context.globalCompositeOperation = 'source-over'
 	// Now draw!
-	context.fillStyle = "blue";
   context.lineJoin = "round";
   context.lineWidth = 5;
 
