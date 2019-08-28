@@ -5,17 +5,10 @@ from django.shortcuts import get_object_or_404
 import platform
 from . import models
 from . import forms
-from django.conf import settings
-import numpy
-import os
-import PIL
-from PIL import Image
+import numpy as np
 from sklearn.externals import joblib
-import numpy
-from PIL import Image
-from . import DataPreprocessing as spil
-# from . import PerceptronSetup
-import joblib
+from . import DataPreprocessing
+import tensorflow as tf
 from django.views.generic import (CreateView,
                                   DetailView,
                                   ListView,
@@ -29,21 +22,27 @@ from django.views.generic import (CreateView,
 class Success(DetailView):
     model = models.Item
     # Assigning Absolute path based on OS
-    """if (platform.system() == "Darwin"):
-        clf = joblib.load("/Users/spil3141/Desktop/siteX/detector/static/detector/externals/Trained_Model.sav")
+    if (platform.system() == "Darwin"):
+        loaded_model_path = joblib.load("/Users/spil3141/Desktop/siteX/detector/static/detector/externals/Trained_Model.sav")
     elif (platform.system() == "Linux"):
-        clf = joblib.load("/home/spil3141/Desktop/siteX/detector/static/detector/externals/Trained_Model.sav")
-    """
-    clf = None
+        loaded_model_path = "/home/spil3141/Desktop/siteX/detector/static/detector/externals/MNIST_Model_10EPOCHS.h5"
+        weights_path = "/home/spil3141/Desktop/siteX/detector/static/detector/externals/cnn_checkpoint.h5"
+        sc_path = "/home/spil3141/Desktop/siteX/detector/static/detector/externals/Scaler_Model.sav"
+
+    #Restoring Model
+    loaded_model = tf.keras.models.load_model(loaded_model_path)
+    loaded_model.load_weights(weights_path)
+    loaded_stdsc = DataPreprocessing.Scale_with_loaded_sc(sc_path)
+
     def get_object(self):
         obj = super().get_object()
         #Converting img to numpy 1d array
-        # img = spil.img_2_1d_arr(obj.image)
-        img = spil.from_img_to_1d(obj.image)
+        # img = spil.img_2_1d_arr(obj.image) -> Returns the path to the image of focus
+        img_std = DataPreprocessing.flatten_2d_to_4d(DataPreprocessing.Scale_with_loaded_sc(DataPreprocessing.img_2_flatten_2d(obj.image),self.sc_path))
 
         #using the classifier to make prediction
         if self.clf:
-            self.prediction = str(self.clf.Predict(img))
+            self.prediction = str(np.argmax(self.loaded_model.predict(img_std),axis = 1))
         else:
             self.prediction = "failed to load"
 
@@ -82,15 +81,3 @@ class Upload(CreateView):
     # return render(request,"detector/Upload.html",{"form":form,"success":success})
 
 
-
-# This function resize the image uploaded by users to 300 pixels width and prepotional height
-def resizer(filename):
-    dir_path = settings.BASE_DIR + "/media/detector/Images/"
-    for file in os.listdir(dir_path):
-        if file == filename:
-            img = Image.open(dir_path + file)
-            basewidth = 300
-            wpercent = (basewidth / float(img.size[0]))
-            hsize = int((float(img.size[1]) * float(wpercent)))
-            img = img.resize((basewidth, hsize), PIL.Image.ANTIALIAS)
-            img.save(dir_path + file)
