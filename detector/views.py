@@ -29,13 +29,12 @@ from django.views.generic import (CreateView,
 class Success(DetailView):
     model = models.Item
     # Assigning Absolute path based on OS
-    if (platform.system() == "Darwin"):
-        clf = joblib.load("/Users/spil3141/Desktop/siteX/detector/static/detector/externals/Serialized_Perceptron_State.sav")
+    """if (platform.system() == "Darwin"):
+        clf = joblib.load("/Users/spil3141/Desktop/siteX/detector/static/detector/externals/Trained_Model.sav")
     elif (platform.system() == "Linux"):
-        clf = joblib.load("/home/spil3141/Desktop/siteX/detector/static/detector/externals/Serialized_Perceptron_State.sav")
-    else:
-        clf = joblib.load("/home/spil3141/Desktop/siteX/detector/static/detector/externals/Serialized_Perceptron_State.sav")
-    #ppn = joblib.load("Desktop/siteX/detector/static/detector/externals/Serialized_Perceptron_State.sav")
+        clf = joblib.load("/home/spil3141/Desktop/siteX/detector/static/detector/externals/Trained_Model.sav")
+    """
+    clf = None
     def get_object(self):
         obj = super().get_object()
         #Converting img to numpy 1d array
@@ -43,8 +42,8 @@ class Success(DetailView):
         img = spil.from_img_to_1d(obj.image)
 
         #using the classifier to make prediction
-        if self.ppn:
-            self.prediction = str(self.ppn.Predict(img))
+        if self.clf:
+            self.prediction = str(self.clf.Predict(img))
         else:
             self.prediction = "failed to load"
 
