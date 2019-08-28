@@ -22,6 +22,9 @@ if(typeof G_vmlCanvasManager != 'undefined') {
 	canvas = G_vmlCanvasManager.initElement(canvas);
 }
 context = canvas.getContext("2d");
+// Set background Color
+context.fillStyle = 'rgb(0, 0, 0)';
+context.fillRect(0, 0, 150, 150);
 
 
 $('#canvas').mousedown(function(e){
