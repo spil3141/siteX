@@ -26,7 +26,7 @@ from sklearn.externals import joblib
 
 def Scale_with_loaded_sc(img_numpy_flatten_2d,model_path):
   loaded_scaler = joblib.load(model_path)
-  img_std = stdsc.transform(img)
+  img_std = loaded_scaler.transform(img_numpy_flatten_2d)
   return img_std
 
 def flatten_2d_to_4d(arr):

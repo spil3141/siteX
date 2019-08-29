@@ -8,7 +8,7 @@ from . import forms
 import numpy as np
 import joblib
 from . import DataPreprocessing
-# import tensorflow as tf
+import tensorflow as tf
 from django.views.generic import (CreateView,
                                   DetailView,
                                   ListView,
@@ -21,23 +21,22 @@ from django.views.generic import (CreateView,
 
 class Success(DetailView):
     model = models.Item
-    # loaded_model = None
+    loaded_model = None
     # Assigning Absolute path based on OS
-    # if (platform.system() == "Darwin"):
-    #     loaded_model_path = joblib.load("/Users/spil3141/Desktop/siteX/detector/static/detector/externals/Trained_Model.sav")
-    # elif (platform.system() == "Linux"):
-    #     loaded_model_path = "/home/spil3141/Desktop/siteX/detector/static/detector/externals/MNIST_Model_10EPOCHS.h5"
-    #     weights_path = "/home/spil3141/Desktop/siteX/detector/static/detector/externals/cnn_checkpoint.h5"
-    #     sc_path = "/home/spil3141/Desktop/siteX/detector/static/detector/externals/Scaler_Model.sav"
-        # #Restoring Model
-        # loaded_model = tf.keras.models.load_model(loaded_model_path)
-        # loaded_model.load_weights(weights_path)
-        # loaded_stdsc = DataPreprocessing.Scale_with_loaded_sc(sc_path)
-    # else:
-        # loaded_model_path = "C:/Users/spil3141/Desktop/siteX/detector/static/detector/externals/MNIST_Model_10EPOCHS.h5"
-        # weights_path = "C:/Users/spil3141/Desktop/siteX/detector/static/detector/externals/cnn_checkpoint.h5"
-        # sc_path = "C:/Users/spil3141/Desktop/siteX/detector/static/detector/externals/Scaler_Model.sav"
-        # pass
+    if (platform.system() == "Linux"):
+        loaded_model_path = "/home/spil3141/Desktop/siteX/detector/static/detector/externals/MNIST_Model_10EPOCHS.h5"
+        weights_path = "/home/spil3141/Desktop/siteX/detector/static/detector/externals/cnn_checkpoint.h5"
+        sc_path = "/home/spil3141/Desktop/siteX/detector/static/detector/externals/Scaler_Model.sav"
+        #Restoring Model
+        loaded_model = tf.keras.models.load_model(loaded_model_path)
+        loaded_model.load_weights(weights_path)
+    else:
+        loaded_model_path = "F:/siteX/detector/static/detector/externals/MNIST_Model_10EPOCHS.h5"
+        weights_path = "F:/siteX/detector/static/detector/externals/cnn_checkpoint.h5"
+        sc_path = "F:/siteX/detector/static/detector/externals/Scaler_Model.sav"
+        #Restoring Model
+        loaded_model = tf.keras.models.load_model(loaded_model_path)
+        loaded_model.load_weights(weights_path)
 
 
     def get_object(self):
@@ -49,14 +48,17 @@ class Success(DetailView):
         if self.loaded_model != None:
             img_std = DataPreprocessing.flatten_2d_to_4d(DataPreprocessing.Scale_with_loaded_sc(DataPreprocessing.img_2_flatten_2d(obj.image),self.sc_path))
             self.prediction = str(np.argmax(self.loaded_model.predict(img_std),axis = 1))
+            self.probability = str("%.3f Percent" % (np.amax(self.loaded_model.predict(img_std)) * 100))
         else:
-            self.prediction = "failed to load"
+            self.prediction = "Error"
+            self.probability = "Error"
 
         return obj
 
     def get_context_data(self,**kwargs):
         context = super().get_context_data(**kwargs)
         context["prediction"] = self.prediction
+        context["probability"] = self.probability
         return context
 
 
