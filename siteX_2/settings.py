@@ -26,8 +26,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     "spil3141.pythonanywhere.com",
-    "127.0.0.1",
-    "192.168.31.168",
+    "192.168.31.233",
 ]
 
 
