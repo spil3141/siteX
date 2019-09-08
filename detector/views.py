@@ -41,7 +41,7 @@ class Success(DetailView):
 
     def get_object(self):
         obj = super().get_object()
-        #Converting img to numpy 1d array
+     #Converting img to numpy 1d array
         # img = spil.img_2_1d_arr(obj.image) -> Returns the path to the image of focus
 
         #using the classifier to make prediction
@@ -52,7 +52,6 @@ class Success(DetailView):
         else:
             self.prediction = "Error"
             self.probability = "Error"
-
         return obj
 
     def get_context_data(self,**kwargs):

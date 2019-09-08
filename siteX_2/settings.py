@@ -25,8 +25,7 @@ SECRET_KEY = 'pxwmums3#gt3isv-bdg)6f=ai36e58(njv#fm)vd*nhs4yzh(%'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    "spil3141.pythonanywhere.com",
-    "192.168.31.233",
+    "sitex.iptime.org",
 ]
 
 
