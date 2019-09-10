@@ -1,5 +1,4 @@
 import tensorflow as tf
-print("Done importing tf")
 from django.shortcuts import render,redirect,get_object_or_404
 from django.http import HttpResponse
 from django.urls import reverse
@@ -36,7 +35,7 @@ class Success(DetailView):
                      optimizer = "adam",
                      metrics = ["acc"])
     else:
-        loaded_model_path = "C:/Users/Changun/Desktop/spil's stuff/Projects/siteX/detector/static/detector/externals/Saved_Model_20190910-124505Saved_Model_20190910-124505"
+        loaded_model_path = "C:/Users/Changun/Desktop/spil's stuff/Projects/siteX/detector/static/detector/externals/Saved_Model_20190910-124505"
         # weights_path = "C:/Users/Changun/Desktop/spil's stuff/Projects/siteX/detector/static/detector/externals/cnn_checkpoint.h5"
         sc_path = "C:/Users/Changun/Desktop/spil's stuff/Projects/siteX/detector/static/detector/externals/Scaler_Model.sav"
         #Restoring Model
@@ -55,7 +54,7 @@ class Success(DetailView):
         if self.loaded_model != None:
             img_std = DataPreprocessing.flatten_2d_to_4d(DataPreprocessing.Scale_with_loaded_sc(DataPreprocessing.img_2_flatten_2d(obj.image),self.sc_path))
             self.prediction = str(np.argmax(self.loaded_model.predict(img_std),axis = 1))
-            self.probability = str("%.3f Percent" % (np.amax(self.loaded_model.predict(img_std)) * 100))
+            self.probability = "Error"
         else:
             self.prediction = "Error"
             self.probability = "Error"
