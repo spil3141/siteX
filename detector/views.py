@@ -35,7 +35,7 @@ class Success(DetailView):
                      optimizer = "adam",
                      metrics = ["acc"])
     else:
-        loaded_model_path = "C:/Users/Changun/Desktop/spil's stuff/Projects/siteX/detector/static/detector/externals/Saved_Model_20190910-124505"
+        loaded_model_path = "C:/Users/Changun/Desktop/spil's stuff/Projects/siteX/detector/static/detector/externals/Saved_Model.h5"
         # weights_path = "C:/Users/Changun/Desktop/spil's stuff/Projects/siteX/detector/static/detector/externals/cnn_checkpoint.h5"
         sc_path = "C:/Users/Changun/Desktop/spil's stuff/Projects/siteX/detector/static/detector/externals/Scaler_Model.sav"
         #Restoring Model
