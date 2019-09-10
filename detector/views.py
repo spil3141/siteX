@@ -52,13 +52,17 @@ class Success(DetailView):
 
         #using the classifier to make prediction
         if self.loaded_model != None:
-            img_std = DataPreprocessing.flatten_2d_to_4d(DataPreprocessing.Scale_with_loaded_sc(DataPreprocessing.img_2_flatten_2d(obj.image),self.sc_path))
-            # self.prediction = str(np.argmax(self.loaded_model.predict(img_std),axis = 1))
-            # self.probability = str("%.3f Percent" % (np.amax(self.loaded_model.predict(img_std)) * 100))
-            self.prediction = str(img_std.shape)
-            self.probability = "Error"
-            self.loaded_model.summary()
-            print(self.loaded_model.predict_classes(img_std.reshape((1,28,28,1))))
+            try:
+                img_std = DataPreprocessing.flatten_2d_to_4d(DataPreprocessing.Scale_with_loaded_sc(DataPreprocessing.img_2_flatten_2d(obj.image),self.sc_path))
+                # self.prediction = str(np.argmax(self.loaded_model.predict(img_std),axis = 1))
+                # self.probability = str("%.3f Percent" % (np.amax(self.loaded_model.predict(img_std)) * 100))
+                self.prediction = str(img_std.shape)
+                self.probability = "Error"
+                self.loaded_model.summary()
+                print(self.loaded_model.predict_classes(img_std.reshape((1,28,28,1))))
+            except:
+                self.prediction = "Error"
+                self.probability = "Error"
         else:
             self.prediction = "Error"
             self.probability = "Error"
