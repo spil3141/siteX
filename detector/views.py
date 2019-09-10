@@ -28,12 +28,12 @@ class Success(DetailView):
         # weights_path = "/home/spil3141/Desktop/siteX/detector/static/detector/externals/cnn_checkpoint.h5"
         sc_path = "/home/spil3141/siteX/detector/static/detector/externals/Scaler_Model.sav"
         #Restoring Model
-        # loaded_model = tf.keras.models.load_model(loaded_model_path)
-        # loaded_model.load_weights(weights_path)
-        loaded_model = tf.keras.experimental.load_from_saved_model(loaded_model_path)
-        loaded_model.compile(loss = "categorical_crossentropy",
-                     optimizer = "adam",
-                     metrics = ["acc"])
+        loaded_model = tf.keras.models.load_model(loaded_model_path)
+        # # loaded_model.load_weights(weights_path)
+        # loaded_model = tf.keras.experimental.load_from_saved_model(loaded_model_path)
+        # loaded_model.compile(loss = "categorical_crossentropy",
+        #              optimizer = "adam",
+        #              metrics = ["acc"])
     else:
         loaded_model_path = "C:/Users/Changun/Desktop/spil's stuff/Projects/siteX/detector/static/detector/externals/Saved_Model.h5"
         # weights_path = "C:/Users/Changun/Desktop/spil's stuff/Projects/siteX/detector/static/detector/externals/cnn_checkpoint.h5"
