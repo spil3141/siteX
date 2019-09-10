@@ -24,7 +24,7 @@ class Success(DetailView):
     loaded_model = None
     # Assigning Absolute path based on OS
     if (platform.system() == "Linux"):
-        loaded_model_path = "/home/spil3141/siteX/detector/static/detector/externals/Saved_Model_20190910-124505"
+        loaded_model_path = "/home/spil3141/siteX/detector/static/detector/externals/Saved_Model.h5"
         # weights_path = "/home/spil3141/Desktop/siteX/detector/static/detector/externals/cnn_checkpoint.h5"
         sc_path = "/home/spil3141/siteX/detector/static/detector/externals/Scaler_Model.sav"
         #Restoring Model
