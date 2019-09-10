@@ -1,3 +1,5 @@
+import tensorflow as tf
+print("Done importing tf")
 from django.shortcuts import render,redirect,get_object_or_404
 from django.http import HttpResponse
 from django.urls import reverse
@@ -8,7 +10,6 @@ from . import forms
 import numpy as np
 import joblib
 from . import DataPreprocessing
-import tensorflow as tf
 from django.views.generic import (CreateView,
                                   DetailView,
                                   ListView,
@@ -24,24 +25,30 @@ class Success(DetailView):
     loaded_model = None
     # Assigning Absolute path based on OS
     if (platform.system() == "Linux"):
-        loaded_model_path = "/home/spil3141/Desktop/siteX/detector/static/detector/externals/MNIST_Model_10EPOCHS.h5"
-        weights_path = "/home/spil3141/Desktop/siteX/detector/static/detector/externals/cnn_checkpoint.h5"
+        loaded_model_path = "/home/spil3141/Desktop/siteX/detector/static/detector/externals/Saved_Model_20190910-124505"
+        # weights_path = "/home/spil3141/Desktop/siteX/detector/static/detector/externals/cnn_checkpoint.h5"
         sc_path = "/home/spil3141/Desktop/siteX/detector/static/detector/externals/Scaler_Model.sav"
         #Restoring Model
-        loaded_model = tf.keras.models.load_model(loaded_model_path)
-        loaded_model.load_weights(weights_path)
+        # loaded_model = tf.keras.models.load_model(loaded_model_path)
+        # loaded_model.load_weights(weights_path)
+        loaded_model = tf.keras.experimental.load_from_saved_model(loaded_model_path)
+        loaded_model.compile(loss = "categorical_crossentropy",
+                     optimizer = "adam",
+                     metrics = ["acc"])
     else:
-        loaded_model_path = "F:/siteX/detector/static/detector/externals/MNIST_Model_10EPOCHS.h5"
-        weights_path = "F:/siteX/detector/static/detector/externals/cnn_checkpoint.h5"
-        sc_path = "F:/siteX/detector/static/detector/externals/Scaler_Model.sav"
+        loaded_model_path = "C:/Users/Changun/Desktop/spil's stuff/Projects/siteX/detector/static/detector/externals/Saved_Model_20190910-124505Saved_Model_20190910-124505"
+        # weights_path = "C:/Users/Changun/Desktop/spil's stuff/Projects/siteX/detector/static/detector/externals/cnn_checkpoint.h5"
+        sc_path = "C:/Users/Changun/Desktop/spil's stuff/Projects/siteX/detector/static/detector/externals/Scaler_Model.sav"
         #Restoring Model
-        loaded_model = tf.keras.models.load_model(loaded_model_path)
-        loaded_model.load_weights(weights_path)
-
-
+        # loaded_model = tf.keras.models.load_model(loaded_model_path)
+        # loaded_model.load_weights(weights_path)
+        loaded_model = tf.keras.experimental.load_from_saved_model(loaded_model_path)
+        loaded_model.compile(loss = "categorical_crossentropy",
+                     optimizer = "adam",
+                     metrics = ["acc"])
     def get_object(self):
         obj = super().get_object()
-     #Converting img to numpy 1d array
+        #Converting img to numpy 1d array
         # img = spil.img_2_1d_arr(obj.image) -> Returns the path to the image of focus
 
         #using the classifier to make prediction
