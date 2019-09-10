@@ -57,7 +57,7 @@ class Success(DetailView):
             # self.probability = str("%.3f Percent" % (np.amax(self.loaded_model.predict(img_std)) * 100))
             self.prediction = str(img_std.shape)
             self.probability = "Error"
-            self.loaded_model.summary()
+            print(self.loaded_model.predict(img_std))
         else:
             self.prediction = "Error"
             self.probability = "Error"
