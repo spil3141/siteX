@@ -17,9 +17,6 @@ def preprocess(img_path,scaler_model_path):
     img = PIL.ImageOps.invert(img.convert('L'))
     sample = np.asarray(img)
     del img
-    # plt.imshow(sample)
-    # plt.show()
-    sample = sample[:,:,1]
     sample = sample.reshape((1,-1))
     sample = loaded_scaler_model.transform(sample)
     sample = sample.reshape((-1,28,28,1))
