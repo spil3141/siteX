@@ -4,6 +4,7 @@ import numpy as np
 # import matplotlib.pyplot as plt
 import joblib
 from PIL import Image
+import PIL.ImageOps
 # import cv2
 
 #Directory to Udemy Course Template file
@@ -13,6 +14,7 @@ def preprocess(img_path,scaler_model_path):
     img = Image.open(img_path)
     loaded_scaler_model = joblib.load(scaler_model_path)
     img = img.resize((28,28),Image.ANTIALIAS)
+    img = PIL.ImageOps.invert(img.convert('L'))
     sample = np.asarray(img)
     del img
     # plt.imshow(sample)
