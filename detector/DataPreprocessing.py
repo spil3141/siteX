@@ -1,7 +1,7 @@
 import PIL
 from PIL import Image
 import numpy as np
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 import joblib
 from PIL import Image
 # import cv2
@@ -15,8 +15,8 @@ def preprocess(img_path,scaler_model_path):
     img = img.resize((28,28),Image.ANTIALIAS)
     sample = np.asarray(img)
     del img
-    plt.imshow(sample)
-    plt.show()
+    # plt.imshow(sample)
+    # plt.show()
     sample = sample[:,:,1]
     sample = sample.reshape((1,-1))
     sample = loaded_scaler_model.transform(sample)
