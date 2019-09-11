@@ -1,36 +1,48 @@
-# -*- coding: utf-8 -*-
 import PIL
 from PIL import Image
-import numpy
 import numpy as np
-import pandas as pd
-import os
+import matplotlib.pyplot as plt
+import joblib
+from PIL import Image
 # import cv2
 
 #Directory to Udemy Course Template file
-BASE_DIR = "/Users/spil3141/Desktop/Machine Learning/Documentation/Machine Learning A-Z Template Folder"
+# BASE_DIR = "/Users/spil3141/Desktop/Machine Learning/Documentation/Machine Learning A-Z Template Folder"
 
-
-def img_2_flatten_2d(filename):
-  size = (28,28)
-  img = Image.open(filename)
-  img = img.resize(size,PIL.Image.ANTIALIAS)
-  img = np.asarray(img)
-  img = img[:,:,0]
-  img = img.reshape(-1)
-  img = img.reshape(-1,784)
-  return img
-
-from sklearn.externals import joblib
-
-def Scale_with_loaded_sc(img_numpy_flatten_2d,model_path):
-  loaded_scaler = joblib.load(model_path)
-  img_std = loaded_scaler.transform(img_numpy_flatten_2d)
-  return img_std
-
-def flatten_2d_to_4d(arr):
-  return arr.reshape((-1,28,28,1))
+def preprocess(img_path,scaler_model_path):
+    img = Image.open(img_path)
+    loaded_scaler_model = joblib.load(scaler_model_path)
+    img = img.resize((28,28),Image.ANTIALIAS)
+    sample = np.asarray(img)
+    del img
+    plt.imshow(sample)
+    plt.show()
+    sample = sample[:,:,1]
+    sample = sample.reshape((1,-1))
+    sample = loaded_scaler_model.transform(sample)
+    sample = sample.reshape((-1,28,28,1))
+    return sample
 #
+# def img_2_flatten_2d(filename):
+#   size = (28,28)
+#   img = Image.open(filename)
+#   img = img.resize(size,PIL.Image.ANTIALIAS)
+#   img = np.asarray(img)
+#   img = img[:,:,0]
+#   img = img.reshape(-1)
+#   img = img.reshape(-1,784)
+#   return img
+#
+# from sklearn.externals import joblib
+#
+# def Scale_with_loaded_sc(img_numpy_flatten_2d,model_path):
+#   loaded_scaler = joblib.load(model_path)
+#   img_std = loaded_scaler.transform(img_numpy_flatten_2d)
+#   return img_std
+#
+# def flatten_2d_to_4d(arr):
+#   return arr.reshape((-1,28,28,1))
+# #
 #
 # def from_img_to_1d(img):
 #     """from PIL import Image
