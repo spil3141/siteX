@@ -1,4 +1,3 @@
-import tensorflow as tf
 from django.shortcuts import render,redirect,get_object_or_404
 from django.http import HttpResponse
 from django.urls import reverse
@@ -7,65 +6,41 @@ import platform
 from . import models
 from . import forms
 import numpy as np
-import joblib
+import tensorflow as tf
 from . import DataPreprocessing
 from django.views.generic import (CreateView,
                                   DetailView,
                                   ListView,
                                   TemplateView
                                   )
-# /Users/spil3141/Desktop/siteX/detector/static/detector/externals/digits_model_full.sav
 
-# Desktop/siteX/detector/static/detector/externals/digits_model_full.sav
-
+def predi(img_path):
+    if (platform.system() == "Linux"):
+        loaded_model = tf.keras.models.load_model("/home/spil3141/siteX/detector/static/detector/externals/Saved_Model.h5")
+        scaler_model_path = "/home/spil3141/siteX/detector/static/detector/externals/Scaler_Model.sav"
+    elif platform.system() == "Windows":
+        loaded_model = tf.keras.models.load_model('C:/Users/spil3141/Desktop/siteX/detector/static/detector/externals/Saved_Model.h5')
+        scaler_model_path = "C:/Users/spil3141/Desktop/siteX/detector/static/detector/externals/Scaler_Model.sav"
+    sample = DataPreprocessing.preprocess(img_path,scaler_model_path)
+    prediction = str(loaded_model.predict_classes(sample))
+    return prediction, str("%.1f Percent" % (np.amax(loaded_model.predict(sample)) * 100))
 
 class Success(DetailView):
     model = models.Item
     loaded_model = None
     # Assigning Absolute path based on OS
-    if (platform.system() == "Linux"):
-        loaded_model_path = "/home/spil3141/siteX/detector/static/detector/externals/Saved_Model.h5"
-        # weights_path = "/home/spil3141/Desktop/siteX/detector/static/detector/externals/cnn_checkpoint.h5"
-        sc_path = "/home/spil3141/siteX/detector/static/detector/externals/Scaler_Model.sav"
-        #Restoring Model
-        loaded_model = tf.keras.models.load_model(loaded_model_path)
-        # # loaded_model.load_weights(weights_path)
-        # loaded_model = tf.keras.experimental.load_from_saved_model(loaded_model_path)
-        # loaded_model.compile(loss = "categorical_crossentropy",
-        #              optimizer = "adam",
-        #              metrics = ["acc"])
-    else:
-        loaded_model_path = "C:/Users/Changun/Desktop/spil's stuff/Projects/siteX/detector/static/detector/externals/Saved_Model.h5"
-        # weights_path = "C:/Users/Changun/Desktop/spil's stuff/Projects/siteX/detector/static/detector/externals/cnn_checkpoint.h5"
-        sc_path = "C:/Users/Changun/Desktop/spil's stuff/Projects/siteX/detector/static/detector/externals/Scaler_Model.sav"
-        #Restoring Model
-        loaded_model = tf.keras.models.load_model(loaded_model_path)
-        # loaded_model.load_weights(weights_path)
-        # loaded_model = tf.keras.experimental.load_from_saved_model(loaded_model_path)
-        # loaded_model.compile(loss = "categorical_crossentropy",
-        #              optimizer = "adam",
-        #              metrics = ["acc"])
-    def get_object(self):
-        obj = super().get_object()
-        #Converting img to numpy 1d array
-        # img = spil.img_2_1d_arr(obj.image) -> Returns the path to the image of focus
+    # if (platform.system() == "Linux"):
+    #     loaded_model = tf.keras.models.load_model("/home/spil3141/siteX/detector/static/detector/externals/Saved_Model.h5")
+    #     scaler_model_path = "/home/spil3141/siteX/detector/static/detector/externals/Scaler_Model.sav"
+    # elif platform.system() == "Windows":
+    #     new_model = tf.keras.models.load_model('C:/Users/spil3141/Desktop/Testing_TF/app/static/app/externals/Saved_Model.h5')
+    #     scaler_model_path = "C:/Users/spil3141/Desktop/Testing_TF/app/static/app/externals/Scaler_Model.sav"
+    #     img_path = "C:/Users/spil3141/Desktop/Testing_TF/app/static/app/images/img.png"
 
-        #using the classifier to make prediction
-        if self.loaded_model != None:
-            try:
-                img_std = DataPreprocessing.flatten_2d_to_4d(DataPreprocessing.Scale_with_loaded_sc(DataPreprocessing.img_2_flatten_2d(obj.image),self.sc_path))
-                # self.prediction = str(np.argmax(self.loaded_model.predict(img_std),axis = 1))
-                # self.probability = str("%.3f Percent" % (np.amax(self.loaded_model.predict(img_std)) * 100))
-                self.prediction = str(img_std.shape)
-                self.probability = "Error"
-                self.loaded_model.summary()
-                print(self.loaded_model.predict_classes(img_std.reshape((1,28,28,1))))
-            except:
-                self.prediction = "Error"
-                self.probability = "Error"
-        else:
-            self.prediction = "Error"
-            self.probability = "Error"
+
+    def get_object(self):
+        obj = super().get_object() #Converting img to numpy 1d array :  img_path == obj.image -> Returns the path to the image of focus
+        self.prediction, self.probability = predi(obj.image)
         return obj
 
     def get_context_data(self,**kwargs):
@@ -100,3 +75,21 @@ class Upload(CreateView):
     # else:
     #     form = forms.ItemForm()
     # return render(request,"detector/Upload.html",{"form":form,"success":success})
+# sample = DataPreprocessing.preprocess(self.img_path,self.scaler_model_path)
+# prediction = str(self.new_model.predict_classes(sample))
+#the classifier to make prediction
+# if self.loaded_model != None:
+#     self.prediction, self.probability = predi(obj.image)
+#     # img_std = DataPreprocessing.preprocess(obj.image,self.scaler_model_path)
+#     # self.probability = str("%.3f Percent" % (np.amax(self.loaded_model.predict(img_std)) * 100))
+#     # self.prediction = str(self.loaded_model.predict_classes(sample))
+#     # try:
+#     #     img_std = DataPreprocessing.preprocess(obj.image,scaler_model_path)
+#     #     self.probability = str("%.3f Percent" % (np.amax(self.loaded_model.predict(img_std)) * 100))
+#     #     self.prediction = str(self.loaded_model.predict_classes(sample))
+#     # except:
+#     #     self.prediction = "Error while preprocessing and predicting "
+#     #     self.probability = "Error while preprocessing and predicting "
+# else:
+#     self.prediction = Error
+#     self.probability = "Error"
