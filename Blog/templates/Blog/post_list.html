@@ -2,11 +2,9 @@
 
 {% block body_block %}
 <div class="container" align="center" style="width:600px;">
-  {% for post in post_list %}
+  {% for post in post_list reversed %}
     <div class="card">
-      <div class="card-header">
-        Post
-      </div>
+      <div class="card-header">Post</div>
       <div class="card-body">
         <h3 class="card-title"><a href="{% url 'Blog:Post_Detail_Page' pk=post.pk %}">{{post.title}}</a></h3>
         {% if post.published_date %}
