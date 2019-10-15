@@ -10,6 +10,7 @@ class Post(models.Model):
     text = models.TextField()
     create_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
+    stars = models.PositiveIntegerField(default = 0)
 
     def get_absolute_url(self):
         return reverse("Blog:Post_List_Page")
@@ -18,6 +19,10 @@ class Post(models.Model):
         self.published_date = timezone.now()
         self.save()
 
+    def post_like(self):
+        self.stars += 1
+        self.save()
+        
     def approved_comments(self):
         return self.comments.filter(approved_comment = True)
 

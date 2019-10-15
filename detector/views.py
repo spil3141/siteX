@@ -6,7 +6,7 @@ import platform
 from . import models
 from . import forms
 import numpy as np
-import tensorflow as tf
+# import tensorflow as tf
 from . import DataPreprocessing
 from django.views.generic import (CreateView,
                                   DetailView,
@@ -14,16 +14,16 @@ from django.views.generic import (CreateView,
                                   TemplateView
                                   )
 
-def predi(img_path):
-    if (platform.system() == "Linux"):
-        loaded_model = tf.keras.models.load_model("/home/spil3141/siteX/detector/static/detector/externals/Saved_Model.h5")
-        scaler_model_path = "/home/spil3141/siteX/detector/static/detector/externals/Scaler_Model.sav"
-    elif platform.system() == "Windows":
-        loaded_model = tf.keras.models.load_model('C:/Users/spil3141/Desktop/siteX/detector/static/detector/externals/Saved_Model.h5')
-        scaler_model_path = "C:/Users/spil3141/Desktop/siteX/detector/static/detector/externals/Scaler_Model.sav"
-    sample = DataPreprocessing.preprocess(img_path,scaler_model_path)
-    prediction = str(loaded_model.predict_classes(sample))
-    return prediction, str("%.1f Percent" % (np.amax(loaded_model.predict(sample)) * 100))
+# def predi(img_path):
+#     if (platform.system() == "Linux"):
+#         loaded_model = tf.keras.models.load_model("/home/spil3141/siteX/detector/static/detector/externals/Saved_Model.h5")
+#         scaler_model_path = "/home/spil3141/siteX/detector/static/detector/externals/Scaler_Model.sav"
+#     elif platform.system() == "Windows":
+#         loaded_model = tf.keras.models.load_model('C:/Users/spil3141/Desktop/siteX/detector/static/detector/externals/Saved_Model.h5')
+#         scaler_model_path = "C:/Users/spil3141/Desktop/siteX/detector/static/detector/externals/Scaler_Model.sav"
+#     sample = DataPreprocessing.preprocess(img_path,scaler_model_path)
+#     prediction = str(loaded_model.predict_classes(sample))
+#     return prediction, str("%.1f Percent" % (np.amax(loaded_model.predict(sample)) * 100))
 
 class Success(DetailView):
     model = models.Item
@@ -40,7 +40,8 @@ class Success(DetailView):
 
     def get_object(self):
         obj = super().get_object() #Converting img to numpy 1d array :  img_path == obj.image -> Returns the path to the image of focus
-        self.prediction, self.probability = predi(obj.image)
+        # self.prediction, self.probability = predi(obj.image)
+        self.prediction, self.probability = "Error","Error"
         return obj
 
     def get_context_data(self,**kwargs):

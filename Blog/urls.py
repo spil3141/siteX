@@ -18,4 +18,5 @@ urlpatterns = [
     url(r"^comment/(?P<pk>\d+)/delete/$",views.Comment_Remove,name="Comment_Delete_Page"),
     url(r"^post/(?P<pk>\d+)/publish/$",views.Post_Publish, name="Post_Publish_Page"),
     url(r"^accounts/profile/$", views.PostListView.as_view(),name = "Post_List_Page"),
+    url(r"^post/(?P<pk>\d+)/like/$",views.Post_Like,name="Like_Post"),
 ]

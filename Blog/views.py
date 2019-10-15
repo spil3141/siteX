@@ -97,6 +97,11 @@ def app_comment_to_post(request,pk):
         form = Comment_Form()
     return render(request,"Blog/comment_create.html",{"form":form})
 
+@login_required
+def Post_Like(request,pk):
+    post = get_object_or_404(Post,pk = pk)
+    post.post_like()
+    return redirect("Blog:Post_Detail_Page",pk=post.pk)
 
 @login_required
 def Comment_Approve(request,pk):

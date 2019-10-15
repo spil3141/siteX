@@ -1,17 +1,48 @@
 {% extends "Blog/base.html" %}
-
+{% load static %}
 {% block body_block %}
-<div class="container" align="center" style="width:600px;">
+<link rel="stylesheet" href="{% static 'Blog/CSS/Plot_ListView_CSS.css'%}">
+<div align="left">
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link active" href="{% url 'Blog:Main_Page'%}">All</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">coming soon</a>
+    </li>
+  </ul>
   {% for post in post_list reversed %}
-    <div class="card">
-      <div class="card-header">Post</div>
+  <div>
+    <br>
+    <div class="row">
+      <div class="col-1">
+        <img style= "border-radius:50%" width="32" height="32" src="https://blogpfthumb-phinf.pstatic.net/20160712_146/vkeo3136_1468308216863VN7OQ_JPEG/1.JPG?type=s1" alt="...">
+      </div>
+      <div class="col-10 ">
+        <div class="row">
+          <span>@{{post.author}}</span>
+        </div>
+        <div class="row">
+          <span>Published On: {{post.published_date|date:"D M Y"}}</span>
+        </div>
+      </div>
+    </div>
+    <h3><a href="{% url 'Blog:Post_Detail_Page' pk=post.pk %}">{{post.title}}</a></h3>
+    <br>
+    <span>Likes: {{post.stars}}</span>
+    <span> Comments:{{ post.approved_comments.count}}</span>
+    <hr>
+  </div>
+    <div>
+
+      <!-- <div class="card-header">by @{{ post.author }}</div>
       <div class="card-body">
         <h3 class="card-title"><a href="{% url 'Blog:Post_Detail_Page' pk=post.pk %}">{{post.title}}</a></h3>
         {% if post.published_date %}
         <p class="card-text" >Published On: {{post.published_date|date:"D M Y"}}</p>
         {% endif%}
         <a class="btn btn-primary" href="{% url 'Blog:Post_Detail_Page' pk=post.pk %}">Comments: {{ post.approved_comments.count}}</a>
-      </div>
+      </div> -->
     </div>
   {% empty %}
       No Posts
