@@ -7,6 +7,7 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse,reverse_lazy
 from django.contrib.auth.decorators import login_required
 from django.views.generic import CreateView
+from django.views import generic
 
 def Index(request):
     return render (request,"stage/index.html")
@@ -24,9 +25,14 @@ def Donate(request):
     return render(request,"stage/Donate.html")
 
 class UserCreateView(CreateView):
-    form_class = forms.User_Form
+    # form_class = forms.User_Form
+    form_class = forms.UserCreateForm
     success_url = reverse_lazy("stage:Main_Page")
     template_name = "registration/register.html"
+
+# class Profile(generic.DetailView):
+#     model = models.User_Profile
+#     template_name = "user_profile_detail.html"
 
 # def Signup(request):
 #     return render(request,"registration/register.html")

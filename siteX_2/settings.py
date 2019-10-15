@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     "helper",
 ]
 
+# AUTH_USER_MODEL = "stage.User_Profile"
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
