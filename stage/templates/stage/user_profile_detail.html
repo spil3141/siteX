@@ -14,6 +14,22 @@
                   <span>No Picture</span>
                 {% endif %}
               {% endfor%}
+              {% for i in object %}
+              <div class="row">
+                  <h1>{{i.username}}</h1>
+              </div>
+              <br>
+              <div class="row">
+                <p>{{i.about}}</p>
+              </div>
+              <div class="row">
+                <a href="#">{{ i.email}}</a>
+              </div>
+              {% endfor%}
+              <br>
+              <div class="row">
+                <a class="btn btn-secondary" href="#">Edit Profile</a>
+              </div>
             </div>
             <div class="col-8">
               <ul class="nav nav-tabs">
@@ -26,7 +42,7 @@
               </ul>
               <br>
               <form class="" action="#" method="GET">
-                <input name="q" placeholder="Search.." type="text" class="form-control" aria-label="Text input with segmented dropdown button">
+                <input name="q" value = "{{request.GET.q}}" placeholder="Search.." type="text" class="form-control" aria-label="Text input with segmented dropdown button">
               </form>
               <hr>
               {% for i in posts %}
@@ -52,7 +68,7 @@
               {% endfor %}
             </div>
             <div class="col-10">
-              {% for i in object %}
+              <!-- {% for i in object %}
               <div class="row">
                   <h1>{{i.username}}</h1>
               </div>
@@ -67,7 +83,7 @@
               <br>
               <div class="row">
                 <a class="btn btn-secondary" href="#">Edit Profile</a>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>

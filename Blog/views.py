@@ -23,7 +23,13 @@ class PostListView(ListView):
     context_object_name = "post_list"
     model = Post
     def get_queryset(self):
-        return Post.objects.filter(published_date__isnull = False).order_by("create_date")
+        q = self.request.GET.get("q")
+        list_of_post_by_user = Post.objects.all()
+        if q:
+            return list_of_post_by_user.filter(title__icontains=q)
+        else:
+            return list_of_post_by_user
+        # return Post.objects.filter(published_date__isnull = False).order_by("create_date")
 
     # def get_context_data(self,**kwargs):
     #     context = super().get_context_data(**kwargs)

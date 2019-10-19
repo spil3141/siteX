@@ -94,8 +94,13 @@ class Profile(generic.TemplateView):
         # print(self.request.user)
         context = super().get_context_data(**kwargs)
         selected_user_object = from_accounts.User.objects.all().filter(pk=self.kwargs.get("pk")) # .filter(username=self.request.user)
+        list_of_post_by_user = from_Blog.Post.objects.all().filter(author=selected_user_object[0])
+        q = self.request.GET.get("q")
+        if q:
+            context["posts"] =list_of_post_by_user.filter(title__icontains=q)
+        else:
+            context["posts"] = list_of_post_by_user
         context["object"] = selected_user_object
-        context["posts"] = from_Blog.Post.objects.all().filter(author=selected_user_object[0])
         return context
 
 

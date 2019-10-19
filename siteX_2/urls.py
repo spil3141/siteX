@@ -24,7 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("",include("stage.urls")),
     path("Blog/",include("Blog.urls")),
-    # url(r"login/$",login,name="Login_Page"),
+    path("forum/",include("forum.urls")),
     path("Detector/",include("detector.urls")),
     path("KWMH/",include("helper.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

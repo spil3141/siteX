@@ -9,9 +9,14 @@
       <a class="nav-link active" href="{% url 'Blog:Post_List_Page'%}">All</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">coming soon</a>
+      <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">...</a>
     </li>
   </ul>
+  <br>
+  <form class="" action="#" method="GET">
+    <input name="q" value = "{{request.GET.q}}" placeholder="Search.." type="text" class="form-control" aria-label="Text input with segmented dropdown button">
+  </form>
+  <hr>
   {% for post in post_list reversed %}
   <div>
     <br>

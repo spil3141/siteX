@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+      <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Externals -->
+      <!-- Medium style editor  -->
+    <script src="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/js/medium-editor.min.js"></script>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/css/medium-editor.min.css" type="text/css" media="screen" charset="utf-8">
+
+    <!-- Title of Site -->
+    <title>Forum</title>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img src="data:image/png;base64,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" width="30" height="30" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <!-- <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a> -->
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    {% block body%}
+      Replace me
+    {% endblock %}
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
