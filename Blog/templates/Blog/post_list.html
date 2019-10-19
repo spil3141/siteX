@@ -25,7 +25,11 @@
       </div>
       <div class="col-10 ">
         <div class="row">
+          {% if user.is_authenticated %}
           <span><a href="{% url 'stage:Profile' pk=post.author.pk%}">{{post.author}}</a></span>
+          {% else %}
+          <span>{{post.author}}</span>
+          {% endif %}
         </div>
         <div class="row">
           <span>Published On: {{post.published_date|date:"D M Y"}}</span>
