@@ -18,7 +18,7 @@
     <div class="row">
       <div class="col-1">
         {% if post.author.photo %}
-        <img style= "border-radius:50%" width="32" height="32" src="{{post.author.photo.url}}" alt="...">
+        <img class="img-fluid rounded-circle " src="{{post.author.photo.url}}" alt="...">
         {% else %}
           <span>No Picture</span>
         {% endif %}
