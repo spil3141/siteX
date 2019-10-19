@@ -1,8 +1,79 @@
 {% extends "Blog/base.html" %}
-{% load url %}
 {% load static %}
-
 {% block body_block %}
-<h1>Profile</h1>
+<hr>
+<div class="">
+    <div class="row justify-content-start">
+        <div class="col-10">
+          <div style="margin-left:10em;" class="row">
+            <div  class="col-4">
+              {% for i in object|slice:":1" %}
+                {% if i.photo %}
+                  <img class="img-fluid mx-auto d-block" style= "border-radius:10%; " src="{{i.photo.url}}"  alt="Error">
+                {% else %}
+                  <span>No Picture</span>
+                {% endif %}
+              {% endfor%}
+            </div>
+            <div class="col-8">
+              <ul class="nav nav-tabs">
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Overview</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="#">Posts</a>
+                </li>
+              </ul>
+              <br>
+              <form class="" action="#" method="GET">
+                <input name="q" placeholder="Search.." type="text" class="form-control" aria-label="Text input with segmented dropdown button">
+              </form>
+              <hr>
+              {% for i in posts %}
+              <div class="">
+                <h3><a href="{% url 'Blog:Post_Detail_Page' pk=i.pk %}">{{i.title}}</a></h3>
+                <span>Star {{i.star}}</span>
+                &nbsp
+                &nbsp
+                <span>Comments {{ i.approved_comments.count}}</span>
+              </div>
+              <!-- <div class="row" content_align>
+                <div class="col-10 d-flex align-content-center flex-wrap">
 
-{% blockend%}
+                </div>
+                <div class="col-2 d-flex align-content-end flex-wrap"> -->
+                  <!-- <button type="button" class="btn btn-outline-success">Success</button> -->
+                  <!-- <button type="button" class="btn btn-warning">
+                    Stars <span class="badge badge-light disabled">{{i.star}}</span>
+                  </button>
+                </div>
+              </div> -->
+              <hr>
+              {% endfor %}
+            </div>
+            <div class="col-10">
+              {% for i in object %}
+              <div class="row">
+                  <h1>{{i.username}}</h1>
+              </div>
+              <br>
+              <div class="row">
+                <p>{{i.about}}</p>
+              </div>
+              <div class="row">
+                <a href="#">{{ i.email}}</a>
+              </div>
+              {% endfor%}
+              <br>
+              <div class="row">
+                <a class="btn btn-secondary" href="#">Edit Profile</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+        </div>
+  </div>
+</div>
+
+{% endblock %}

@@ -40,13 +40,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "bootstrap3",
+    "accounts",
     "Blog",
     "stage",
     "detector",
     "helper",
 ]
 
-# AUTH_USER_MODEL = "stage.User_Profile"
+AUTH_USER_MODEL = "accounts.User"
+# LOGOUT_REDIRECT_URL = '/'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

@@ -1,0 +1,444 @@
+[
+{
+    "model": "accounts.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$150000$wMYAg2JsWV65$pg0J5KjzwkA9AFLmz0d71gW+bGDvjdqFdEDNarEnUsg=",
+        "username": "root",
+        "first_name": "",
+        "last_name": "",
+        "date_joined": "2018-12-28T06:19:32.085Z",
+        "email": "root@naver.com",
+        "last_login": "2019-10-17T08:57:03.025Z",
+        "active": true,
+        "staff": true,
+        "admin": true
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 2,
+    "fields": {
+        "password": "pbkdf2_sha256$100000$gT1AEWVp1oYw$j9beOuoOp9XAvycIR21mGGlEg0J1WmXT/G1KyHhOkDQ=",
+        "username": "spil3141",
+        "first_name": "",
+        "last_name": "",
+        "date_joined": "2019-01-14T06:59:14.239Z",
+        "email": "abs@naver.com",
+        "last_login": "2019-10-14T15:15:34.522Z",
+        "active": true,
+        "staff": false,
+        "admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 3,
+    "fields": {
+        "password": "pbkdf2_sha256$100000$p2sgBPsVjjbo$27QnQgnG2D7yguyAAVRFcRBtMHEYxbg/CWO8i5vfN7A=",
+        "username": "yedarl27",
+        "first_name": "",
+        "last_name": "",
+        "date_joined": "2019-01-14T14:56:39.314Z",
+        "email": "aaa@naver.com",
+        "last_login": "2019-06-21T12:32:22.840Z",
+        "active": true,
+        "staff": false,
+        "admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 5,
+    "fields": {
+        "password": "pbkdf2_sha256$100000$ej1lHVIK55ul$6uu6IBWXkUwtQIYKQYh21PAalCyv1l0LVnh/BuYA6JY=",
+        "username": "yehee3141",
+        "first_name": "",
+        "last_name": "",
+        "date_joined": "2019-10-15T08:12:15.611Z",
+        "email": "zzz@naver.com",
+        "last_login": null,
+        "active": true,
+        "staff": false,
+        "admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 6,
+    "fields": {
+        "password": "pbkdf2_sha256$100000$hTgSnYa5ETue$4LTr011On5GQlPs0Pa8r7Rbmx4MUbhiw/JBcb0O1tEs=",
+        "username": "himan12",
+        "first_name": "",
+        "last_name": "",
+        "date_joined": "2019-10-15T08:20:33.987Z",
+        "email": "ttt@naver.com",
+        "last_login": null,
+        "active": true,
+        "staff": false,
+        "admin": false
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 7,
+    "fields": {
+        "password": "test3141",
+        "username": "test3141",
+        "first_name": "",
+        "last_name": "",
+        "date_joined": "2019-10-15T09:03:10Z",
+        "email": "sdfsdfd@naver.com",
+        "last_login": null,
+        "active": true,
+        "staff": false,
+        "admin": false
+    }
+},
+{
+    "model": "Blog.post",
+    "pk": 2,
+    "fields": {
+        "author": 1,
+        "title": "Machine Learning explained by noob",
+        "text": "<h2><b style=\"color: inherit; font-family: inherit;\"><i>Machine Learning</i></b><br></h2><blockquote>Machine Learning is a sub-field of Artificial Intelligence. In general, a machine learning problem considers a set of n samples of data and then tries to predict properties of new unknown data. There are three main types of machine learning, plus hybrids of these three.</blockquote><p><b style=\"\">&nbsp; 1. Supervised Learning&nbsp;</b><b><br></b><b>&nbsp; 2. Unsupervised Learning</b><b><br></b><b>&nbsp; 3. Reinforcement Learning</b></p><h2>Supervised Learning</h2><blockquote>The main goal is for a model (piece of code/algorithm) to learn from labeled Training Data that allows it to make Predictions about unseen or future data. Here a set of samples where the desired output signals are already known.Supervised Learning enable mainly two tasks.</blockquote><blockquote>1. Classification<br>2. Regression</blockquote><h2>Unsupervised Learning</h2><blockquote>Unlike supervised learning, It involves creating a model that make generalization based on data that are not labeled by human thus \"Supervised\". Unsupervised Learning involves task like clustering of data. clustering is a task the machine learning softwares undergo by grouping objects into \"cluster\". These clustering algorithms fall into one of two methods:</blockquote><blockquote><br>1. Flat Clustering&nbsp;<br>2. Hierarchical Clustering&nbsp;</blockquote><blockquote><b><u>Flat Clustering:</u></b><br>- these algorithms divides the samples into a set of clusters without relating the clusters to each other.<br>- The goal is simply to come up with a partitioning such that all samples in one cluster are most similar to each other while being dissimilar from the samples in all other clusters.<br> - Many flat clustering algorithms require the number of clusters to be specified up front.<br> <u><b>Hierarchical Clustering:</b></u><br>- In hierarchical clustering, the number of cluster does not have to be specified. Instead, the hierarchical clustering creates a hierarchy of clusters.<br>- Similar samples are grouped into one cluster, similar clusters are again grouped into one huge-cluster and so on.<br> - This is done recursively until one cluster is left, which contains everything.<br>- This comes at the cost of lower efficientcy (grouping accuracy).&nbsp;&nbsp;</blockquote><p class=\"\"><span style=\"color: inherit; font-family: inherit; font-size: 30px;\">Reinforcement Learning</span></p><blockquote>...</blockquote><h2><br></h2><p><br></p>",
+        "create_date": "2018-12-28T08:31:24.910Z",
+        "published_date": "2018-12-28T08:31:31.951Z",
+        "stars": 0
+    }
+},
+{
+    "model": "Blog.post",
+    "pk": 4,
+    "fields": {
+        "author": 2,
+        "title": "List of Documents needed for Visa Change in south Korea",
+        "text": "<p>They are:&nbsp;</p><p>1. Application Form</p><p>2. Common Documents ( Copy of Passport, Copy of Alien Card )</p><p>3. Diploma of University Graduation</p><p>4. Proof of Accommodation</p>",
+        "create_date": "2019-01-15T12:00:36.013Z",
+        "published_date": "2019-01-15T12:00:42.282Z",
+        "stars": 0
+    }
+},
+{
+    "model": "Blog.post",
+    "pk": 5,
+    "fields": {
+        "author": 3,
+        "title": "Just thinking ....",
+        "text": "<p>Today has been a relatively good day. I woke up feeling weak and unable to leave the bed but after a stern self-talking to ,I was able to wake up my lazy butt \ud83d\ude1dand go to the bathroom... I carried on&nbsp; my regular morning wake up routine,and when I was done&nbsp; I went to omma house to prepare something to eat . As I did ,I felt odd and did not enjoy the process.&nbsp; Afterwards, I sat down to eat while watching Joyce Meyer sermon on the book of&nbsp; Galatians on YouTube. It was quite uplifting, I got the answer to a thought that have been nagging me .&nbsp;</p><p>I came to the realization that we should be lead by the Spirit through every thing we do . We will only end up not enjoying life if we become too legalized and religious with everything we do . Such things as doing 21 minutes prayer or 40 bows or reading for 30mins ...all these things are just routines we do to feel good about ourselves and if we end up unable to do it, we fall into guilt and self condemnation.&nbsp;</p><p>After learning this, I thought of daddy who's gonna come home later this evening hungry and if there's nothing prepared he'll end up eating rice n sardine with raw pepper.&nbsp; It was too sad to picture .\ud83d\ude41 He works so hard everyday to take care of me without once complaining eventhough sometimes I can be a spoil brat towards him \ud83d\ude0c. so i found the strength inward to take out some frozen chicken\ud83c\udf57 and prepare something for him .&nbsp;</p><p>I'm all done now and a bit tired plus my shoulder hurts . But I'm okay ...depression will not settle in today ..</p>",
+        "create_date": "2019-01-15T17:12:19.495Z",
+        "published_date": "2019-01-15T17:13:08.735Z",
+        "stars": 0
+    }
+},
+{
+    "model": "Blog.post",
+    "pk": 6,
+    "fields": {
+        "author": 2,
+        "title": "Bias, Variance and their trade-off",
+        "text": "<p>when trying to estimate a model the make generalization on a dataset. There are two things to keep in mind and they are : Bias and Variance.&nbsp;</p><p><u>Variance</u></p><p>Lets say we are trying to come up with a model that predicts price to sell a pen based on how long you are used it. usage(x) , price(y) , model (f).&nbsp;</p><p><br></p>",
+        "create_date": "2019-01-19T11:43:33.131Z",
+        "published_date": null,
+        "stars": 0
+    }
+},
+{
+    "model": "Blog.post",
+    "pk": 7,
+    "fields": {
+        "author": 2,
+        "title": "Jug",
+        "text": "<h3>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<b><u> What is jug ?&nbsp;</u></b></h3><blockquote>Jug is a python package. It is open source (using the liberal <a href=\"https://en.wikipedia.org/wiki/MIT_License\">MIT License</a>) and can be useful in many areas but was designed specifically around data analysis problems .</blockquote><h3>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<u>Basic Implementing jug in <a href=\"https://www.w3schools.com/python/\" style=\"\">python</a>:</u></h3><blockquote>Tasks are the basic building block of jug. A<b>&nbsp;\"Task\" is just a <a href=\"https://www.tutorialspoint.com/computer_programming/computer_programming_functions.htm\">function</a>&nbsp;and values for its arguments, for example (using the python programming language):</b><p><br></p></blockquote><blockquote><p>&nbsp; &nbsp; &nbsp; &nbsp; def double(x):</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return 2*x</p><p><br></p><p>Using jug we can build these \"tasks\" as follows:</p><p><br></p><p>&nbsp; &nbsp; &nbsp; from jug import Task</p><p>&nbsp; &nbsp; &nbsp; t1 =&nbsp; Task(double, 3)</p><p>&nbsp; &nbsp; &nbsp; t2 = Task(double, 654.34)</p><p>Then we save this code to a file called \"jugfile.py\" ( which is just a regular python file). Now, we can run the jug block by typing \"jug execute\" in a terminal.&nbsp;</p><p><br></p><p>when you run \"jug execute\" you will get some feedback saying \"two tasks named 'double' were run\".&nbsp;</p><h3>Note:&nbsp;</h3><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;when you execute a jug file it runs the code and \"memorize\" it in cache. This helps to optimize execution speed.&nbsp;</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;The cached content is store in a file named: \"jugfile.jugdata\".&nbsp;&nbsp;</p><p><br></p><p>&nbsp;</p></blockquote><span style=\"color: inherit; font-family: inherit; font-size: 24px;\">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <u>Intermediate Implementing jug in python:</u></span><div><p><span style=\"font-size: 24px;\"><br></span></p><blockquote>&nbsp; &nbsp; from jug import TaskGenerator<br>&nbsp; &nbsp; from time import sleep<br>&nbsp; &nbsp; @TaskGenerator<br>&nbsp; &nbsp; def double(x):<br>&nbsp; &nbsp; &nbsp; &nbsp; sleep(5)<br>&nbsp; &nbsp; &nbsp; &nbsp; return 2*x<br>&nbsp; &nbsp; @TaskGenerator<br>&nbsp; &nbsp; def add(a,b):<br>&nbsp; &nbsp; &nbsp; &nbsp; return a + b<br>&nbsp; &nbsp; @TaskGenerator<br>&nbsp; &nbsp; def print_final_result(outputfilename,value):<br>&nbsp; &nbsp; &nbsp; &nbsp; with open(outputfilename,\"w\") as fp:<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; fp.write(\"Final Result:\" + str(value))<br>&nbsp; &nbsp; y = double(2)<br>&nbsp; &nbsp; z = double(y)<br>&nbsp; &nbsp; y2 = double(2)<br>&nbsp; &nbsp; z2 = double(y2)<br>&nbsp; &nbsp; print_final_result(\"output.txt\",add(z,z2))</blockquote><blockquote><p>Except for the use of TaskGenerator, the preceding code is just a normal python code. However, using TaskGenerator, it actually creates a series of tasks and it is now possible to run it in a way that takes advantage of multiple processors.&nbsp;</p><p><br></p><p>Note:&nbsp;</p><p>&nbsp; &nbsp; behind the scenes, the <a href=\"https://wiki.python.org/moin/PythonDecorators#What_is_a_Decorator\">decorator</a>&nbsp;transforms your functions so that they do not actually execute but create a task. we also take advantage of the fact that we can pass tasks to other tasks and this results in a dependency being generated ( the task the was called with in the first task has to wait until the first task is completed before beginning its execution).&nbsp;</p></blockquote></div>",
+        "create_date": "2019-01-23T09:42:33.563Z",
+        "published_date": "2019-01-23T10:36:22.414Z",
+        "stars": 0
+    }
+},
+{
+    "model": "Blog.post",
+    "pk": 8,
+    "fields": {
+        "author": 2,
+        "title": "Path Toward Absolute Objective Truth",
+        "text": "<p>Science has tried to find absolute truth(objective truth) by observing and coming up with theory that can be evaluated through experimentation that can be replicated. if the theorem is validated the theory is acceptable as a proven work.</p><p>Now, is there a theoretical dissertation on proving or disproving God ? </p><p>\t- Theorem 1\u2026</p><p>&nbsp; &nbsp; \u25cb Author: <a href=\"https://en.wikipedia.org/wiki/Christopher_Langan\">Christopher Michael Langan</a></p><p>&nbsp; &nbsp; \u25cb Thesis Name: \"theory of the relationship between&nbsp;mind&nbsp;and&nbsp;reality\"</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;1. Which he calls: Cognitive-Theoretic Model of the Universe</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; \u25cb Link: </p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- <a href=\"http://ctmu.net/\">http://ctmu.net/</a></p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- <a href=\"http://hology.org/\">http://hology.org/</a></p><p>\t\t</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 2. Brief info: </p><blockquote>\t\t\tLangan has developed a \"theory of the relationship between&nbsp;mind&nbsp;and&nbsp;reality\" which he calls the \"Cognitive-Theoretic Model of the Universe\" (CTMU).Influenced by the works of&nbsp;John Archibald Wheeler&nbsp;and&nbsp;Stephen Hawking&nbsp;among others, the work's central thesis is that reality is a self-processing,&nbsp;self-referential&nbsp;language, embodying a&nbsp;dual aspect&nbsp;monism&nbsp;and consisting of \"infocognition\", or information that resides in \"syntactic&nbsp;operators\" within reality.</blockquote>",
+        "create_date": "2019-02-12T17:08:22.232Z",
+        "published_date": "2019-02-12T17:08:49.957Z",
+        "stars": 0
+    }
+},
+{
+    "model": "Blog.post",
+    "pk": 9,
+    "fields": {
+        "author": 2,
+        "title": "The Future: How it all ends.",
+        "text": "<p>There are questions that until now people have tried to answer but these questions are so hard that the great philosophers of our time can only theorize. One of these questions is \" How will the Universe end ?\". This is a story that will give you an insight on what happened in the beginning and what is to come at its end. </p><p>    The beginning, our universe started with an explosion that grow in size from the <a href=\"https://en.wikipedia.org/wiki/Quantum_realm\">quantum scale</a> to the size of a pencil tip in Nano seconds. Everything in existence, from your friends, family, favorite food, university, crush etc was created at that point in time. At the explosion, the expansion began and the universe started to grow in size. At this time, the four fundamental forces came in to effect. Gravity, weak and strong interactions, and Electromagnetism were created. Also present was hydrogen, the workings of how the energy from the Big-Bang transform into matter ( hydrogen ) will be explain in future episodes. But from hydrogen and the four fundamental forces, everything in existence formed through complex processes. </p><p>    The End, unlike our universe beginning with a massive but quantum explosion there is a theory that says it will end with something called the \"Big Freeze\" or \"Heat Death\". This is a possible scenario predicted to be the end of everything. This can be naively explain, due to something called \"<a href=\"https://www.google.com/search?q=dark+energy&amp;oq=dark+energy&amp;aqs=chrome..69i57.1582j0j4&amp;sourceid=chrome&amp;ie=UTF-8\">dark energy</a>\". the expansion of the universe seem to be increasing and at this rate billions of years from now when all the stars are too far apart and have dead there will be no more light. It will be a universe of darkness and without heat ,hence \"Heat Death\"</p><p>    In conclusion, these are just possible theories and we are talking about billions of years. At the rate of technological improvement and human natural instinct for survivor there is a high possibility for us to figure out a way to overcome those obstacles. :)&nbsp;</p>",
+        "create_date": "2019-09-24T02:49:12.183Z",
+        "published_date": "2019-09-24T02:49:21.463Z",
+        "stars": 2
+    }
+},
+{
+    "model": "Blog.post",
+    "pk": 10,
+    "fields": {
+        "author": 2,
+        "title": "My Understanding of the Divine Principle",
+        "text": "<p>hih&nbsp;</p>",
+        "create_date": "2019-10-01T10:56:05.296Z",
+        "published_date": null,
+        "stars": 0
+    }
+},
+{
+    "model": "Blog.comment",
+    "pk": 1,
+    "fields": {
+        "post": 2,
+        "author": "Yedarl",
+        "text": "Good piece but need more work \ud83d\ude00",
+        "created_date": "2018-12-28T15:34:11Z",
+        "approved_comment": true
+    }
+},
+{
+    "model": "Blog.comment",
+    "pk": 2,
+    "fields": {
+        "post": 2,
+        "author": "spil3141",
+        "text": "I have been a bit busy so i haven't implemented a lot of features. \r\nlike creating the template for creating a new user and allowing them to create posts. \r\nbut when i have time i will.",
+        "created_date": "2019-01-13T07:35:49Z",
+        "approved_comment": true
+    }
+},
+{
+    "model": "Blog.comment",
+    "pk": 3,
+    "fields": {
+        "post": 2,
+        "author": "spil3141",
+        "text": ";)",
+        "created_date": "2019-01-13T07:39:55.432Z",
+        "approved_comment": true
+    }
+},
+{
+    "model": "Blog.comment",
+    "pk": 4,
+    "fields": {
+        "post": 2,
+        "author": "spil3141",
+        "text": "I completed added thing new features. :)",
+        "created_date": "2019-01-14T14:00:07.154Z",
+        "approved_comment": true
+    }
+},
+{
+    "model": "Blog.comment",
+    "pk": 5,
+    "fields": {
+        "post": 2,
+        "author": "Yedarl",
+        "text": "Good work on fixing the login ! However the site seem less than before , did you remove some aspects ? \u2661",
+        "created_date": "2019-01-14T14:58:43Z",
+        "approved_comment": true
+    }
+},
+{
+    "model": "Blog.comment",
+    "pk": 6,
+    "fields": {
+        "post": 4,
+        "author": "Yedarl",
+        "text": "I see... correct me if I'm wrong, does this mean you have to wait till after your graduation, for your diploma, before you can submit your application?",
+        "created_date": "2019-01-15T16:51:54.476Z",
+        "approved_comment": true
+    }
+},
+{
+    "model": "Blog.comment",
+    "pk": 7,
+    "fields": {
+        "post": 4,
+        "author": "spil3141",
+        "text": "correct :)",
+        "created_date": "2019-01-16T14:12:37.536Z",
+        "approved_comment": true
+    }
+},
+{
+    "model": "Blog.comment",
+    "pk": 8,
+    "fields": {
+        "post": 5,
+        "author": "spil3141",
+        "text": "this should be something for your journal not the world kkkkk",
+        "created_date": "2019-01-16T14:16:13.142Z",
+        "approved_comment": true
+    }
+},
+{
+    "model": "Blog.comment",
+    "pk": 9,
+    "fields": {
+        "post": 5,
+        "author": "spil3141",
+        "text": "anyways it was enlightening.",
+        "created_date": "2019-01-16T14:17:28.733Z",
+        "approved_comment": true
+    }
+},
+{
+    "model": "Blog.comment",
+    "pk": 10,
+    "fields": {
+        "post": 4,
+        "author": "Yedarl",
+        "text": "Okay...Do you know the date of the graduation ceremony?",
+        "created_date": "2019-01-22T07:51:51.478Z",
+        "approved_comment": true
+    }
+},
+{
+    "model": "Blog.comment",
+    "pk": 13,
+    "fields": {
+        "post": 5,
+        "author": "Yedarl",
+        "text": "Lol ...yeah ,having just read it ,i agree with you ...\ud83d\ude46\u200d\u2640\ufe0f it was therapeutic though .",
+        "created_date": "2019-01-22T07:58:48.509Z",
+        "approved_comment": true
+    }
+},
+{
+    "model": "Blog.comment",
+    "pk": 14,
+    "fields": {
+        "post": 7,
+        "author": "Yedarl",
+        "text": "Way over my head but very well stated .",
+        "created_date": "2019-02-01T18:43:03.597Z",
+        "approved_comment": true
+    }
+},
+{
+    "model": "Blog.comment",
+    "pk": 15,
+    "fields": {
+        "post": 8,
+        "author": "Yedarl",
+        "text": "How does this explain God? I'm not getting it\ud83d\ude46\u200d\u2640\ufe0f",
+        "created_date": "2019-02-19T05:31:56.698Z",
+        "approved_comment": true
+    }
+},
+{
+    "model": "Blog.comment",
+    "pk": 16,
+    "fields": {
+        "post": 8,
+        "author": "spil3141",
+        "text": "Yeah, its complicated... thats the problem. \r\ni too i dont understand",
+        "created_date": "2019-09-24T10:13:00.268Z",
+        "approved_comment": true
+    }
+},
+{
+    "model": "helper.words_bank",
+    "pk": 1,
+    "fields": {
+        "kor_word": "\uacf5\uc9dc",
+        "eng_word": "free"
+    }
+},
+{
+    "model": "helper.words_bank",
+    "pk": 3,
+    "fields": {
+        "kor_word": "\ub098\ube44",
+        "eng_word": "Butterfly"
+    }
+},
+{
+    "model": "helper.words_bank",
+    "pk": 4,
+    "fields": {
+        "kor_word": "\uc5ec\uc790",
+        "eng_word": "Woman"
+    }
+},
+{
+    "model": "helper.words_bank",
+    "pk": 5,
+    "fields": {
+        "kor_word": "\ub0a8\uc790",
+        "eng_word": "Man"
+    }
+},
+{
+    "model": "helper.words_bank",
+    "pk": 6,
+    "fields": {
+        "kor_word": "\uc628\uc21c\ud558\ub2e4",
+        "eng_word": "gentle (meek,compliant)"
+    }
+},
+{
+    "model": "helper.words_bank",
+    "pk": 9,
+    "fields": {
+        "kor_word": "\ubc11\uc904",
+        "eng_word": "underline"
+    }
+},
+{
+    "model": "helper.words_bank",
+    "pk": 10,
+    "fields": {
+        "kor_word": "\uac10\uc18c\ud558\ub2e4",
+        "eng_word": "to decrease"
+    }
+},
+{
+    "model": "helper.words_bank",
+    "pk": 11,
+    "fields": {
+        "kor_word": "\uc9c0\uad6c",
+        "eng_word": "Earth"
+    }
+},
+{
+    "model": "helper.words_bank",
+    "pk": 12,
+    "fields": {
+        "kor_word": "\uc0b0\uc18c",
+        "eng_word": "Oxygen"
+    }
+},
+{
+    "model": "helper.words_bank",
+    "pk": 13,
+    "fields": {
+        "kor_word": "(\uc774/\uac00) \ud48d\ubd80\ud558\ub2e4",
+        "eng_word": "to be Abundant"
+    }
+},
+{
+    "model": "helper.words_bank",
+    "pk": 14,
+    "fields": {
+        "kor_word": "\ub179\uc0c9",
+        "eng_word": "Green"
+    }
+},
+{
+    "model": "helper.words_bank",
+    "pk": 15,
+    "fields": {
+        "kor_word": "\uacf5\uae09\ud558\ub2e4",
+        "eng_word": "to supply"
+    }
+}
+]

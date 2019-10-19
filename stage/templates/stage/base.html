@@ -41,7 +41,7 @@
                 <a class="nav-link" href="{% url 'stage:Main_Page'%}">Home <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item active">
-                <a class="nav-link" href="{% url 'Blog:Main_Page'%}">Blog</a>
+                <a class="nav-link" href="{% url 'Blog:Post_List_Page'%}">Blog</a>
               </li>
               <li class="nav-item dropdown active">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -74,9 +74,9 @@
               </li>
             </ul>
             {% if not user.is_authenticated %}
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><a style="text-decoration: none;" href = "{% url 'Login_Page' %}">Log In</a></button>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><a style="text-decoration: none;" href = "{% url 'stage:Login_Page' %}">Log In</a></button>
             {% else %}
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><a style="text-decoration: none;" href = "{% url 'Logout_Page' %}">Logout</a></button>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><a style="text-decoration: none;" href = "{% url 'stage:Logout_Page' %}">Logout</a></button>
             {% endif %}
           </div>
           </div>

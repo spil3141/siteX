@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include,re_path
 from django.conf.urls import url
-from django.contrib.auth.views  import login,logout
+# from django.contrib.auth.views  import login,logout #django 2.0.x
 from django.conf.urls.static import static
 from . import settings
 
@@ -24,8 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("",include("stage.urls")),
     path("Blog/",include("Blog.urls")),
-    url(r"accounts/login/$",login,name="Login_Page"),
-    url(r"accounts/logout/$",logout,name="Logout_Page",kwargs={"next_page":"/"}),
+    # url(r"login/$",login,name="Login_Page"),
     path("Detector/",include("detector.urls")),
     path("KWMH/",include("helper.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

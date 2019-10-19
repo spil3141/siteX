@@ -5,12 +5,12 @@ from django.urls import reverse
 # Create your models here.
 
 class Post(models.Model):
-    author = models.ForeignKey("auth.User", on_delete=models.CASCADE)
+    author = models.ForeignKey("accounts.User", on_delete=models.CASCADE)
     title = models.CharField(max_length = 100)
     text = models.TextField()
     create_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
-    stars = models.PositiveIntegerField(default = 0)
+    star = models.PositiveIntegerField(default = 0)
 
     def get_absolute_url(self):
         return reverse("Blog:Post_List_Page")
@@ -20,9 +20,9 @@ class Post(models.Model):
         self.save()
 
     def post_like(self):
-        self.stars += 1
+        self.star += 1
         self.save()
-        
+
     def approved_comments(self):
         return self.comments.filter(approved_comment = True)
 

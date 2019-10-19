@@ -12,7 +12,7 @@ from django.views.generic import (TemplateView,
                                   CreateView,UpdateView,
                                   DeleteView
                                   )
-
+import accounts.models as from_accounts
 
 # A Class-base View for the About Page.
 class About(TemplateView):
@@ -25,9 +25,13 @@ class PostListView(ListView):
     def get_queryset(self):
         return Post.objects.filter(published_date__isnull = False).order_by("create_date")
 
+    # def get_context_data(self,**kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     selected_user_object = from_accounts.User.objects.all().filter(pk=self.kwargs.get("pk")) # .filter(username=self.request.user)
+    #     context["object"] = selected_user_object
+    #     return context
     # def get_queryset(self):
     #     return Post.objects.filter(published_date__lre = timezone.now()).order_by("-published_date")
-
 
 class PostDetailView(DetailView):
     model = Post
@@ -64,17 +68,6 @@ class PostDraftView(LoginRequiredMixin,ListView):
 
     def get_queryset(self):
         return Post.objects.filter(published_date__isnull = True).order_by("create_date")
-
-
-# class Profile(LoginRequiredMixin,TemplateView):
-#     login_url = "/login/"
-#     template_name = "Blog/post_list.html"
-
-
-def index(request):
-    return redirect("Blog:Post_List_Page")
-
-
 
 @login_required
 def Post_Publish(request,pk):
@@ -116,3 +109,25 @@ def Comment_Remove(request,pk):
     post_pk = comment.post.pk
     comment.delete()
     return redirect('Blog:Post_Detail_Page',pk=post_pk)
+
+
+
+
+
+
+    # model = Post
+    # template_name = "stage/user_profile_detail.html"
+    #
+    # def get_queryset(self): # new
+    #     query = self.request.GET.get('q')
+    #     object_list = Post.objects.filter(title=query)
+    #     return object_list
+
+
+# class Profile(LoginRequiredMixin,TemplateView):
+#     login_url = "/login/"
+#     template_name = "Blog/post_list.html"
+
+
+# def index(request):
+#     return redirect("Blog:Post_List_Page")
