@@ -27,4 +27,5 @@ urlpatterns = [
     path("forum/",include("forum.urls")),
     path("Detector/",include("detector.urls")),
     path("KWMH/",include("helper.urls")),
+    path("Hal_Il/",include("hal_il.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

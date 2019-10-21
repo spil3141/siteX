@@ -14,6 +14,9 @@ from django.views.generic import (TemplateView,
                                   )
 import accounts.models as from_accounts
 
+from django.db.models import Q
+
+
 # A Class-base View for the About Page.
 class About(TemplateView):
     template_name = "Blog/About.html"
@@ -26,7 +29,10 @@ class PostListView(ListView):
         q = self.request.GET.get("q")
         list_of_post_by_user = Post.objects.all()
         if q:
-            return list_of_post_by_user.filter(title__icontains=q)
+            return list_of_post_by_user.filter(
+            Q(title__icontains=q) |
+            Q(text__icontains = q)
+            ).distinct()
         else:
             return list_of_post_by_user
         # return Post.objects.filter(published_date__isnull = False).order_by("create_date")

@@ -41,13 +41,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     "bootstrap3",
-
     "forum",
     "accounts",
     "Blog",
     "stage",
     "detector",
     "helper",
+    "hal_il",
 ]
 
 AUTH_USER_MODEL = "accounts.User"

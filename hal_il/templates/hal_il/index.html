@@ -1,0 +1,55 @@
+{% extends "hal_il/base.html" %}
+
+{% block body %}
+<div class="todo-list">
+  <div class="todo-header">
+    <h2 class="list-title">Daily Todo List</h2>
+    <p class="task-count">{{number_of_tasks}} tasks remaining</p>
+  </div>
+<!-- For each list Object  -->
+  <div class="todo-body">
+    <div class="tasks">
+      <div class="task">
+        {% csrf_token %}
+        {% for i in Tasks %}
+          {% if i.is_checked %}
+            <input
+              class="checkboxes"
+              type="checkbox"
+              id="task-{{i.pk}}"
+              checked
+            />
+          {% else %}
+            <input
+              class="checkboxes"
+              type="checkbox"
+              id="task-{{i.pk}}"
+            />
+          {% endif %}
+          <label for="task-{{i.pk}}">
+            <span class="custom-checkbox"></span>
+            {{i.content}}
+          </label>
+          <br>
+        {% endfor %}
+      </div>
+  </div>
+</div>
+<a href="{% url 'hal_il:Create_Task'%}" class="btn1 delete">New</a>
+
+  <!-- <script> alert(document.querySelector('.checkboxes:checked').value);</script> -->
+
+
+
+  <!-- <div class="new-task-creator">
+      <form action="">
+          <input
+            type="text"
+            class="new task"
+            placeholder="new task name"
+            aria-label="new task name"
+          />
+          <button class="btn1 create" aria-label="create new task">+</button>
+        </form>
+  </div> -->
+{% endblock %}

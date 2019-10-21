@@ -44,7 +44,7 @@
     <h3><a href="{% url 'Blog:Post_Detail_Page' pk=post.pk %}">{{post.title}}</a></h3>
     <br>
     <span>Likes {{post.star}}</span>
-    <span> Comments {{ post.approved_comments.count}}</span>
+    <span> Comments {{ post.count_checked_task.count}}</span>
     <hr>
   </div>
     <div>
