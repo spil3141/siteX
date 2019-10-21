@@ -27,11 +27,12 @@ class PostListView(ListView):
     model = Post
     def get_queryset(self):
         q = self.request.GET.get("q")
-        list_of_post_by_user = Post.objects.all()
+        list_of_post_by_user = Post.objects.all().filter(published_date__isnull = False).order_by("create_date")
         if q:
             return list_of_post_by_user.filter(
             Q(title__icontains=q) |
-            Q(text__icontains = q)
+            Q(text__icontains = q) |
+            Q(published_date__isnull = False)
             ).distinct()
         else:
             return list_of_post_by_user
