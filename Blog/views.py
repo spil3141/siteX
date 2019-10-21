@@ -31,8 +31,7 @@ class PostListView(ListView):
         if q:
             return list_of_post_by_user.filter(
             Q(title__icontains=q) |
-            Q(text__icontains = q) |
-            Q(published_date__isnull = False)
+            Q(text__icontains = q) 
             ).distinct()
         else:
             return list_of_post_by_user
