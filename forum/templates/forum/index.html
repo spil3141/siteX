@@ -1,7 +1,7 @@
 {% extends "forum/base.html" %}
-
+{% load staticfiles %}
 {% block body %}
 <div class="container">
-  <h1>Welcome to siteX Forum. </h1>
+	<h1><a href="{% static 'forum/externals/dogs-vs-cats.zip' %}">Download Link.</a></h1>
 </div>
 {% endblock %}
