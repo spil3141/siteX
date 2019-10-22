@@ -1,5 +1,27 @@
 {% extends "hal_il/base.html" %}
 
+{% block javascript %}
+  <!-- 3rd Party Code -->
+  <script type='text/javascript'>
+    function changeFreq(element){
+      var item = $("#" + element.id);
+      item = item.attr("id");
+      console.log(item);
+      $.ajax({
+        url:"{% url 'hal_il:Delete_Task'%}",
+        type:"POST",
+        data:{
+          "item_pk":item,
+          'csrfmiddlewaretoken': $("[name=csrfmiddlewaretoken]").val()
+        }
+      });
+      document.location.reload(true)
+    }
+  </script>
+{% endblock %}
+
+
+
 {% block body %}
 <div class="todo-list">
   <div class="todo-header">
@@ -14,6 +36,7 @@
         {% for i in Tasks %}
           {% if i.is_checked %}
             <input
+              onclick="return changeFreq(this)"
               class="checkboxes"
               type="checkbox"
               id="task-{{i.pk}}"
@@ -21,6 +44,7 @@
             />
           {% else %}
             <input
+              onclick="return changeFreq(this)"
               class="checkboxes"
               type="checkbox"
               id="task-{{i.pk}}"
@@ -36,6 +60,8 @@
   </div>
 </div>
 <a href="{% url 'hal_il:Create_Task'%}" class="btn1 delete">New</a>
+<!-- <button id = "del_btn" class="btn1 delete" type="button" name="button">Delete</button> -->
+<!-- <a href="" class="btn1 delete">Delete</a> -->
 
   <!-- <script> alert(document.querySelector('.checkboxes:checked').value);</script> -->
 

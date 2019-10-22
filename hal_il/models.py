@@ -6,13 +6,9 @@ class Task(models.Model):
     content = models.CharField(max_length=255)
     is_checked = models.BooleanField(default=False)
 
-    def do_check(self):
-        self.is_checked = True
+    def action_check(self):
+        self.is_checked = not self.is_checked
         self.save()
-
-    def do_uncheck(self):
-        self.is_checked = True
-        self.save
 
     def get_absolute_url(self):
         return reverse("hal_il:Main_Page")

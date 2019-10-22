@@ -1,8 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render,HttpResponseRedirect
 from django.views import View
 from django.views.generic import *
 from . import models
 from . import forms
+# import json
+from django.urls import reverse_lazy
+from django.shortcuts import render,get_object_or_404,redirect
 # Create your views here.
 
 # def index(request):
@@ -32,3 +35,19 @@ class Task_View(CreateView):
     form_class = forms.Task_Form
     model = models.Task
     redirect_field_name = "hal_il/index.html"
+
+from django.views.decorators.csrf import csrf_exempt
+# @csrf_exempt
+def Delete_Task(request):
+    if request.is_ajax():
+        try:
+            del_pk = request.POST["item_pk"]
+            if del_pk:
+                task = get_object_or_404(models.Task,pk=del_pk[-2:])
+                task.action_check()
+                return reverse_lazy("hal_il:Main_Page")
+        except KeyError:
+            pass
+    else:
+        pass
+    return reverse_lazy("hal_il:Main_Page")
