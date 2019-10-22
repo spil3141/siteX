@@ -8,7 +8,7 @@
       item = item.attr("id");
       console.log(item);
       $.ajax({
-        url:"{% url 'hal_il:Delete_Task'%}",
+        url:"{% url 'hal_il:Update_Task'%}",
         type:"POST",
         data:{
           "item_pk":item,
@@ -59,11 +59,13 @@
       </div>
   </div>
 </div>
-<a href="{% url 'hal_il:Create_Task'%}" class="btn1 delete">New</a>
-<!-- <button id = "del_btn" class="btn1 delete" type="button" name="button">Delete</button> -->
-<!-- <a href="" class="btn1 delete">Delete</a> -->
+<div class="row mx-md-n5">
+  <div class="col px-md-5"><div class="p-3 border bg-light" ><a href="{% url 'hal_il:Create_Task'%}" class="btn btn-success">New</a></div></div>
+  <div class="col px-md-5"><div class="p-3 border bg-light">
+    <a href="{% url 'hal_il:Delete_Task'%}" class="btn btn-success">Delete Checked Tasks</a>
+  </div></div>
 
-  <!-- <script> alert(document.querySelector('.checkboxes:checked').value);</script> -->
+</div>
 
 
 

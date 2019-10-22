@@ -1,4 +1,4 @@
-from django.shortcuts import render,HttpResponseRedirect
+from django.shortcuts import render,HttpResponseRedirect,redirect
 from django.views import View
 from django.views.generic import *
 from . import models
@@ -36,9 +36,8 @@ class Task_View(CreateView):
     model = models.Task
     redirect_field_name = "hal_il/index.html"
 
-from django.views.decorators.csrf import csrf_exempt
-# @csrf_exempt
-def Delete_Task(request):
+
+def Update_Task(request):
     if request.is_ajax():
         try:
             del_pk = request.POST["item_pk"]
@@ -51,3 +50,12 @@ def Delete_Task(request):
     else:
         pass
     return reverse_lazy("hal_il:Main_Page")
+
+
+
+
+
+def Delete_Task(request):
+    checked_tasks = models.Task.objects.all().filter(is_checked = True)
+    checked_tasks.delete()
+    return redirect("hal_il:Main_Page")
