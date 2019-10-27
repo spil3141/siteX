@@ -14,9 +14,9 @@
 }
 
 .posttitle{
-  font-family: 'Russo One', sans-serif;
+  /* font-family: 'Russo One', sans-serif; */
+  font-family: medium-content-title-font, Georgia, Cambria, "Times New Roman", Times, serif;
   font-size: 3em;
-  text-align: center;
 }
 
 .commentusername {

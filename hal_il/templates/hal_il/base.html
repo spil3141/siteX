@@ -22,7 +22,6 @@
     <title>할 일</title>
   </head>
   <body style="display:initial;">
-    <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container">
         <a class="navbar-brand" href="#">
@@ -31,9 +30,11 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
+
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'stage:Main_Page'%}">Home <span class="sr-only">(current)</span></a>
             </li>
           </ul>
         </div>

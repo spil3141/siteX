@@ -1,9 +1,10 @@
 {% extends "Blog/base.html" %}
 {% load static %}
 {% block body_block %}
+
 <link rel="stylesheet" href="{% static 'Blog/CSS/Plot_ListView_CSS.css'%}">
-<div >
-  <!-- style="margin-left:10em;" align="left" -->
+
+<div>
   <ul class="nav nav-tabs">
     <li class="nav-item">
       <a class="nav-link active" href="{% url 'Blog:Post_List_Page'%}">All</a>
@@ -12,11 +13,16 @@
       <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">...</a>
     </li>
   </ul>
+
   <br>
+
   <form class="" action="#" method="GET">
     <input name="q" value = "{{request.GET.q}}" placeholder="Search.." type="text" class="form-control" aria-label="Text input with segmented dropdown button">
   </form>
+
   <hr>
+
+
   {% for post in post_list reversed %}
   <div>
     <br>
@@ -41,14 +47,27 @@
         </div>
       </div>
     </div>
+
     <h3><a href="{% url 'Blog:Post_Detail_Page' pk=post.pk %}">{{post.title}}</a></h3>
+
     <br>
-    <span>Likes {{post.star}}</span>
-    <span> Comments {{ post.count_checked_task.count}}</span>
+
+    <div class="col-8">
+
+    </div>
+    <div class="col-4">
+      {% if user.is_authenticated and user not in post.list_of_users_that_liked_this_post %}
+        <a class="btn btn-warning" href="{% url 'Blog:Like_Post' pk=post.pk %}">Like</a>
+      {% endif %}
+    </div>
+
+    <span>Likes {{post.list_of_users_that_liked_this_post.count}}</span>
+    <span> Comments {{ post.approved_comments.count}}</span>
+
     <hr>
+
   </div>
     <div>
-
       <!-- <div class="card-header">by @{{ post.author }}</div>
       <div class="card-body">
         <h3 class="card-title"><a href="{% url 'Blog:Post_Detail_Page' pk=post.pk %}">{{post.title}}</a></h3>
@@ -61,8 +80,6 @@
   {% empty %}
       No Posts
   {% endfor %}
+
 </div>
-
-
-
 {% endblock %}

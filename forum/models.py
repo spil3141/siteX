@@ -10,7 +10,7 @@ class Post(models.Model):
     text = models.TextField()
     create_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
-    star = models.PositiveIntegerField(default = 0)
+    star = models.ManyToManyField("accounts.User",related_name="forum_likes")
 
     # def get_absolute_url(self):
     #     return reverse("Blog:Post_List_Page")

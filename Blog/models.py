@@ -1,8 +1,10 @@
 from django.db import models
 from django.utils import timezone
 from django.urls import reverse
-
+from django.contrib.auth import get_user_model
 # Create your models here.
+
+
 
 class Post(models.Model):
     author = models.ForeignKey("accounts.User", on_delete=models.CASCADE)
@@ -10,7 +12,8 @@ class Post(models.Model):
     text = models.TextField()
     create_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
-    star = models.PositiveIntegerField(default = 0)
+    star = models.ManyToManyField("accounts.User",related_name="blog_likes")
+    # like = models.ManyToManyField('accounts.models.User')
 
     def get_absolute_url(self):
         return reverse("Blog:Post_List_Page")
@@ -19,9 +22,10 @@ class Post(models.Model):
         self.published_date = timezone.now()
         self.save()
 
-    def post_like(self):
-        self.star += 1
-        self.save()
+    def list_of_users_that_liked_this_post(self):
+        # self.save()
+        return self.star.all()
+
 
     def approved_comments(self):
         return self.comments.filter(approved_comment = True)

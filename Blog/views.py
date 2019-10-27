@@ -3,6 +3,7 @@ from django.utils import timezone
 from Blog.forms import Post_Form,Comment_Form
 from django.contrib.auth import login,logout,authenticate
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import get_user_model
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.http import HttpResponse
@@ -31,7 +32,7 @@ class PostListView(ListView):
         if q:
             return list_of_post_by_user.filter(
             Q(title__icontains=q) |
-            Q(text__icontains = q) 
+            Q(text__icontains = q)
             ).distinct()
         else:
             return list_of_post_by_user
@@ -104,9 +105,11 @@ def app_comment_to_post(request,pk):
 
 @login_required
 def Post_Like(request,pk):
+    # user = get_user_model().filter(username=)
     post = get_object_or_404(Post,pk = pk)
-    post.post_like()
-    return redirect("Blog:Post_Detail_Page",pk=post.pk)
+    post.star.add(request.user)
+    post.save()
+    return redirect("Blog:Post_List_Page")
 
 @login_required
 def Comment_Approve(request,pk):

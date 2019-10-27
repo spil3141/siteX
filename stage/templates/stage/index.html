@@ -2,20 +2,27 @@
 {% load static %}
 {% block content %}
 
+<style media="screen">
+  .img-fluid{
+    wigth:15em;
+    height:15em;
+    /* background:gray; */
+  }
+</style>
 
 <div class="container" >
   <br><br>
   <div class="row">
-    <div class="col-sm">
-      <img wigth="200em" height="200em" src="{% static 'stage/Images/Cyborg.png'%}" alt="Error Loading">
+    <div class="col-lg-4 boxy">
+      <img class="img-fluid rounded mx-auto d-block" wigth="200em" height="200em" src="{% static 'stage/Images/Cyborg.png'%}" alt="Error Loading">
     </div>
-    <div class="col-sm">
+    <div class="col-lg-4 boxy">
       <br><br><br><br>
-      <h2 align="center">LiberateOverload</h2>
+      <h2 class="" align="center">LiberateOverload</h2>
       <p align="center">Makers of SpinOn.</p>
     </div>
-    <div class="col-sm">
-      <img wigth="200em" height="200em" src="{% static 'stage/Images/Pictures of Assets from LiberateOverload.png'%}" alt="Error Loading">
+    <div class="col-lg-4 boxy">
+      <img class="img-fluid rounded mx-auto d-block"  wigth="200em" height="200em" src="{% static 'stage/Images/Pictures of Assets from LiberateOverload.png'%}" alt="Error Loading">
     </div>
   </div>
 </div>

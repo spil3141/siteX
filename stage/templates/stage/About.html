@@ -2,7 +2,40 @@
 {% load static %}
 {% block content %}
 
-<div class="container">
+<style media="screen">
+  .center {
+  margin: auto;
+  width: 50%;
+  <!-- border: 3px solid green; -->
+  padding: 10px;
+  text-align: center;
+}
+.text{
+  /* padding:5em; */
+}
+</style>
+
+<div style="margin-top:10em; background-color: rgb(54, 112, 199);" class="container">
+  <div class="row">
+    <div class="center col-lg-4">
+      <div class="text">
+        <h2>Welcome to LiberateOverload</h2>
+        <p>We are LiberateOverload and we love making games and apps. </p>
+        <p>
+          This web application utilized <a href="https://www.google.com/search?source=hp&ei=xNX-W6_aAYem8AXI04O4Ag&q=django&btnK=Google+Search&oq=django&gs_l=psy-ab.3..35i39l2j0i67j0l7.79.612..834...0.0..0.153.930.0j7......0....1..gws-wiz.....0.dxdyvRi7s2A"><i><span style="color:white;">Django</span></i></a>.
+        </p>
+      </div>
+    </div>
+    <div class="col-lg-8 center">
+      <div class="text">
+        <h4 style="font-family:monospace; font-size:30px;"><u>Developers</u></h4>
+        <a href="https://github.com/spil3141"><img width="100em" height="100em" src=" {% static 'stage/Images/developer.png' %}" alt= "Error"></a>
+      </div>
+      </div>
+  </div>
+</div>
+<!-- <div class="container">
+
   <br>
   <div>
     <center>
@@ -20,6 +53,6 @@
       </li>
     </ul>
   </div>
-</div>
+</div> -->
 
 {% endblock content %}
