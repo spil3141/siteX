@@ -105,7 +105,6 @@ def app_comment_to_post(request,pk):
 
 @login_required
 def Post_Like(request,pk):
-    # user = get_user_model().filter(username=)
     post = get_object_or_404(Post,pk = pk)
     post.star.add(request.user)
     post.save()
