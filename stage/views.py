@@ -37,9 +37,19 @@ def Products(request):
 def Game01(request):
     return render(request,"stage/Game01/Game01.html")
 
+def on_sucessful_payment(request):
+    return render(request,"stage/Thanks.html")
+    # return HttpResponseRedirect(reverse("stage:Thanks_Page"))
+
+# def ThanksPage(request):
+#     return render (request,"stage/Thanks.html")
 """##########################################################################################################"""
 
 def Donate(request):
+    # try:
+    #     print(request.POST.get("next"))
+    # except:
+    #     print("Error")
     return render(request,"stage/Donate.html")
 
 """##########################################################################################################"""

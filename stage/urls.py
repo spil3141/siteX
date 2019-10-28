@@ -23,6 +23,7 @@ urlpatterns = [
     # re_path(r"^post/search/(?P<pk>\d+)$",views.SearchResultsView.as_view(),name="Search_Result"),
     url(r"logout/$",views.logoutUser,name="Logout_Page"),
     # path("aaaa/",views.logoutpage,name="Thanks_for_Logging_out"),
-    # path("logout/",logout,name="Logout_Page"),
+    path("success/",views.on_sucessful_payment,name="on_sucessful_payment"),
+    # path("Thanks/",views.ThanksPage,name="Thanks_Page"),
 ]
 # r"^post/(?P<pk>\d+)$"

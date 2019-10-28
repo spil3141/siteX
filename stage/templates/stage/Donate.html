@@ -1,51 +1,136 @@
+{% extends "stage/base.html" %}
 {% load static %}
-<center>
-    <img src='{% static "stage/Images/comingsoon.png" %}' alt="ERROR">
-</center>
+{% block content %}
+<link rel="stylesheet" href='{% static "stage/CSS/Donate.css" %}'>
 
-<!-- {% load static %}
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <script src="https://js.braintreegateway.com/web/dropin/1.14.1/js/dropin.min.js"></script>
-    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<!-- ################################################################ -->
+<div class="donation-container">
+    <div class="donation-box">
+      <div class="title">Donation Information</div>
 
-  </head>
+      <div class="fields">
+        <input type="text" id="firstName" placeholder="First Name"> </input>
+        <input type="text" id="lastName" placeholder="Last Name"> </input>
+        <input type="text" id="email" placeholder="Email"> </input>
+      </div>
 
-  <body>
+      <div class="amount">
+        <!-- <div class="button">$30</div>
+        <div class="button">$50</div>
+        <div class="button">$100</div> -->
+        <div class="button">$<input type="text" id="amount" class="set-amount" placeholder="0.00"> </input></div>
+        <!-- <button id="btn" type="button" name="button">Click</button> -->
+      </div>
 
+      <div class="donate-button"></div>
 
-
-    <div class="container" align="center">
-      <div class="">
-
-          <form  action="." method="post"> {% csrf_token %}
-            <label for="amount">Amount</label><br>
-            <input type="text" name="amount" placeholder="$1.00"><br>
-            <div id="dropin-container"></div>
-            <h1 id="here">me</h1>
-            <button class="btn btn-primary" id="submit-button">Request payment method</button>
-          </form>
-        </div>
     </div>
 
+</div>
+<!-- ################################################################# -->
 
-    <script>
-    var button = document.querySelector('#submit-button');
-    var client_nonce = document.querySelector("#here")
-    braintree.dropin.create({
-      authorization: "{{CLIENT_TOKEN_FROM_SERVER}}",
-      container: '#dropin-container'
-    }, function (createErr, instance) {
-      button.addEventListener('click', function () {
-        instance.requestPaymentMethod(function (err, payload) {
-          // Submit payload.nonce to your server
-          //alert(payload.nonce)
-        });
-      });
+<!-- Paypal Javascrip Library-->
+<script src="https://www.paypal.com/sdk/js?client-id=AeEOOWCQIFwnAGWyLMtcUsGS7dAyRPpUpXnAekoBwX4z6IL2-cuQrbhP0TgxZosNLD4puzxc0FZIvlmO"></script>
+
+
+<!-- <script type="text/javascript">
+  var btn = document.querySelector("#btn");
+  btn.addEventListener("click",on_clicked);
+  function on_clicked(){
+    console.log("Clicked");
+    $.ajax({
+      url:"{% url 'stage:on_sucessful_payment'%}",
+      type:"GET",
+      data:{
+        "data":"hello",
+        'csrfmiddlewaretoken': $("[name=csrfmiddlewaretoken]").val(),
+      }
     });
-  </script>
-  </body>
-</html> -->
+  }
+</script> -->
+
+<script>
+  paypal.Buttons({
+    createOrder: function(data, actions) {
+      var amount = window.document.getElementById("amount").value;
+      // console.log(comment);
+      return actions.order.create({
+        purchase_units: [{
+          amount: {
+            value: amount
+          }
+        }]
+      });
+    },
+    onApprove: function(data, actions) {
+      return actions.order.capture().then(function(details) {
+        var first_name = window.document.getElementById("firstName").value;
+        var last_name = window.document.getElementById("lastName").value;
+        var email = window.document.getElementById("email").value;
+        // var comment = window.document.getElementById("comment").value;
+        // console.log(first_name);
+        // console.log(last_name);
+        // console.log(email);
+        $.ajax({
+          url:"{% url 'stage:on_sucessful_payment'%}",
+          type:"GET",
+          data:{
+            "first_name":first_name,
+            "last_name":last_name,
+            "email": email,
+            // 'csrfmiddlewaretoken': $("[name=csrfmiddlewaretoken]").val()
+          }
+        });
+        alert('Transaction completed by ' + details.payer.name.given_name);
+        // Call your server to save the transaction
+        // return fetch('/static/stage/success.html', {
+        //   method: 'post',
+        //   headers: {
+        //     'content-type': 'application/json'
+        //   },
+        //   body: JSON.stringify({
+        //     orderID: data.orderID,
+        //     'csrfmiddlewaretoken': $("[name=csrfmiddlewaretoken]").val()
+        //   })
+        // });
+      });
+    }
+  }).render('.donate-button');
+</script>
+<!-- <script>
+  paypal.Buttons({
+    createOrder: function(data,actions){
+      return actions.order.create({
+        purchase_units:[{
+          amount:{
+            value: "0.01"
+          }
+        }]
+      })
+    },
+    onApprove: function(data, actions) {
+      // Capture the funds from the transaction
+      return actions.order.capture().then(function(details) {
+        // Show a success message to your buyer
+        alert('Transaction completed by ' + details.payer.name.given_name);
+        // Call your server to save the transaction
+        return fetch('/paypal-transaction-complete', {
+          method: 'post',
+          headers: {
+            'content-type': 'application/json'
+          },
+          body: JSON.stringify({
+            orderID: data.orderID,
+            'csrfmiddlewaretoken': $("[name=csrfmiddlewaretoken]").val()
+          })
+      });
+    }
+  }).render('.paypal');
+</script> -->
+{% endblock content %}
+
+
+<!-- {% load static %} -->
+<!-- <center>
+    <img src='{% static "stage/Images/comingsoon.png" %}' alt="ERROR">
+</center> -->

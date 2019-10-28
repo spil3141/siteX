@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include,re_path
 from django.conf.urls import url
+# from . import views
 # from django.contrib.auth.views  import login,logout #django 2.0.x
 from django.conf.urls.static import static
 from . import settings
@@ -28,4 +29,5 @@ urlpatterns = [
     path("Detector/",include("detector.urls")),
     path("KWMH/",include("helper.urls")),
     path("Hal_Il/",include("hal_il.urls")),
+    # path("/paypal-transaction-complete/",views.payment_success,name="Successful Payment"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
