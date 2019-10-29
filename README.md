@@ -1,4 +1,4 @@
-![image](http://spil3141.pythonanywhere.com/static/stage/Images/icon.png)
+
 # siteX (On goining Project)
 siteX is a practice project created to help improve my python and web ( html,css,javascript ) programming skills.
 Its complete state would be a web Application with diverse embedded web applications .
