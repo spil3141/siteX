@@ -6,8 +6,8 @@ import Blog.models as from_Blog
 import accounts.models as from_accounts
 from django.contrib.auth import get_user_model
 from django.http import HttpResponse
-from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import authenticate, login, logout,update_session_auth_hash
+from django.contrib.auth.forms import AuthenticationForm,PasswordChangeForm
 from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse,reverse_lazy
 from django.shortcuts import redirect
@@ -129,6 +129,21 @@ class Profile(generic.TemplateView):
         context["object"] = selected_user_object
         return context
 
+@login_required
+def change_password(request):
+    if request.method == "POST":
+        form = PasswordChangeForm(data=request.POST, user = request.user)
+        if form.is_valid():
+            form.save()
+            update_session_auth_hash(request,form.user)
+            return redirect("/")
+        else:
+            # print("Form not valid")
+            return redirect("/change-password/")
+    else:
+        form = PasswordChangeForm(user=request.user)
+        context = {"form":form}
+        return render(request,"registration/change_password.html",context)
 
 """################################################################################################################"""
 # def log_in(request):

@@ -20,10 +20,9 @@ urlpatterns = [
     path("stage/signup/",views.UserCreateView.as_view(),name="Signup_Page"),
     path("stage/login/",views.LoginView.as_view(),name="Login_Page"),
     re_path(r"^stage/profile/(?P<pk>\d+)$",login_required(views.Profile.as_view()),name="Profile"),
-    # re_path(r"^post/search/(?P<pk>\d+)$",views.SearchResultsView.as_view(),name="Search_Result"),
     url(r"logout/$",views.logoutUser,name="Logout_Page"),
-    # path("aaaa/",views.logoutpage,name="Thanks_for_Logging_out"),
     path("success/",views.on_sucessful_payment,name="on_sucessful_payment"),
     path("Thanks/",views.ThanksPage,name="Thanks_Page"),
+    path("change-password/",views.change_password,name="Change_Password")
 ]
 # r"^post/(?P<pk>\d+)$"
