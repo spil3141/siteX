@@ -12,13 +12,14 @@
         <input type="text" id="firstName" placeholder="First Name"> </input>
         <input type="text" id="lastName" placeholder="Last Name"> </input>
         <input type="text" id="email" placeholder="Email"> </input>
+        <!-- <input type="text" id="comment" placeholder="Comment"> </input> -->
       </div>
 
-      <div class="amount">
+      <div class="amount" >
         <!-- <div class="button">$30</div>
         <div class="button">$50</div>
         <div class="button">$100</div> -->
-        <div class="button">$<input type="text" id="amount" class="set-amount" placeholder="0.00"> </input></div>
+        <div class="button" >$<input type="text" id="amount" class="set-amount" placeholder="0.00"> </input></div>
         <!-- <button id="btn" type="button" name="button">Click</button> -->
       </div>
 
@@ -37,14 +38,31 @@
   var btn = document.querySelector("#btn");
   btn.addEventListener("click",on_clicked);
   function on_clicked(){
-    console.log("Clicked");
+    var first_name = window.document.getElementById("firstName").value;
+    var last_name = window.document.getElementById("lastName").value;
+    var email = window.document.getElementById("email").value;
+    var amount = window.document.getElementById("amount").value;
+    // var comment = window.document.getElementById("comment").value;
+    // console.log(first_name);
+    // console.log(last_name);
+    // console.log(email);
     $.ajax({
       url:"{% url 'stage:on_sucessful_payment'%}",
       type:"GET",
       data:{
-        "data":"hello",
-        'csrfmiddlewaretoken': $("[name=csrfmiddlewaretoken]").val(),
-      }
+        "first_name":first_name,
+        "last_name":last_name,
+        "email": email,
+        "amount": amount,
+        "order_id": "8NS42494JF117353M",
+        // 'csrfmiddlewaretoken': $("[name=csrfmiddlewaretoken]").val()
+      },
+      success: function (data) {
+        if(data.test){
+          alert("We really appreciate your donation.");
+          document.location.reload(true)
+        }
+        }
     });
   }
 </script> -->
@@ -67,6 +85,7 @@
         var first_name = window.document.getElementById("firstName").value;
         var last_name = window.document.getElementById("lastName").value;
         var email = window.document.getElementById("email").value;
+        var amount = window.document.getElementById("amount").value;
         // var comment = window.document.getElementById("comment").value;
         // console.log(first_name);
         // console.log(last_name);
@@ -78,10 +97,19 @@
             "first_name":first_name,
             "last_name":last_name,
             "email": email,
+            "amount": amount,
+            "order_id": data.orderID,
             // 'csrfmiddlewaretoken': $("[name=csrfmiddlewaretoken]").val()
-          }
+          },
+          success: function (data) {
+            if(data.test){
+              alert(details.payer.name.given_name+", We really appreciate your donation.");
+              document.location.reload(true)
+            }
+            }
         });
-        alert('Transaction completed by ' + details.payer.name.given_name);
+        // alert('Transaction completed by ' + details.payer.name.given_name);
+        // console.log("Order ID:", data.orderID);
         // Call your server to save the transaction
         // return fetch('/static/stage/success.html', {
         //   method: 'post',

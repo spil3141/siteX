@@ -16,7 +16,7 @@ from django.views.generic import CreateView,TemplateView,FormView
 from django.views import generic
 from django.utils.http import is_safe_url
 from django.utils.decorators import method_decorator
-
+from django.http import JsonResponse
 """##########################################################################################################"""
 
 def Index(request):
@@ -38,11 +38,27 @@ def Game01(request):
     return render(request,"stage/Game01/Game01.html")
 
 def on_sucessful_payment(request):
-    return render(request,"stage/Thanks.html")
+    if request.method == "GET":
+        #Getting data from frontend <ajar)
+        fn = request.GET.get("first_name")
+        ln = request.GET.get("last_name")
+        email = request.GET.get("email")
+        order_id = request.GET.get("order_id")
+        amount = request.GET.get("amount")
+
+        #storing data in database
+        print(fn,ln,email,order_id,amount)
+        order = models.Transaction_History(amount = amount, order_id = order_id,first_name=fn,last_name=ln,email=email)
+        order.save()
+    data = {
+        'test': True
+    }
+    return JsonResponse(data)
+    # return redirect('/Thanks/')
     # return HttpResponseRedirect(reverse("stage:Thanks_Page"))
 
-# def ThanksPage(request):
-#     return render (request,"stage/Thanks.html")
+def ThanksPage(request):
+    return render(request,"stage/Thanks.html")
 """##########################################################################################################"""
 
 def Donate(request):

@@ -24,6 +24,6 @@ urlpatterns = [
     url(r"logout/$",views.logoutUser,name="Logout_Page"),
     # path("aaaa/",views.logoutpage,name="Thanks_for_Logging_out"),
     path("success/",views.on_sucessful_payment,name="on_sucessful_payment"),
-    # path("Thanks/",views.ThanksPage,name="Thanks_Page"),
+    path("Thanks/",views.ThanksPage,name="Thanks_Page"),
 ]
 # r"^post/(?P<pk>\d+)$"
