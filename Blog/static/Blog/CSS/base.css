@@ -1,4 +1,8 @@
-
+.bg {
+  background-image:url('../Images/bg3.jpg');
+  /* background-color: black; */
+  background-position: center;
+}
 .listview-ui-design{
   border: solid;
 }
