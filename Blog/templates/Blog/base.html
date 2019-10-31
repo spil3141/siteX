@@ -22,10 +22,17 @@
 
     <!-- My Custom CSS Sytlesheet -->
     <link rel="stylesheet" href="{% static 'Blog/CSS/base.css' %}">
-
+    <style media="screen">
+      body{
+        background-color: #F0EFEF;
+      }
+      .content{
+        background-color: white;
+      }
+    </style>
   </head>
 
-  <body class="">
+  <body >
       <nav  style="background: url('{% static 'Blog/Images/bg3.jpg' %}')" class="navbar navbar-expand-md navbar-dark bg-transparent font-design">
         <div class="container">
           <a href="{% url 'Blog:Post_List_Page' %}">
@@ -66,7 +73,7 @@
         </div>
       </div>
     </nav>
-    <div class="container">
+    <div class="container content">
       {% block body_block %}
         replace me
       {% endblock %}
