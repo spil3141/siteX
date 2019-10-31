@@ -1,32 +1,28 @@
 {% extends "stage/base.html" %}
 {% load static %}
 {% block content %}
-<link rel="stylesheet" href='{% static "stage/CSS/Donate.css" %}'>
-
+<link rel="stylesheet" href="{% static 'stage/CSS/Donate.css' %}">
 <!-- ################################################################ -->
-<div class="donation-container">
-    <div class="donation-box">
-      <div class="title">Donation Information</div>
-
-      <div class="fields">
-        <input type="text" id="firstName" placeholder="First Name"> </input>
-        <input type="text" id="lastName" placeholder="Last Name"> </input>
-        <input type="text" id="email" placeholder="Email"> </input>
-        <!-- <input type="text" id="comment" placeholder="Comment"> </input> -->
-      </div>
-
-      <div class="amount" >
-        <!-- <div class="button">$30</div>
-        <div class="button">$50</div>
-        <div class="button">$100</div> -->
-        <div class="button" >$<input type="text" id="amount" class="set-amount" placeholder="0.00"> </input></div>
-        <!-- <button id="btn" type="button" name="button">Click</button> -->
-      </div>
-
-      <div class="donate-button"></div>
-
+<div class="donation-container" align="center">
+  <div class="donation-box">
+    <div class="title">Donation Information</div>
+    <div class="fields">
+      <input type="text" id="firstName" placeholder="First Name"> </input>
+      <input type="text" id="lastName" placeholder="Last Name"> </input>
+      <br>
+      <input type="text" id="email" placeholder="Email"> </input>
+      <br>
+      <!-- <input type="text" id="comment" placeholder="Comment"> </input> -->
     </div>
-
+    <div class="amount" >
+      <!-- <div class="button">$30</div>
+      <div class="button">$50</div>
+      <div class="button">$100</div> -->
+      <div class="button" >$<input type="text" id="amount" class="set-amount" placeholder="0.00"> </input></div>
+      <!-- <button id="btn" type="button" name="button">Click</button> -->
+    </div>
+    <div class="donate-button"></div>
+  </div>
 </div>
 <!-- ################################################################# -->
 
