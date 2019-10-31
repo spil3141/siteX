@@ -27,6 +27,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     "sitex.iptime.org",
     "127.0.0.1",
+    "210.119.32.200",
 ]
 
 
