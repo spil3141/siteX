@@ -88,12 +88,30 @@ WSGI_APPLICATION = 'siteX_2.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
+
+
+"""
+#Creating dj_db in mysql
+CREATE DATABASE dj_db CHARACTER SET UTF8;
+CREATE USER django@localhost IDENTIFIED BY "pswd";
+GRANT ALL PRIVILEGES ON dj_db.* TO django@localhost;
+FLUSH PRIVILEGES;
+"""
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'NAME':'siteX',
+    #     "USER": "spil3141",
+    #     "PASSWORD":"rootpswd",
+    #     "HOST": "spil3141.mysql.pythonanywhere-services.com",
+    #     "PORT": "3306",
+    # }
 }
+
 
 
 # Password validation

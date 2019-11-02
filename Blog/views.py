@@ -89,7 +89,7 @@ def Post_Publish(request,pk):
     return redirect("Blog:Post_List_Page")
 
 
-@login_required
+# @login_required
 def app_comment_to_post(request,pk):
     post = get_object_or_404(Post,pk = pk)
     if (request.method == "POST"):
@@ -103,12 +103,12 @@ def app_comment_to_post(request,pk):
         form = Comment_Form()
     return render(request,"Blog/comment_create.html",{"form":form})
 
-@login_required
-def Post_Like(request,pk):
-    post = get_object_or_404(Post,pk = pk)
-    post.star.add(request.user)
-    post.save()
-    return redirect("Blog:Post_List_Page")
+# @login_required
+# def Post_Like(request,pk):
+#     post = get_object_or_404(Post,pk = pk)
+#     post.star.add(request.user)
+#     post.save()
+#     return redirect("Blog:Post_List_Page")
 
 @login_required
 def Comment_Approve(request,pk):

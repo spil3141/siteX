@@ -128,6 +128,22 @@ class Profile(generic.TemplateView):
             context["posts"] = list_of_post_by_user
         context["object"] = selected_user_object
         return context
+# from django.contrib.auth.mixins import LoginRequiredMixin
+#
+# class Change_PasswordView(LoginRequiredMixin,View):
+#     form_class = PasswordChangeForm
+#     template_name = 'form_template.html'
+#
+#     def get(self, request, *args, **kwargs):
+#         form = self.form_class(initial=self.initial)
+#         return render(request, self.template_name, {'form': form}
+#
+#     def post(self, request, *args, **kwargs):
+#         form = self.form_class(request.POST)
+#         if form.is_valid():
+#             # cleaned_data로 관련 로직 처리
+#             return HttpResponseRedirect('/success/')
+#         return render(request, self.template_name, {'form':form})
 
 @login_required
 def change_password(request):
@@ -138,7 +154,7 @@ def change_password(request):
             update_session_auth_hash(request,form.user)
             return redirect("/")
         else:
-            # print("Form not valid")
+            print("Form not valid")
             return redirect("/change-password/")
     else:
         form = PasswordChangeForm(user=request.user)

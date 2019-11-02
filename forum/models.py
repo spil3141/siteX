@@ -19,9 +19,9 @@ class Post(models.Model):
         self.published_date = timezone.now()
         self.save()
 
-    def post_like(self):
-        self.star += 1
-        self.save()
+    def list_of_users_that_liked_this_post(self):
+        # self.save()
+        return self.star.all()
 
     def __str__(self):
         return self.title

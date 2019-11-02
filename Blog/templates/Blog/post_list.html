@@ -45,11 +45,11 @@
 
         </div>
 
-        <span>Likes {{post.list_of_users_that_liked_this_post.count}}</span>
+        <!-- <span>Likes {{post.list_of_users_that_liked_this_post.count}}</span> -->
         <span> Comments {{ post.approved_comments.count}}</span>
-        {% if user.is_authenticated and user not in post.list_of_users_that_liked_this_post %}
+        <!-- {% if user.is_authenticated and user not in post.list_of_users_that_liked_this_post %}
           <a class="navbar-right mr-5" href="{% url 'Blog:Like_Post' pk=post.pk %}"><b>Like</b></a>
-        {% endif %}
+        {% endif %} -->
 
         <hr>
 

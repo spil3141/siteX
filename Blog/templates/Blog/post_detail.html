@@ -26,8 +26,8 @@
 
     <hr>
 
-    <div class="container">
-      <a class="btn btn-secondary navbar-right" href="{% url 'Blog:Comment_Add_Page' pk=post_detail.pk %}">Add Comment</a>
+    <div class="row">
+      <div class="col-10">
         {% for comment in post_detail.comments.all %}
 
           {% if user.is_authenticated or comment.approved_comment %}
@@ -60,6 +60,11 @@
         {% empty %}
           <p>No Comments</p>
         {% endfor %}
+      </div>
+      <div class="col-2">
+        <a class="btn btn-secondary navbar-right" href="{% url 'Blog:Comment_Add_Page' pk=post_detail.pk %}">Add Comment</a>
+
+      </div>
     </div>
   </div>
 

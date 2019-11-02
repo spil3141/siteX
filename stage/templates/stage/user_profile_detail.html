@@ -54,9 +54,9 @@
               {% for i in posts %}
               <div class="">
                 <h3><a href="{% url 'Blog:Post_Detail_Page' pk=i.pk %}">{{i.title}}</a></h3>
-                <span>Star {{i.star}}</span>
-                &nbsp
-                &nbsp
+                <!-- <span>Star {{i.star}}</span> -->
+                <!-- &nbsp -->
+                <!-- &nbsp -->
                 <span>Comments {{ i.approved_comments.count}}</span>
               </div>
               <!-- <div class="row" content_align>

@@ -12,8 +12,7 @@ class Post(models.Model):
     text = models.TextField()
     create_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
-    star = models.ManyToManyField("accounts.User",related_name="blog_likes")
-    # like = models.ManyToManyField('accounts.models.User')
+    # star = models.ManyToManyField("accounts.User",related_name="blog_likes")
 
     def get_absolute_url(self):
         return reverse("Blog:Post_List_Page")
@@ -22,9 +21,8 @@ class Post(models.Model):
         self.published_date = timezone.now()
         self.save()
 
-    def list_of_users_that_liked_this_post(self):
-        # self.save()
-        return self.star.all()
+    # def list_of_users_that_liked_this_post(self):
+    #     return self.star.all()
 
 
     def approved_comments(self):

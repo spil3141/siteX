@@ -15,20 +15,78 @@
       <!-- <input type="text" id="comment" placeholder="Comment"> </input> -->
     </div>
     <div class="amount" >
-      <!-- <div class="button">$30</div>
-      <div class="button">$50</div>
-      <div class="button">$100</div> -->
       <div class="button" >$<input type="text" id="amount" class="set-amount" placeholder="0.00"> </input></div>
       <!-- <button id="btn" type="button" name="button">Click</button> -->
     </div>
     <div class="donate-button"></div>
   </div>
 </div>
-<!-- ################################################################# -->
 
-<!-- Paypal Javascrip Library-->
-<script src="https://www.paypal.com/sdk/js?client-id=AeEOOWCQIFwnAGWyLMtcUsGS7dAyRPpUpXnAekoBwX4z6IL2-cuQrbhP0TgxZosNLD4puzxc0FZIvlmO"></script>
+<!-- Paypal Javascript Library-->
+<script src="https://www.paypal.com/sdk/js?client-id=Acj1ySac3evo_Lj4p9FgEMZm2psjfVrXKfPd8zX9QcYxV-XfhYM9pvQT7bFUBMpjIwjnyetqf68jfVMC"></script>
+<!-- <script src="https://www.paypal.com/sdk/js?client-id=AeEOOWCQIFwnAGWyLMtcUsGS7dAyRPpUpXnAekoBwX4z6IL2-cuQrbhP0TgxZosNLD4puzxc0FZIvlmO"></script> -->
 
+<script>
+
+
+  paypal.Buttons({
+    createOrder: function(data, actions) {
+      var amount = window.document.getElementById("amount").value;
+      // console.log(comment);
+      return actions.order.create({
+        purchase_units: [{
+          amount: {
+            value: amount
+          }
+        }]
+      });
+    },
+    onCancel: function (data) {
+      // Show a cancel page, or return to cart
+      alert("We hope you reconsider. ")
+    },
+    onApprove: function(data, actions) {
+      return actions.order.capture().then(function(details) {
+        var first_name = window.document.getElementById("firstName").value;
+        var last_name = window.document.getElementById("lastName").value;
+        var email = window.document.getElementById("email").value;
+        var amount = window.document.getElementById("amount").value;
+        $.ajax({
+          url:"{% url 'stage:on_sucessful_payment'%}",
+          type:"GET",
+          data:{
+            "first_name":first_name,
+            "last_name":last_name,
+            "email": email,
+            "amount": amount,
+            "order_id": data.orderID,
+            // 'csrfmiddlewaretoken': $("[name=csrfmiddlewaretoken]").val()
+          },
+          success: function (data) {
+            if(data.test){
+              alert(details.payer.name.given_name+", We really appreciate your donation.");
+              document.location.reload(true)
+            }
+            }
+        });
+      });
+    }
+  }).render('.donate-button');
+
+</script>
+
+
+{% endblock content %}
+
+<!--
+
+
+
+
+
+  <!-- <div class="button">$30</div>
+  <div class="button">$50</div>
+  <div class="button">$100</div> -->
 
 <!-- <script type="text/javascript">
   var btn = document.querySelector("#btn");
@@ -61,66 +119,27 @@
         }
     });
   }
-</script> -->
-
-<script>
-  paypal.Buttons({
-    createOrder: function(data, actions) {
-      var amount = window.document.getElementById("amount").value;
-      // console.log(comment);
-      return actions.order.create({
-        purchase_units: [{
-          amount: {
-            value: amount
-          }
-        }]
-      });
-    },
-    onApprove: function(data, actions) {
-      return actions.order.capture().then(function(details) {
-        var first_name = window.document.getElementById("firstName").value;
-        var last_name = window.document.getElementById("lastName").value;
-        var email = window.document.getElementById("email").value;
-        var amount = window.document.getElementById("amount").value;
-        // var comment = window.document.getElementById("comment").value;
-        // console.log(first_name);
-        // console.log(last_name);
-        // console.log(email);
-        $.ajax({
-          url:"{% url 'stage:on_sucessful_payment'%}",
-          type:"GET",
-          data:{
-            "first_name":first_name,
-            "last_name":last_name,
-            "email": email,
-            "amount": amount,
-            "order_id": data.orderID,
-            // 'csrfmiddlewaretoken': $("[name=csrfmiddlewaretoken]").val()
-          },
-          success: function (data) {
-            if(data.test){
-              alert(details.payer.name.given_name+", We really appreciate your donation.");
-              document.location.reload(true)
-            }
-            }
-        });
-        // alert('Transaction completed by ' + details.payer.name.given_name);
-        // console.log("Order ID:", data.orderID);
-        // Call your server to save the transaction
-        // return fetch('/static/stage/success.html', {
-        //   method: 'post',
-        //   headers: {
-        //     'content-type': 'application/json'
-        //   },
-        //   body: JSON.stringify({
-        //     orderID: data.orderID,
-        //     'csrfmiddlewaretoken': $("[name=csrfmiddlewaretoken]").val()
-        //   })
-        // });
-      });
-    }
-  }).render('.donate-button');
 </script>
+
+// var comment = window.document.getElementById("comment").value;
+// console.log(first_name);
+// console.log(last_name);
+// console.log(email);
+
+// alert('Transaction completed by ' + details.payer.name.given_name);
+// console.log("Order ID:", data.orderID);
+// Call your server to save the transaction
+// return fetch('/static/stage/success.html', {
+//   method: 'post',
+//   headers: {
+//     'content-type': 'application/json'
+//   },
+//   body: JSON.stringify({
+//     orderID: data.orderID,
+//     'csrfmiddlewaretoken': $("[name=csrfmiddlewaretoken]").val()
+//   })
+// });
+
 <!-- <script>
   paypal.Buttons({
     createOrder: function(data,actions){
@@ -151,10 +170,3 @@
     }
   }).render('.paypal');
 </script> -->
-{% endblock content %}
-
-
-<!-- {% load static %} -->
-<!-- <center>
-    <img src='{% static "stage/Images/comingsoon.png" %}' alt="ERROR">
-</center> -->
