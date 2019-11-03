@@ -10,35 +10,54 @@
   padding: 10px;
   text-align: center;
 }
-.text{
-  /* padding:5em; */
+.text h2{
+  font-family: 'Bowlby One SC', cursive;}
+
+}
+.text p{
+  font-family: 'Inconsolata', monospace;
 }
 
-.about{
+body {
+  background-color: #181818;
   color:white;
+}
+.about{
+  padding: 3em 5em;
+  margin: 0 0 15px 0;
+  border-radius: 8px;
+  background-color: white;
+  color: black;
+  max-width: 1000px;
+  padding: 20px;
+  margin: 30px auto;
+  overflow: hidden;
+  position: relative;
 }
 </style>
 
-<div style="margin-top:10em; background-color: rgb(54, 112, 199);" class="container">
-  <div class="row about">
-    <div class="center col-lg-4">
-      <div class="text">
-        <h2>Welcome to Liberate Overload</h2>
-        <p >
-          we are the developers of <a class="about" href="https://play.google.com/store/apps/details?id=com.liberateoverload.slot"><i>Spin On</i></a> and <a class="about" href="https://play.google.com/store/apps/details?id=com.spil3141"><i>calculator by nOOb</i></a>. We love making games and apps.
-          Currently, we are working on Mine Away, an idel clicker mobile game. For more information on this new project check out our blog.
-        </p>
-        <p>
-          This web application utilizes <a href="https://www.google.com/search?source=hp&ei=xNX-W6_aAYem8AXI04O4Ag&q=django&btnK=Google+Search&oq=django&gs_l=psy-ab.3..35i39l2j0i67j0l7.79.612..834...0.0..0.153.930.0j7......0....1..gws-wiz.....0.dxdyvRi7s2A"><i><span style="color:white;">Django</span></i></a>.
-        </p>
+<div class="container">
+  <div class="about">
+    <div class="row">
+      <div class="center col-lg-4">
+        <div class="text">
+          <h2>Welcome to Liberate Overload</h2>
+          <p>
+            we are the developers of <a class="" href="https://play.google.com/store/apps/details?id=com.liberateoverload.slot"><i>Spin On</i></a> and <a class="" href="https://play.google.com/store/apps/details?id=com.spil3141"><i>calculator by nOOb</i></a>. We love making games and apps.
+            Currently, we are working on Mine Away, an idel clicker mobile game. For more information on this new project check out our blog.
+          </p>
+          <p>
+            This web application utilizes <a "href="https://www.google.com/search?source=hp&ei=xNX-W6_aAYem8AXI04O4Ag&q=django&btnK=Google+Search&oq=django&gs_l=psy-ab.3..35i39l2j0i67j0l7.79.612..834...0.0..0.153.930.0j7......0....1..gws-wiz.....0.dxdyvRi7s2A"><i><span style="color:black;">Django</span></i></a>.
+          </p>
+        </div>
       </div>
+      <div class="col-lg-8 center">
+        <div class="text">
+          <h4 style="font-family:monospace; font-size:30px;"><u>Developers</u></h4>
+          <a href="https://github.com/spil3141"><img width="100em" height="100em" src=" {% static 'stage/Images/developer.png' %}" alt= "Error"></a>
+        </div>
+        </div>
     </div>
-    <div class="col-lg-8 center">
-      <div class="text">
-        <h4 style="font-family:monospace; font-size:30px;"><u>Developers</u></h4>
-        <a href="https://github.com/spil3141"><img width="100em" height="100em" src=" {% static 'stage/Images/developer.png' %}" alt= "Error"></a>
-      </div>
-      </div>
   </div>
 </div>
 <!-- <div class="container">

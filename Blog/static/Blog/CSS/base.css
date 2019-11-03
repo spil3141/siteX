@@ -1,7 +1,30 @@
-.bg {
-  background-image:url('../Images/bg3.jpg');
-  /* background-color: black; */
-  background-position: center;
+
+body {
+  background-color: #181818;
+  color:white;
+}
+
+body a{
+}
+
+body a:hover{
+  text-decoration:none;
+}
+.content{
+  background-color: white;
+}
+
+.footer-copyright{
+  background-color: #111111;
+  color: #959595;
+}
+
+.footer-copyright a:hover{
+  color: white;
+}
+
+.footer-copyright a{
+  color: #959595;
 }
 .listview-ui-design{
   border: solid;

@@ -1,21 +1,97 @@
 {% extends "Blog/base.html" %}
 {% load static %}
+
+
+
 {% block body_block %}
+<link rel="stylesheet" href="{% static 'Blog/CSS/post_list.css'%}">
 
-<div class="row">
-  <div class="col" align="center">
-    <img src="{% static 'Blog/Images/Liberate Overload Logo.png'%}" class="img-fluid" alt="Responsive image">
-  </div>
-</div>
-<hr>
-<div class="row">
-  <div class="col-8">
-
-      {% for post in post_list reversed %}
-      <div>
-        <br>
-        <h3 align="Center"><a href="{% url 'Blog:Post_Detail_Page' pk=post.pk %}">{{post.title}}</a></h3>
+<div class="main-div">
+  <div class="row">
+    <div class="col">
+      <div class="container">
         <div class="row">
+          <div class="search-icon">
+            <img width="40em" height="40em" src="{% static 'Blog/Images/searchicon.png'%}" alt="없음">
+          </div>
+          <div class="search-input">
+            <form class="" action="#" method="GET">
+              <input name="q" value = "{{request.GET.q}}" placeholder="Search.." type="text" class="form-control" aria-label="Text input with segmented dropdown button">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="row">
+    <div class="col" align="center">
+      <img src="{% static 'Blog/Images/Liberate Overload Logo.png'%}" class="img-fluid" alt="Responsive image">
+    </div>
+  </div> -->
+  <header class="mega-header">
+    <div class="blog-main-header"  align="center">
+      <h1>Liberate Overload Blog</h1>
+      <p>
+        This is where we post announcements, progress updates, <br> new contents , and more.
+      </p>
+    </div>
+  </header>
+
+  {% for post in post_list reversed %}
+    <div class="page-wrap">
+      <section class="single-post-section  content-bg">
+
+          <div class="row">
+            <h1 ><a href="{% url 'Blog:Post_Detail_Page' pk=post.pk %}">{{post.title}}</a></h1>
+          </div>
+          <div class="row">
+            <time class="post-publish-date" >{{post.published_date|date:"M D Y"}}</time>
+          </div>
+          <br>
+          <div class="row">
+            <!-- <p >Stephen and Marie are on the show to talk about recent updates and improvements to the Collections feature on CodePen.</p> -->
+          </div>
+          <hr>
+          <div class="row">
+            {% if post.author.photo %}
+            <img class="img-fluid  avatar-img" src="{{post.author.photo.url}}" alt="...">
+            {% else %}
+              <span>No Picture</span>
+            {% endif %}
+            &nbsp
+            &nbsp
+            {% if user.is_authenticated %}
+            <span><a href="{% url 'stage:Profile' pk=post.author.pk%}">{{post.author}}</a></span>
+            {% else %}
+            <span>{{post.author}}</span>
+            {% endif %}
+          </div>
+          <br>
+          <div class="row">
+            <!-- <span> Comments {{ post.approved_comments.count}}</span> -->
+          </div>
+      </section>
+    </div>
+  {% empty %}
+      No Posts
+  {% endfor %}
+</div>
+{% endblock %}
+
+
+
+
+
+
+
+
+      <!-- <div class="row">
+        <div class="col-8">
+          {% for post in post_list reversed %}
+          <div>
+          <br>
+          <h1 ><a href="{% url 'Blog:Post_Detail_Page' pk=post.pk %}">{{post.title}}</a></h1>
+          <div class="row">
           <div class="col-1">
             {% if post.author.photo %}
             <img class="img-fluid rounded-circle " src="{{post.author.photo.url}}" alt="...">
@@ -37,24 +113,18 @@
           </div>
         </div>
         <br>
-
         <div class="col-8">
-
         </div>
         <div class="col-4">
-
         </div>
-
         <!-- <span>Likes {{post.list_of_users_that_liked_this_post.count}}</span> -->
-        <span> Comments {{ post.approved_comments.count}}</span>
+        <!-- <span> Comments {{ post.approved_comments.count}}</span> -->
         <!-- {% if user.is_authenticated and user not in post.list_of_users_that_liked_this_post %}
           <a class="navbar-right mr-5" href="{% url 'Blog:Like_Post' pk=post.pk %}"><b>Like</b></a>
         {% endif %} -->
-
-        <hr>
-
-      </div>
-        <div>
+        <!-- <hr>
+        </div>
+        <div> -->
           <!-- <div class="card-header">by @{{ post.author }}</div>
           <div class="card-body">
             <h3 class="card-title"><a href="{% url 'Blog:Post_Detail_Page' pk=post.pk %}">{{post.title}}</a></h3>
@@ -63,30 +133,11 @@
             {% endif%}
             <a class="btn btn-primary" href="{% url 'Blog:Post_Detail_Page' pk=post.pk %}">Comments: {{ post.approved_comments.count}}</a>
           </div> -->
-        </div>
-      {% empty %}
-          No Posts
-      {% endfor %}
-  </div>
-  <div class="col-4">
-    <ul class="nav nav-tabs">
-      <li class="nav-item">
-        <a class="nav-link active" href="{% url 'Blog:Post_List_Page'%}">All</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">...</a>
-      </li>
-    </ul>
-
-    <br>
-
-    <form class="" action="#" method="GET">
-      <input name="q" value = "{{request.GET.q}}" placeholder="Search.." type="text" class="form-control" aria-label="Text input with segmented dropdown button">
-    </form>
-
-    <hr>
-  </div>
-</div>
-
-
-{% endblock %}
+        <!-- </div>
+        {% empty %}
+            No Posts
+        {% endfor %}
+      </div>
+      <div class="col-4">
+        <hr>
+      </div> -->
