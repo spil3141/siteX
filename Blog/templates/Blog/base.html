@@ -35,7 +35,7 @@
   <body>
     <nav  style="background: url('{% static 'Blog/Images/bg3.jpg' %}')" class="navbar navbar-expand-md navbar-dark bg-transparent font-design nav-font-setup">
       <div class="container">
-        <a href="{% url 'Blog:Post_List_Page' %}">
+        <a href="{% url 'stage:Main_Page' %}">
           <img class="navbar-brand"  src= '{% static "stage/Images/icon.png" %}' alt = "My ICON"/>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,7 +45,7 @@
           <!-- # Left nav-bar  -->
           <ul class="navbar-nav navbar-left">
             <li class="nav-item active">
-              <a class="nav-link" href="{% url 'stage:Main_Page' %}"> Home<span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="{% url 'Blog:Post_List_Page' %}"> Home<span class="sr-only">(current)</span></a>
             </li>
           </ul>
           <!-- # Right nav-bar -->

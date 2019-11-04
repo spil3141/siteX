@@ -56,6 +56,10 @@ font-family: 'Bowlby One SC', cursive;
 .mega-header {
   color:white;
   padding: 125px 25px;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(24,24,24,0.25)), to(#181818)),url("../Images/mini_bg.jpg");
+  /* background-image:url("../Images/mini_bg.jpg"); */
+  background-size: cover;
+  background-position: center;
 }
 
 .blog-main-haader {
