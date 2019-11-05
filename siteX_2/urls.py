@@ -25,7 +25,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("",include("stage.urls")),
     path("Blog/",include("Blog.urls")),
-    path("forum/",include("forum.urls")),
+    # path("forum/",include("forum.urls")),
     path("Detector/",include("detector.urls")),
     path("KWMH/",include("helper.urls")),
     path("Hal_Il/",include("hal_il.urls")),

@@ -25,9 +25,8 @@ SECRET_KEY = 'pxwmums3#gt3isv-bdg)6f=ai36e58(njv#fm)vd*nhs4yzh(%'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    "sitex.iptime.org",
+    "liberate-overload.iptime.org",
     "127.0.0.1",
-    "210.119.32.200",
 ]
 
 
@@ -42,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     "bootstrap3",
-    "forum",
+    # "forum",
     "accounts",
     "Blog",
     "stage",
