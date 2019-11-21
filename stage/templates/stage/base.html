@@ -78,7 +78,7 @@
               </li>
             </ul>
             {% if not user.is_authenticated %}
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><a style="text-decoration: none;" href = "{% url 'stage:Login_Page' %}">Log In</a></button>
+            <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><a style="text-decoration: none;" href = "{% url 'stage:Login_Page' %}">Log In</a></button> -->
             {% else %}
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><a style="text-decoration: none;" href = "{% url 'stage:Logout_Page' %}">Logout</a></button>
             {% endif %}
