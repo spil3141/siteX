@@ -42,7 +42,7 @@ def Update_Task(request):
         try:
             del_pk = request.POST["item_pk"]
             if del_pk:
-                task = get_object_or_404(models.Task,pk=del_pk[del_pk.index("-"):])
+                task = get_object_or_404(models.Task,pk=del_pk[del_pk.index("-") + 1:]) # [del_pk.index("-") + 1:] -> returns the pk 
                 task.action_check()
                 return reverse_lazy("hal_il:Main_Page")
         except KeyError:
