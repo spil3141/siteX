@@ -19,9 +19,7 @@ Its complete state would be a web Application with diverse embedded web applicat
  1. python > 3.0
  2. django framework > 2.0
 
-### Deployment methods
-##### 1. https://www.pythonanywhere.com/
-##### 2. Raspberry pi, Post Forwarding, Iptime Router DDNS Utility
+### Deployment method
+##### 1. Raspberry pi, Post Forwarding, Iptime Router DDNS Utility
 #### Live Demo
-  - http://spil3141.pythonanywhere.com/
-  - http://sitex.iptime.org/
+  - http://liberate-overload.iptime.org/
