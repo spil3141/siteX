@@ -18,12 +18,7 @@ Its complete state would be a web Application with diverse embedded web applicat
 ### Dependencies:
  1. python > 3.0
  2. django framework > 2.0
-
-### Deployment method
-##### 1. Raspberry pi, Post Forwarding, Iptime Router DDNS Utility
-#### Live Demo
-  - http://liberate-overload.iptime.org/
-
+ 
 ### Screenshot 
 
 ![Screenshot](http://liberate-overload.iptime.org/static/stage/externals/screenshot(siteX).png)
