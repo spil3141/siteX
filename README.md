@@ -20,5 +20,4 @@ Its complete state would be a web Application with diverse embedded web applicat
  2. django framework > 2.0
  
 ### Screenshot 
-
-![Screenshot](http://liberate-overload.iptime.org/static/stage/externals/screenshot(siteX).png)
+coming soon
